@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membership | Cohasset Tennis Club</title>
+<meta name="description" content="Become a member of the Cohasset Tennis Club. Junior, Individual, Couple, and Family memberships — with year-round access to clinics, courts, teams, and club socials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#123141">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html">Adult</a></li>
+    <li><a href="junior-tennis.html">Junior</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="membership.html" class="active">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" class="mm-cta" onclick="closeMobile()">Contact <span>07</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>Membership</span>
+    <h1 data-reveal style="transition-delay:.08s">Join a club that<br><em>feels like home.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">Four straightforward ways to belong — for juniors,
+    individuals, couples, and families — with year-round access to clinics, courts, teams, and every social on the calendar.</p>
+    <div class="hero-cta" data-reveal style="transition-delay:.24s">
+      <a href="#tiers" class="btn btn-lt">See the tiers <span class="arw">→</span></a>
+      <a href="contact.html" class="btn btn-ghost">Ask a question</a>
+    </div>
+  </div>
+</header>
+
+<!-- TIERS -->
+<section class="section" id="tiers">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Annual membership</span>
+      <h2 class="section-title">Choose your membership.</h2>
+      <p class="section-lead">Dues are billed yearly; a one-time initiation fee applies when you join. Have questions about
+      the right fit? We're happy to help.</p>
+    </div>
+
+    <div class="tiers" style="margin-top:clamp(40px,6vw,60px)" data-reveal-stagger>
+      <div class="tier" data-reveal>
+        <h3>Junior</h3>
+        <div class="price"><span class="amt">$540</span><span class="per">/ year</span></div>
+        <div class="init">+ $250 initiation</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>All junior clinics &amp; sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Point play &amp; round robins</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Club championships &amp; socials</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Priority program registration</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost">Join as Junior</a>
+      </div>
+
+      <div class="tier" data-reveal>
+        <h3>Individual</h3>
+        <div class="price"><span class="amt">$1,185</span><span class="per">/ year</span></div>
+        <div class="init">+ $600 initiation</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full court access</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Adult clinics &amp; round robins</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>League &amp; team eligibility</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Member events all year</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost">Join as Individual</a>
+      </div>
+
+      <div class="tier" data-reveal>
+        <h3>Couple</h3>
+        <div class="price"><span class="amt">$1,300</span><span class="per">/ year</span></div>
+        <div class="init">+ $650 initiation</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Individual, ×2</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Two adults, one household</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clinics, teams &amp; leagues</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Member events all year</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost">Join as a Couple</a>
+      </div>
+
+      <div class="tier featured" data-reveal>
+        <span class="badge">Best value</span>
+        <h3>Family</h3>
+        <div class="price"><span class="amt">$1,730</span><span class="per">/ year</span></div>
+        <div class="init">+ $850 initiation</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Access for the whole household</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Junior <em>and</em> adult programs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Priority on camps &amp; clinics</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>The most tennis, per dollar</li>
+        </ul>
+        <a href="contact.html" class="btn btn-lt">Join as a Family</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section band-alt">
+  <div class="container">
+    <div class="split" style="align-items:flex-start">
+      <div data-reveal>
+        <span class="eyebrow">Why members stay</span>
+        <h2 class="section-title">More than court time.</h2>
+        <p class="section-lead">Bud and Elaine have spent two decades building a club that feels like an oasis — the kind of place you come for the tennis and stay for the people.</p>
+      </div>
+      <div class="card-grid cols-2" data-reveal-stagger>
+        <div class="icard" data-reveal><div class="idx">Coaching</div><h3>Champion-level pros</h3><p>Instruction from a staff with Grand Slam, Division 1, and Hall-of-Fame pedigree.</p></div>
+        <div class="icard" data-reveal><div class="idx">Community</div><h3>A full social calendar</h3><p>Round robins, club championships, holiday parties, and member events all season.</p></div>
+        <div class="icard" data-reveal><div class="idx">Family</div><h3>Programs for every age</h3><p>From a child's first red-ball clinic to competitive adult leagues, all under one roof.</p></div>
+        <div class="icard" data-reveal><div class="idx">Access</div><h3>Year-round play</h3><p>Contract court time, clinics, and open play keep your game sharp all year long.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section band-pine">
+  <div class="court-motif" style="opacity:.3"></div>
+  <div class="container callout" style="position:relative; max-width:780px; margin:0 auto" data-reveal>
+    <span class="eyebrow" style="justify-content:center">Become a member</span>
+    <h2 class="section-title">Ready to join?</h2>
+    <p class="section-lead">Reach out and we'll walk you through membership, answer any questions, and get you on the courts.</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-lt">Get in touch <span class="arw">→</span></a>
+      <a href="tel:17813839533" class="btn btn-ghost">(781) 383-9533</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

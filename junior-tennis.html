@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junior Tennis | Cohasset Tennis Club</title>
+<meta name="description" content="Junior tennis at Cohasset Tennis Club — a high-energy development program for all ages and abilities, capped at a 6:1 ratio. Four seasonal sessions, point play, round robins, and special events. Register online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#1C3A2B">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html">Adult</a></li>
+    <li><a href="junior-tennis.html" class="active">Junior</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" class="mm-cta" onclick="closeMobile()">Contact <span>07</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>Junior Tennis · 2025–2026 Season</span>
+    <h1 data-reveal style="transition-delay:.08s">Where young players<br><em>fall for the game.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">A high-energy development program for all ages and abilities —
+    capped at a 6:1 student-to-coach ratio so every child gets real attention, every session.</p>
+    <div class="hero-cta" data-reveal style="transition-delay:.24s">
+      <a href="junior-registration.html" class="btn btn-lt">Register Now <span class="arw">→</span></a>
+      <a href="#sessions" class="btn btn-ghost">View Sessions</a>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO + STATS -->
+<section class="section">
+  <div class="container">
+    <div class="split" style="align-items:flex-start">
+      <div data-reveal>
+        <span class="eyebrow">The program</span>
+        <h2 class="section-title">Big energy.<br>Small groups.</h2>
+      </div>
+      <div class="prose" data-reveal style="transition-delay:.1s; align-self:center">
+        <p>Our junior program meets kids exactly where they are — from a first-ever red-ball class to high-school
+        match prep. Coaches keep it fast, fun, and full of reps, while the 6:1 cap means no child is ever waiting
+        in a long line for their turn.</p>
+        <p>Lessons run <strong>$32 each</strong> across four seasonal sessions, and Friday point-play clinics reinforce every
+        skill in real match scenarios.</p>
+      </div>
+    </div>
+    <div class="stats" style="margin-top:clamp(48px,7vw,80px)" data-reveal-stagger>
+      <div class="stat" data-reveal><div class="num">6:1</div><div class="lbl">Max ratio</div></div>
+      <div class="stat" data-reveal><div class="num">$32</div><div class="lbl">Per lesson</div></div>
+      <div class="stat" data-reveal><div class="num">4</div><div class="lbl">Seasonal sessions</div></div>
+      <div class="stat" data-reveal><div class="num">All</div><div class="lbl">Ages &amp; abilities</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section class="section band-alt" id="sessions">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Season calendar</span>
+      <h2 class="section-title">Four sessions, September to May.</h2>
+      <p class="section-lead">Join for the whole year or jump in for a single session. Placement is by level and availability.</p>
+    </div>
+    <div class="sessions" style="margin-top:clamp(36px,5vw,56px)" data-reveal-stagger>
+      <div class="srow" data-reveal>
+        <div class="sidx">I</div>
+        <div><div class="sname">Session I</div><div class="sdate">September 2 – October 19</div></div>
+        <div class="sweeks">7 weeks</div>
+      </div>
+      <div class="srow" data-reveal>
+        <div class="sidx">II</div>
+        <div><div class="sname">Session II</div><div class="sdate">October 19 – January 4</div></div>
+        <div class="sweeks">8 weeks</div>
+      </div>
+      <div class="srow" data-reveal>
+        <div class="sidx">III</div>
+        <div><div class="sname">Session III</div><div class="sdate">January 5 – March 22 · vacation week off</div></div>
+        <div class="sweeks">10 weeks</div>
+      </div>
+      <div class="srow" data-reveal>
+        <div class="sidx">IV</div>
+        <div><div class="sname">Session IV</div><div class="sdate">March 23 – May 22 · vacation week off</div></div>
+        <div class="sweeks">8 weeks</div>
+      </div>
+    </div>
+    <div data-reveal style="margin-top:36px">
+      <a href="junior-registration.html" class="btn btn-primary">Register for a session <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND CLINICS -->
+<section class="section">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Beyond the clinic</span>
+      <h2 class="section-title">More than lessons.</h2>
+      <p class="section-lead">The best way to improve is to play — and to love being at the club.</p>
+    </div>
+    <div class="card-grid cols-3" style="margin-top:clamp(40px,6vw,64px)" data-reveal-stagger>
+      <div class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></span>
+        <h3>Point Play</h3>
+        <p>Friday point-play clinics put fresh skills straight into match scenarios, so lessons stick when it counts.</p>
+      </div>
+      <div class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 16 0M20 12a8 8 0 0 1-16 0"/></svg></span>
+        <h3>Round Robins</h3>
+        <p>Fast-four scoring keeps rotating round robins quick, competitive, and packed with match reps.</p>
+      </div>
+      <div class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.7-5 2.7 1-5.5-4-3.9 5.5-.8z"/></svg></span>
+        <h3>Special Events</h3>
+        <p>Holiday parties, club championships, and birthday parties keep the season full of reasons to be at CTC.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTOR CTA -->
+<section class="section band-pine">
+  <div class="court-motif" style="opacity:.3"></div>
+  <div class="container" style="position:relative">
+    <div class="split" style="align-items:center">
+      <div data-reveal>
+        <span class="eyebrow">Your program director</span>
+        <h2 class="section-title">Led by Sonny Bisazza.</h2>
+        <p class="section-lead">A USPTA-certified junior-development specialist, MIAA Division&nbsp;1 State Champion,
+        and Franklin Pierce MVP, Sonny builds every clinic around fundamentals, energy, and fun.</p>
+        <div class="hero-cta">
+          <a href="junior-registration.html" class="btn btn-lt">Register Now <span class="arw">→</span></a>
+          <a href="mailto:sonny@cohassettennis-club.com" class="btn btn-ghost">Email Sonny</a>
+        </div>
+      </div>
+      <div class="info-grid" style="grid-template-columns:1fr" data-reveal-stagger>
+        <div class="info-item" data-reveal><div class="k">Questions</div><div class="v"><a href="mailto:sonny@cohassettennis-club.com">sonny@cohassettennis-club.com</a></div></div>
+        <div class="info-item" data-reveal><div class="k">Cost</div><div class="v">$32 per lesson</div></div>
+        <div class="info-item" data-reveal><div class="k">Ratio</div><div class="v">6:1 maximum</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

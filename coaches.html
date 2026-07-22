@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coaches | Cohasset Tennis Club</title>
+<meta name="description" content="Meet the Cohasset Tennis Club coaching staff — owners Bud Schultz & Elaine Cosseboom, Tennis Director Christo Schultz, and pros Sonny Bisazza, Whitney Berns, and Chizzy Lumeta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#1C3A2B">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html">Adult</a></li>
+    <li><a href="junior-tennis.html">Junior</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="coaches.html" class="active">Coaches</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" class="mm-cta" onclick="closeMobile()">Contact <span>07</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>The Team</span>
+    <h1 data-reveal style="transition-delay:.08s">Coached by <em>champions.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">Grand Slam pedigree, Hall-of-Fame résumés, and Division&nbsp;1
+    and professional coaching experience — all in service of one small, friendly club.</p>
+  </div>
+</header>
+
+<!-- OWNERS FEATURE -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="split-media" data-reveal aria-hidden="true">
+        <div class="court-motif" style="opacity:.55"></div>
+        <div style="position:absolute; inset:0; display:grid; place-items:center; gap:0;">
+          <span style="font-family:var(--font-display); font-size:clamp(3.4rem,8vw,5rem); color:var(--brass-lt); letter-spacing:.04em;">BS &amp; EC</span>
+        </div>
+      </div>
+      <div data-reveal style="transition-delay:.1s">
+        <span class="eyebrow">Owners since 2002</span>
+        <h2 class="section-title">Bud Schultz &amp;<br>Elaine Cosseboom</h2>
+        <div class="prose" style="margin-top:22px">
+          <p>Bud and Elaine have owned and managed the Cohasset Tennis Club since 2002. Elaine played Division&nbsp;1
+          tennis at Boston College and holds USPTA Level&nbsp;1 certification. Bud was a Division&nbsp;3 All-American,
+          ranked among the top 40 on the ATP Tour, and competed in four Grand Slam tournaments.</p>
+          <p>He coached world-class players including Ivan Lendl and Pam Shriver, directed the Boston Lobsters, and
+          served as Tennis Director at Longwood Cricket Club. Together, they've crafted a culture at the Cohasset
+          Tennis Club that has created an oasis for its members.</p>
+        </div>
+        <div class="coach-tags" style="margin-top:22px">
+          <span class="tag">4× Grand Slam</span>
+          <span class="tag">Top-40 ATP</span>
+          <span class="tag">BC Division 1</span>
+          <span class="tag">New England Tennis Hall of Fame</span>
+          <span class="tag">USPTA Level 1</span>
+        </div>
+        <a href="our-story.html" class="link-arrow" style="margin-top:26px">The full CTC story <span class="arw">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROS GRID -->
+<section class="section band-alt">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">The pros</span>
+      <h2 class="section-title">Your coaching staff.</h2>
+    </div>
+    <div class="card-grid cols-4" style="margin-top:clamp(40px,6vw,60px)" data-reveal-stagger>
+
+      <div class="coach" data-reveal>
+        <div class="coach-portrait"><span class="mono">CS</span></div>
+        <div class="coach-body">
+          <h3>Christo Schultz</h3>
+          <div class="coach-role">Tennis Director</div>
+          <p class="coach-bio">Over a decade of experience across the collegiate, professional, and club levels.
+          Christo was Head Coach at Brandeis University for six seasons — coaching All-Americans and achieving a
+          program-best No.&nbsp;8 national ranking in 2021. A Harvard graduate, he earned First-Team All-Ivy honors and
+          reached No.&nbsp;14 in national collegiate doubles. He also served as Director of Racquet Sports at Charles
+          River Country Club.</p>
+          <div class="coach-tags">
+            <span class="tag">Harvard</span><span class="tag">First-Team All-Ivy</span><span class="tag">No. 8 nationally</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coach" data-reveal>
+        <div class="coach-portrait"><span class="mono">SB</span></div>
+        <div class="coach-body">
+          <h3>Sonny Bisazza</h3>
+          <div class="coach-role">Director of Jr. Tennis · Assistant Pro</div>
+          <p class="coach-bio">Sonny previously directed Kings Grant Tennis Club and has worked at multiple
+          prestigious clubs. He's USPTA certified with extensive experience in red-ball instruction, junior
+          development, and high-performance coaching. He was a MIAA Division&nbsp;1 State Champion and a Franklin
+          Pierce University MVP.</p>
+          <div class="coach-tags">
+            <span class="tag">USPTA</span><span class="tag">D1 State Champ</span><span class="tag">Junior development</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coach" data-reveal>
+        <div class="coach-portrait"><span class="mono">WB</span></div>
+        <div class="coach-body">
+          <h3>Whitney Berns</h3>
+          <div class="coach-role">Director of Ladies Teams · Assistant Pro</div>
+          <p class="coach-bio">"Whit" is an NCAA-champion lacrosse and ice-hockey player from Middlebury College,
+          with years of competitive tennis experience at CTC. She leads the club's women's USTA and MITA teams.</p>
+          <div class="coach-tags">
+            <span class="tag">Middlebury</span><span class="tag">NCAA Champion</span><span class="tag">Ladies Teams</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coach" data-reveal>
+        <div class="coach-portrait"><span class="mono">CL</span></div>
+        <div class="coach-body">
+          <h3>Chizzy Lumeta</h3>
+          <div class="coach-role">Assistant Pro</div>
+          <p class="coach-bio">Chizzy joins from Tamarack Country Club in Greenwich, Connecticut. He reached No.&nbsp;1
+          in Africa in the U14 and U16 divisions and competed against future ATP stars. He holds All-American college
+          recognition and is fluent in Chichewa and English.</p>
+          <div class="coach-tags">
+            <span class="tag">No. 1 in Africa (U14/U16)</span><span class="tag">All-American</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section band-pine">
+  <div class="court-motif" style="opacity:.3"></div>
+  <div class="container callout" style="position:relative; max-width:780px; margin:0 auto" data-reveal>
+    <span class="eyebrow" style="justify-content:center">Learn from the best</span>
+    <h2 class="section-title">Book a lesson with a CTC pro.</h2>
+    <p class="section-lead">Request private, semi-private, or small-group coaching with the pro of your choice — for kids and adults alike.</p>
+    <div class="hero-cta">
+      <a href="adult-request.html" class="btn btn-lt">Request a Lesson <span class="arw">→</span></a>
+      <a href="junior-registration.html" class="btn btn-ghost">Junior Registration</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junior Registration | Cohasset Tennis Club</title>
+<meta name="description" content="Register your child for the Cohasset Tennis Club 2025–2026 junior tennis program. A high-energy, 6:1 development program for all ages and abilities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#123141">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html">Adult</a></li>
+    <li><a href="junior-tennis.html" class="active">Junior</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" class="mm-cta" onclick="closeMobile()">Contact <span>07</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page" style="min-height:46vh">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>Junior Tennis · 2025–2026</span>
+    <h1 data-reveal style="transition-delay:.08s">Junior <em>registration.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">Tell us a little about your player and we'll place them in
+    the best clinic level and time. It only takes a minute.</p>
+  </div>
+</header>
+
+<!-- FORM -->
+<section class="section">
+  <div class="container">
+    <div class="form-layout">
+
+      <!-- Aside -->
+      <aside class="form-aside" data-reveal>
+        <span class="eyebrow">The program</span>
+        <h2 class="section-title">A high-energy program for all ages.</h2>
+        <div class="prose">
+          <p>Our junior program is capped at a <strong>6:1</strong> ratio so every child gets real attention. Placement is
+          based on level and availability — we'll follow up to confirm your player's clinic.</p>
+        </div>
+        <div class="aside-facts">
+          <div class="row"><span class="k">Cost</span><span class="v">$32 / lesson</span></div>
+          <div class="row"><span class="k">Max ratio</span><span class="v">6 : 1</span></div>
+          <div class="row"><span class="k">Sessions</span><span class="v"><a href="junior-tennis.html#sessions">4 per year</a></span></div>
+          <div class="row"><span class="k">Questions</span><span class="v"><a href="mailto:sonny@cohassettennis-club.com">Email Sonny</a></span></div>
+        </div>
+      </aside>
+
+      <!-- Form card -->
+      <div data-reveal style="transition-delay:.1s">
+        <div class="form-wrap">
+          <div class="form-error-summary" id="formErrorSummary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            Please complete the required fields highlighted below.
+          </div>
+
+          <form data-gform action="https://docs.google.com/forms/d/e/1FAIpQLScpSjD2SMQ2cfwDk0hf7MAH5AfVfUynvrNGRprPGFj4X7WFkQ/formResponse" novalidate>
+
+            <div class="fgroup" data-required="text">
+              <label class="flabel" for="jr-player">Player's Name <span class="req">*</span></label>
+              <input class="finput" id="jr-player" name="entry.2092238618" type="text" autocomplete="name" placeholder="Child's full name">
+              <div class="form-error">Please enter the player's name.</div>
+            </div>
+
+            <div class="fgroup" data-required="text">
+              <label class="flabel" for="jr-parent">Parent / Guardian Name <span class="req">*</span></label>
+              <input class="finput" id="jr-parent" name="entry.568461880" type="text" autocomplete="name" placeholder="Your full name">
+              <div class="form-error">Please enter a parent or guardian name.</div>
+            </div>
+
+            <div class="fgroup" data-required="text">
+              <label class="flabel" for="jr-email">Email <span class="req">*</span></label>
+              <input class="finput" id="jr-email" name="entry.1556369182" type="email" autocomplete="email" placeholder="you@email.com">
+              <div class="form-error">Please enter a valid email so we can confirm placement.</div>
+            </div>
+
+            <div class="fgroup" data-required="radio">
+              <span class="flabel" id="jr-level-lbl">Player's level <span class="req">*</span></span>
+              <div class="choice-grid" role="radiogroup" aria-labelledby="jr-level-lbl" style="margin-top:12px">
+                <label class="choice"><input type="radio" name="entry.1354070899" value="New to tennis"><span class="box radio"></span><span>New to tennis</span></label>
+                <label class="choice"><input type="radio" name="entry.1354070899" value="Beginner (1-2 years experience)"><span class="box radio"></span><span>Beginner &mdash; 1–2 years experience</span></label>
+                <label class="choice"><input type="radio" name="entry.1354070899" value="Intermediate (can serve, understand scoring, hit 3 balls in a row)"><span class="box radio"></span><span>Intermediate &mdash; can serve, knows scoring, rallies</span></label>
+                <label class="choice"><input type="radio" name="entry.1354070899" value="Advanced (can play matches, understands topspin, looking to or currently playing high school tennis)"><span class="box radio"></span><span>Advanced &mdash; plays matches / high-school tennis</span></label>
+              </div>
+              <div class="form-error">Please select your player's level.</div>
+            </div>
+
+            <div class="fgroup" data-required="checkbox">
+              <span class="flabel" id="jr-days-lbl">Which days could they attend? <span class="req">*</span></span>
+              <div class="fhelp">Select every day that works — we'll match your player to an available clinic.</div>
+              <div class="choice-grid two" role="group" aria-labelledby="jr-days-lbl">
+                <label class="choice"><input type="checkbox" name="entry.880321983" value="Monday"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Monday</span></label>
+                <label class="choice"><input type="checkbox" name="entry.880321983" value="Tuesday"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Tuesday</span></label>
+                <label class="choice"><input type="checkbox" name="entry.880321983" value="Wednesday"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Wednesday</span></label>
+                <label class="choice"><input type="checkbox" name="entry.880321983" value="Thursday"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Thursday</span></label>
+              </div>
+              <div class="form-error">Please choose at least one day.</div>
+            </div>
+
+            <div class="fgroup" data-required="radio">
+              <span class="flabel" id="jr-priv-lbl">Interested in private lessons? <span class="req">*</span></span>
+              <div class="choice-grid two" role="radiogroup" aria-labelledby="jr-priv-lbl" style="margin-top:12px">
+                <label class="choice"><input type="radio" name="entry.1312807623" value="Yes"><span class="box radio"></span><span>Yes</span></label>
+                <label class="choice"><input type="radio" name="entry.1312807623" value="No"><span class="box radio"></span><span>No</span></label>
+              </div>
+              <div class="form-error">Please let us know.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px">Submit Registration <span class="arw">→</span></button>
+            <p class="form-note" style="text-align:center; margin-top:14px">Your registration goes straight to the CTC staff. We'll confirm your player's placement by email.</p>
+          </form>
+        </div>
+
+        <!-- Success -->
+        <div class="form-status" id="formStatus">
+          <div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Registration received!</h3>
+          <p>Thanks — your player is on our list. We'll be in touch by email to confirm the best clinic level and time. Questions in the meantime? Email <a href="mailto:sonny@cohassettennis-club.com" class="link-arrow" style="display:inline-flex">Sonny</a>.</p>
+          <div class="hero-cta" style="justify-content:center; margin-top:26px">
+            <a href="junior-tennis.html" class="btn btn-ghost" style="color:var(--ink); border-color:var(--border)">Back to Junior Tennis</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="ctc-forms.js"></script>
+</body>
+</html>

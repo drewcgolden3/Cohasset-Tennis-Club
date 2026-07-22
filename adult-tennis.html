@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adult Tennis | Cohasset Tennis Club</title>
+<meta name="description" content="Adult tennis at Cohasset Tennis Club — stroke clinics, Play with a Pro, private lessons, round robins, contract time, and competitive USTA & MITA league play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#1C3A2B">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html" class="active">Adult</a></li>
+    <li><a href="junior-tennis.html">Junior</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" class="mm-cta" onclick="closeMobile()">Contact <span>07</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>Adult Tennis</span>
+    <h1 data-reveal style="transition-delay:.08s">Sharpen your game,<br><em>however you play.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">Stroke clinics, in-match coaching, private lessons, and
+    competitive league play — instruction from pros who have coached at the very top of the sport.</p>
+    <div class="hero-cta" data-reveal style="transition-delay:.24s">
+      <a href="adult-request.html" class="btn btn-lt">Request a Lesson <span class="arw">→</span></a>
+      <a href="#competitive" class="btn btn-ghost">Competitive Play</a>
+    </div>
+  </div>
+</header>
+
+<!-- CORE OFFERINGS -->
+<section class="section">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Three ways to play</span>
+      <h2 class="section-title">Structured coaching, real match play.</h2>
+      <p class="section-lead">Whether you're picking a racquet back up or chasing a league title, there's a format built for you.</p>
+    </div>
+    <div class="card-grid cols-3" style="margin-top:clamp(40px,6vw,64px)" data-reveal-stagger>
+      <div class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+        <h3>Clinics</h3>
+        <p>Stroke-focused instruction for every level — dedicated beginner options, our popular intermediate <strong>105</strong> clinic, and custom clinics you can build with a few other members.</p>
+      </div>
+      <div class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M6 21v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1"/></svg></span>
+        <h3>Play with a Pro</h3>
+        <p>Get into live doubles alongside a member of our coaching staff. With in-match coaching, we address the challenges that only show up under pressure and help you expand your match play.</p>
+      </div>
+      <div class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0zM7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg></span>
+        <h3>Competitive Tennis</h3>
+        <p>Men's singles and doubles in in-house and out-of-house match play, plus women's USTA and MITA teams. Structured, competitive, and genuinely fun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE LESSONS SPLIT -->
+<section class="section band-alt">
+  <div class="container">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">One-on-one</span>
+        <h2 class="section-title">Private lessons,<br>on your schedule.</h2>
+        <div class="prose" style="margin-top:22px">
+          <p>Book private, semi-private, or small-group lessons with the pro of your choice — Christo, Sonny,
+          Chizzy, Whitney, or Dylan — or let us match you to the right coach. Tell us your goals and when you're
+          free, and we'll do our best to confirm within two days.</p>
+          <p>Prefer a standing time? We'll set up recurring weekly, bi-weekly, or monthly lessons so your court is always waiting.</p>
+        </div>
+        <a href="adult-request.html" class="btn btn-primary" style="margin-top:30px">Request a lesson <span class="arw">→</span></a>
+      </div>
+      <div class="card-grid" data-reveal-stagger style="transition-delay:.1s">
+        <div class="icard" data-reveal><div class="idx">01 — Round Robins</div><h3>Social, competitive doubles</h3><p>Rotating doubles with fast, friendly scoring — the easiest way to meet members and log match reps.</p></div>
+        <div class="icard" data-reveal><div class="idx">02 — Contract Time</div><h3>Your court, your group</h3><p>Reserve standing court time for your regular game, week after week, all season long.</p></div>
+        <div class="icard" data-reveal><div class="idx">03 — Leagues</div><h3>Team &amp; league play</h3><p>Represent CTC in competitive team and league play across the South Shore and beyond.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIVE -->
+<section class="section band-pine" id="competitive">
+  <div class="court-motif" style="opacity:.3"></div>
+  <div class="container" style="position:relative">
+    <div class="split" style="align-items:center">
+      <div data-reveal>
+        <span class="eyebrow">Competitive tennis</span>
+        <h2 class="section-title">Compete for<br>Cohasset.</h2>
+        <p class="section-lead">From in-house ladders to travel teams, our competitive programs give every level a place to test their game.</p>
+        <a href="adult-request.html" class="btn btn-lt" style="margin-top:30px">Get involved <span class="arw">→</span></a>
+      </div>
+      <div class="card-grid cols-2" data-reveal-stagger>
+        <div class="pcard" style="background:rgba(244,240,230,0.05); border-color:var(--border-dark)" data-reveal>
+          <h3 style="color:var(--white)">Men's Match Play</h3>
+          <p style="color:var(--muted-lt)">Singles and doubles, both in-house and out-of-house — competitive tennis at whatever level fits you.</p>
+        </div>
+        <div class="pcard" style="background:rgba(244,240,230,0.05); border-color:var(--border-dark)" data-reveal>
+          <h3 style="color:var(--white)">Women's Teams</h3>
+          <p style="color:var(--muted-lt)">Represent CTC on our women's USTA and MITA teams, led by Director of Ladies Teams Whitney Berns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container callout" style="max-width:780px; margin:0 auto" data-reveal>
+    <span class="eyebrow" style="justify-content:center">Ready to play</span>
+    <h2 class="section-title">Let's get you on the court.</h2>
+    <p class="section-lead">Request a lesson, ask about clinics, or find your team. Our staff will follow up within two days.</p>
+    <div class="hero-cta">
+      <a href="adult-request.html" class="btn btn-primary">Request a Lesson <span class="arw">→</span></a>
+      <a href="schedule.html" class="btn btn-ghost">See the schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

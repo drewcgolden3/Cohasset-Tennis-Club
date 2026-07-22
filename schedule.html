@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Schedule | Cohasset Tennis Club</title>
+<meta name="description" content="This week on the courts at Cohasset Tennis Club — Early Ballers, Stroke of the Week, the 105 clinic, men's round robins and more. Live, interactive weekly schedule.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#123141">
+<style>
+  #schedule { background: var(--bone); }
+  #schedule .container { max-width: 1060px; }
+
+  .sched-days { display: flex; gap: 8px; margin: clamp(30px,4vw,44px) 0 22px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .sched-days::-webkit-scrollbar { display: none; }
+  .day-tab { flex: 0 0 auto; cursor: pointer; background: var(--card); border: 1px solid var(--border); padding: 12px 18px; min-width: 80px; text-align: center; font-family: inherit; color: var(--ink-mid);
+    transition: background .35s var(--ease-soft), color .35s var(--ease-soft), border-color .35s var(--ease-soft); border-radius: 3px; }
+  .day-tab .day-abbr { font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: .02em; line-height: 1; display: block; }
+  .day-tab .day-meta { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+  .day-tab:hover { border-color: var(--clay); color: var(--clay-deep); }
+  .day-tab.active { background: var(--pine); border-color: var(--pine); color: var(--white); }
+  .day-tab.active .day-meta { color: var(--brass-lt); }
+  .day-tab.is-today .day-abbr::after { content: '•'; color: var(--clay); margin-left: 4px; }
+  .day-tab.active.is-today .day-abbr::after { color: var(--brass-lt); }
+
+  .sched-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-chip { cursor: pointer; background: transparent; border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px; font-family: inherit;
+    font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    transition: background .35s var(--ease-soft), color .35s var(--ease-soft), border-color .35s var(--ease-soft); }
+  .filter-chip:hover { border-color: var(--clay); color: var(--clay-deep); }
+  .filter-chip.active { background: var(--clay-deep); border-color: var(--clay-deep); color: var(--white); }
+
+  .sched-count { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 24px 2px 14px; min-height: 14px; font-weight: 600; }
+
+  .sched-list { display: flex; flex-direction: column; gap: 12px; }
+  .session { background: var(--card); border: 1px solid var(--border-soft); border-left: 3px solid var(--clay);
+    display: grid; grid-template-columns: 130px 1fr auto; align-items: center; gap: 26px; padding: 22px 28px;
+    transition: box-shadow .45s var(--ease-expo), transform .45s var(--ease-expo); }
+  .session:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .session-time .t { font-family: var(--font-display); font-weight: 500; font-size: 32px; letter-spacing: .01em; line-height: .95; color: var(--pine); font-variant-numeric: tabular-nums; }
+  .session-time .t .ampm { font-size: 14px; color: var(--muted); margin-left: 3px; font-weight: 600; }
+  .session-time .dur { font-size: 11px; letter-spacing: .06em; color: var(--muted); margin-top: 5px; }
+  .session-main { min-width: 0; }
+  .session-name { font-family: var(--font-display); font-weight: 500; font-size: 24px; letter-spacing: 0; line-height: 1.05; color: var(--pine); display: flex; align-items: center; gap: 11px; }
+  .session-name .ic { display: inline-flex; align-items: center; flex: 0 0 auto; color: var(--clay-deep); }
+  .session-name .ic svg { width: 22px; height: 22px; }
+  .session-meta { font-size: 13px; color: var(--muted); margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+  .session-meta .cat { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-deep); border: 1px solid var(--clay-line); padding: 2px 8px; border-radius: 3px; }
+
+  .session-cta { display: inline-block; text-align: center; white-space: nowrap; background: transparent; border: 1.5px solid var(--border); color: var(--ink);
+    padding: 12px 24px; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-radius: 2px;
+    transition: background .4s var(--ease-soft), border-color .4s var(--ease-soft), color .4s var(--ease-soft); }
+  .session-cta:hover { background: var(--pine); border-color: var(--pine); color: var(--white); }
+
+  .status-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; white-space: nowrap; }
+  .status-tag.now { background: var(--live); color: var(--white); }
+  .status-tag.next { background: var(--brass-lt); color: var(--pine); }
+  .session.is-now { border-left-color: var(--live); box-shadow: 0 8px 26px rgba(207,90,42,0.14); }
+  .session.is-past { opacity: 0.5; }
+  .session.is-past .session-cta { pointer-events: none; border-color: var(--border); color: var(--muted); }
+
+  .sched-empty { background: var(--card); border: 1px dashed var(--border); padding: 56px 32px; text-align: center; color: var(--muted); border-radius: 3px; }
+  .sched-empty .eyebrow2 { font-family: var(--font-display); font-weight: 500; font-size: 28px; color: var(--pine); margin-bottom: 8px; display: block; }
+
+  .sched-foot { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
+  .sched-foot a { color: var(--clay-deep); text-decoration: none; }
+  .sched-foot a:hover { text-decoration: underline; }
+
+  @keyframes rowIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .session { animation: rowIn .5s var(--ease-expo) both; }
+  @media (prefers-reduced-motion: reduce) { .session, .session:hover { animation: none; transition: none; transform: none; } }
+
+  @media (max-width: 680px) {
+    .session { grid-template-columns: 1fr; gap: 14px; padding: 20px 20px; align-items: start; }
+    .session-time { display: flex; align-items: baseline; gap: 12px; }
+    .session-time .dur { margin-top: 0; }
+    .session-cta { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html">Adult</a></li>
+    <li><a href="junior-tennis.html">Junior</a></li>
+    <li><a href="schedule.html" class="active">Schedule</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" class="mm-cta" onclick="closeMobile()">Contact <span>07</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page" style="min-height:44vh">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>This week on court</span>
+    <h1 data-reveal style="transition-delay:.08s">The <em>schedule.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">Pick a day to see what's on the courts. When you check today,
+    the board highlights what's happening right now and what's up next.</p>
+  </div>
+</header>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="section">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Clinics &amp; play</span>
+      <h2 class="section-title">Weekly clinics &amp; round robins.</h2>
+      <p class="section-lead">Early Ballers, Stroke of the Week, the 105 clinic and more. Members can call the front desk to
+      reserve a spot — the board updates automatically.</p>
+    </div>
+
+    <div class="sched-days" id="schedDays" role="tablist" aria-label="Day of week"></div>
+    <div class="sched-filters" id="schedFilters" role="group" aria-label="Filter by type"></div>
+    <div class="sched-count" id="schedCount"></div>
+    <div class="sched-list" id="schedList"></div>
+    <p class="sched-foot" id="schedFoot"></p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section band-pine">
+  <div class="court-motif" style="opacity:.3"></div>
+  <div class="container callout" style="position:relative; max-width:760px; margin:0 auto" data-reveal>
+    <span class="eyebrow" style="justify-content:center">Want a standing time?</span>
+    <h2 class="section-title">Book a lesson or claim court time.</h2>
+    <p class="section-lead">Request a private lesson with your pro, or call the front desk about contract court time and league play.</p>
+    <div class="hero-cta">
+      <a href="adult-request.html" class="btn btn-lt">Request a Lesson <span class="arw">→</span></a>
+      <a href="tel:17813839533" class="btn btn-ghost">(781) 383-9533</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- ================= INTERACTIVE SCHEDULE ENGINE ================= -->
+<script>
+(function () {
+  "use strict";
+
+  /* ---- 1. CONFIG ------------------------------------------------ */
+  const CONFIG = {
+    // Google Sheet published as CSV (Sheet → File → Share → Publish to web → CSV).
+    // Columns: Day, Time, Program, Duration (min, optional), Coach (optional), Court (optional), Book (optional URL).
+    // Leave "" to use the built-in weekly schedule below.
+    sheetCsvUrl: "",
+
+    // Online booking link (if the club adds one). Leave "" to make every button "Call to book".
+    bookingUrl: "",
+
+    phone: "(781) 383-9533",
+    phoneHref: "17813839533",
+    address: "21 Cedar St, Cohasset MA"
+  };
+
+  /* ---- 2. PROGRAM TYPES + ICONS --------------------------------- */
+  const IC = {
+    ball:       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M4.5 6.5A9 9 0 0 1 8 20M19.5 6.5A9 9 0 0 0 16 20"/></svg>',
+    racquet:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="9" rx="6" ry="6.5"/><path d="M6.5 6.5 11.5 11.5M6.5 9h5M9 6.5v6.5M13.6 13.6 20 20"/></svg>',
+    robin:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16M4 20v-4h4"/></svg>',
+    point:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>',
+    junior:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 21c0-4 2.9-6.5 6.5-6.5S18.5 17 18.5 21"/></svg>',
+    cardio:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-8.8-2 5 5 0 0 0-8.8 2c-1.3 4 4 9.4 8.8 12.4 4.8-3 10.1-8.4 8.8-12.4z"/></svg>',
+    star:       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.7-5 2.7 1-5.5-4-3.9 5.5-.8z"/></svg>'
+  };
+  const PROGRAM_TYPES = {
+    clinic:     { icon: IC.racquet, cat: "clinic" },
+    roundrobin: { icon: IC.robin,   cat: "roundrobin" },
+    pointplay:  { icon: IC.point,   cat: "pointplay" },
+    junior:     { icon: IC.junior,  cat: "junior" },
+    cardio:     { icon: IC.cardio,  cat: "clinic" },
+    private:    { icon: IC.ball,    cat: "private" },
+    social:     { icon: IC.star,    cat: "social" },
+    other:      { icon: IC.ball,    cat: "other" }
+  };
+  const CATEGORY_LABELS = { clinic: "Clinics", roundrobin: "Round Robins", pointplay: "Point Play", junior: "Junior", private: "Lessons", social: "Events", other: "Other" };
+  const CATEGORY_ORDER = ["clinic", "roundrobin", "pointplay", "junior", "private", "social", "other"];
+
+  const norm = (s) => String(s == null ? "" : s).toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  // Match a program name to a type (for icon + filter). First match wins.
+  const RULES = [
+    { keys: ["roundrobin"],                 type: "roundrobin" },
+    { keys: ["pointplay"],                  type: "pointplay"  },
+    { keys: ["cardiotennis", "cardio"],     type: "cardio"     },
+    { keys: ["junior", "jr", "redball", "kids", "youth"], type: "junior" },
+    { keys: ["private", "lesson"],          type: "private"    },
+    { keys: ["party", "social", "championship", "mixer"], type: "social" },
+    { keys: ["clinic", "baller", "stroke", "105", "drill"], type: "clinic" }
+  ];
+  function resolveProgram(raw) {
+    const display = String(raw == null ? "" : raw).trim();
+    const n = norm(display);
+    for (const r of RULES) {
+      if (r.keys.some((k) => n.includes(k))) {
+        const t = PROGRAM_TYPES[r.type];
+        return { name: display, icon: t.icon, cat: t.cat };
+      }
+    }
+    return { name: display || "Program", icon: IC.ball, cat: "other" };
+  }
+
+  /* ---- 3. BUILT-IN WEEK (from the club's posted schedule) -------- */
+  const FALLBACK_RECORDS = [
+    { day: "Tue", time: "7:00 AM",  dur: 60,  cls: "Early Ballers Clinic",   coach: "" },
+    { day: "Tue", time: "6:30 PM",  dur: 120, cls: "Men's Round Robin",      coach: "" },
+    { day: "Wed", time: "2:00 PM",  dur: 60,  cls: "Stroke of the Week Clinic", coach: "" },
+    { day: "Thu", time: "1:30 PM",  dur: 60,  cls: "105 Clinic",             coach: "" },
+    { day: "Fri", time: "7:00 AM",  dur: 60,  cls: "Early Ballers Clinic",   coach: "" },
+    { day: "Fri", time: "12:00 PM", dur: 60,  cls: "105 Clinic",             coach: "" },
+    { day: "Sat", time: "8:00 AM",  dur: 60,  cls: "Early Ballers Clinic",   coach: "" }
+  ];
+
+  /* ---- 4. PARSING HELPERS --------------------------------------- */
+  const DAY_KEYS = { sun:"sun", sunday:"sun", mon:"mon", monday:"mon", tue:"tue", tues:"tue", tuesday:"tue", wed:"wed", weds:"wed", wednesday:"wed", thu:"thu", thur:"thu", thurs:"thu", thursday:"thu", fri:"fri", friday:"fri", sat:"sat", saturday:"sat" };
+  function parseDay(raw) { const k = norm(raw); return DAY_KEYS[k] || DAY_KEYS[k.slice(0, 3)] || null; }
+  function parseTime(raw) {
+    if (raw == null) return null;
+    const s = String(raw).trim().toLowerCase().replace(/\./g, "").replace(/\s+/g, "");
+    const m = s.match(/^(\d{1,2})(?::?(\d{2}))?(am|pm)?$/);
+    if (!m) return null;
+    let h = parseInt(m[1], 10); const min = m[2] ? parseInt(m[2], 10) : 0; const ap = m[3];
+    if (isNaN(h) || min > 59) return null;
+    if (ap) { if (h < 1 || h > 12) return null; if (ap === "pm" && h !== 12) h += 12; if (ap === "am" && h === 12) h = 0; }
+    if (h > 23) return null;
+    return h * 60 + min;
+  }
+  const minsToHHMM = (m) => String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+  function fmtTime(hhmm) {
+    let [h, m] = hhmm.split(":").map(Number);
+    const ampm = h >= 12 ? "PM" : "AM"; h = h % 12; if (h === 0) h = 12;
+    const mm = m === 0 ? "" : ":" + String(m).padStart(2, "0");
+    return { hm: h + mm, ampm };
+  }
+  function escapeHtml(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
+  function catLabel(cat) { return CATEGORY_LABELS[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1)); }
+
+  function parseCSV(text) {
+    const rows = []; let row = [], field = "", i = 0, inQ = false;
+    while (i < text.length) {
+      const c = text[i];
+      if (inQ) { if (c === '"') { if (text[i+1] === '"') { field += '"'; i += 2; continue; } inQ = false; i++; continue; } field += c; i++; continue; }
+      if (c === '"') { inQ = true; i++; continue; }
+      if (c === ",") { row.push(field); field = ""; i++; continue; }
+      if (c === "\r") { i++; continue; }
+      if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; i++; continue; }
+      field += c; i++;
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  /* ---- 5. BUILD SCHEDULE ---------------------------------------- */
+  function buildSchedule(records) {
+    const out = { mon: [], tue: [], wed: [], thu: [], fri: [], sat: [], sun: [] };
+    let valid = 0;
+    records.forEach((r) => {
+      const dk = parseDay(r.day); const mins = parseTime(r.time);
+      const clsText = String(r.cls == null ? "" : r.cls).trim();
+      if (!dk || mins == null || !clsText) return;
+      const info = resolveProgram(clsText);
+      let dur = parseInt(r.dur, 10); if (!dur || dur < 1) dur = null;
+      out[dk].push({ mins, t: minsToHHMM(mins), dur, name: info.name, icon: info.icon, cat: info.cat, coach: String(r.coach || "").trim(), room: String(r.room || "").trim(), book: String(r.book || "").trim() });
+      valid++;
+    });
+    out._count = valid;
+    return out;
+  }
+  function recordsFromCsv(text) {
+    if (/^\s*</.test(text)) throw new Error("Got HTML, not CSV");
+    const rows = parseCSV(text).filter((r) => r.some((c) => String(c).trim() !== ""));
+    if (rows.length < 2) throw new Error("No data rows");
+    const header = rows[0].map((h) => norm(h));
+    const find = (...names) => { for (const n of names) { const i = header.indexOf(n); if (i !== -1) return i; } return -1; };
+    const ci = { day: find("day"), time: find("time","start","starttime"), dur: find("duration","dur","minutes","length"), cls: find("program","class","classname","name","clinic"), coach: find("coach","instructor","pro","teacher"), room: find("court","room","location"), book: find("book","bookingurl","link","url") };
+    if (ci.day === -1 || ci.time === -1 || ci.cls === -1) throw new Error("Missing columns (need Day, Time, Program)");
+    const get = (row, idx) => (idx === -1 ? "" : (row[idx] || ""));
+    return rows.slice(1).map((row) => ({ day: get(row,ci.day), time: get(row,ci.time), dur: get(row,ci.dur), cls: get(row,ci.cls), coach: get(row,ci.coach), room: get(row,ci.room), book: get(row,ci.book) }));
+  }
+
+  /* ---- 6. STATE & RENDER ---------------------------------------- */
+  const DAY_NAMES = { mon:"Monday", tue:"Tuesday", wed:"Wednesday", thu:"Thursday", fri:"Friday", sat:"Saturday", sun:"Sunday" };
+  const ORDER = ["mon","tue","wed","thu","fri","sat","sun"];
+  const DAYS_JS = ["sun","mon","tue","wed","thu","fri","sat"];
+  const todayKey = DAYS_JS[new Date().getDay()];
+
+  let SCHEDULE = buildSchedule(FALLBACK_RECORDS);
+  let activeDay = todayKey;
+  let activeCat = "all";
+  const $ = (id) => document.getElementById(id);
+
+  function presentCats() {
+    const set = new Set();
+    ORDER.forEach((d) => SCHEDULE[d].forEach((s) => set.add(s.cat)));
+    const ordered = CATEGORY_ORDER.filter((c) => set.has(c));
+    set.forEach((c) => { if (!ordered.includes(c)) ordered.push(c); });
+    return ordered;
+  }
+  function renderDays() {
+    const wrap = $("schedDays"); wrap.innerHTML = "";
+    ORDER.forEach((dk) => {
+      const count = SCHEDULE[dk].length;
+      const btn = document.createElement("button");
+      btn.className = "day-tab" + (dk === activeDay ? " active" : "") + (dk === todayKey ? " is-today" : "");
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", dk === activeDay ? "true" : "false");
+      btn.innerHTML = '<span class="day-abbr">' + DAY_NAMES[dk].slice(0, 3).toUpperCase() + "</span><span class=\"day-meta\">" + count + (count === 1 ? " session" : " sessions") + "</span>";
+      btn.addEventListener("click", () => { activeDay = dk; renderAll(); });
+      wrap.appendChild(btn);
+    });
+  }
+  function renderFilters() {
+    const wrap = $("schedFilters"); wrap.innerHTML = "";
+    const cats = ["all"].concat(presentCats());
+    if (!cats.includes(activeCat)) activeCat = "all";
+    cats.forEach((c) => {
+      const btn = document.createElement("button");
+      btn.className = "filter-chip" + (c === activeCat ? " active" : "");
+      btn.textContent = c === "all" ? "All" : catLabel(c);
+      btn.addEventListener("click", () => { activeCat = c; renderAll(); });
+      wrap.appendChild(btn);
+    });
+  }
+  function renderList() {
+    const list = $("schedList"); const count = $("schedCount"); list.innerHTML = "";
+    let rows = SCHEDULE[activeDay].slice();
+    if (activeCat !== "all") rows = rows.filter((r) => r.cat === activeCat);
+    rows.sort((a, b) => a.mins - b.mins);
+    const dayLabel = DAY_NAMES[activeDay] + (activeDay === todayKey ? " · Today" : "");
+    count.textContent = rows.length ? rows.length + (rows.length === 1 ? " session" : " sessions") + " · " + dayLabel : "";
+    if (!rows.length) {
+      list.innerHTML = '<div class="sched-empty"><span class="eyebrow2">Nothing on court</span><div>No sessions scheduled for ' + DAY_NAMES[activeDay] + (activeCat !== "all" ? " in " + catLabel(activeCat) : "") + ". Try another day or filter.</div></div>";
+      return;
+    }
+    const isToday = activeDay === todayKey;
+    const now = new Date(); const nowMins = now.getHours() * 60 + now.getMinutes();
+    let nextTagged = false;
+    rows.forEach((r, i) => {
+      const start = r.mins, end = r.mins + (r.dur || 60), time = fmtTime(r.t);
+      let status = "";
+      if (isToday) { if (end <= nowMins) status = "past"; else if (start <= nowMins && nowMins < end) status = "now"; else if (!nextTagged) { status = "next"; nextTagged = true; } }
+      const row = document.createElement("div");
+      row.className = "session" + (status === "now" ? " is-now" : "") + (status === "past" ? " is-past" : "");
+      row.style.animationDelay = (i * 0.035) + "s";
+      const href = r.book || CONFIG.bookingUrl;
+      const ctaText = status === "past" ? "Ended" : (href ? "Reserve" : "Call to book");
+      const ctaAttrs = status === "past" ? ' aria-disabled="true"' : (href ? ' href="' + escapeHtml(href) + '" target="_blank" rel="noopener"' : ' href="tel:' + CONFIG.phoneHref + '"');
+      const statusTag = status === "now" ? '<span class="status-tag now">On now</span>' : status === "next" ? '<span class="status-tag next">Up next</span>' : "";
+      const metaParts = [];
+      if (r.coach) metaParts.push("with " + escapeHtml(r.coach));
+      if (r.room) metaParts.push(escapeHtml(r.room));
+      const metaText = metaParts.length ? '<span>' + metaParts.join(" · ") + "</span>" : "";
+      row.innerHTML =
+        '<div class="session-time"><div class="t">' + time.hm + '<span class="ampm">' + time.ampm + "</span></div>" + (r.dur ? '<div class="dur">' + r.dur + " min</div>" : "") + "</div>" +
+        '<div class="session-main"><div class="session-name"><span class="ic">' + r.icon + "</span>" + escapeHtml(r.name) + "</div>" +
+          '<div class="session-meta"><span class="cat">' + catLabel(r.cat) + "</span>" + metaText + statusTag + "</div></div>" +
+        '<a class="session-cta"' + ctaAttrs + ">" + ctaText + "</a>";
+      list.appendChild(row);
+    });
+  }
+  function renderFoot() {
+    const bookingLine = CONFIG.bookingUrl ? "Reserving opens the booking page in a new tab. " : "To reserve a spot, call the front desk. ";
+    $("schedFoot").innerHTML = bookingLine + "Schedule is subject to change. Questions? Call <a href=\"tel:" + CONFIG.phoneHref + "\">" + CONFIG.phone + "</a> · " + CONFIG.address + ".";
+  }
+  function renderAll() { renderDays(); renderFilters(); renderList(); renderFoot(); }
+
+  /* ---- 7. LOAD: fallback first, then live sheet ----------------- */
+  renderAll();
+  async function loadSheet() {
+    if (!CONFIG.sheetCsvUrl) return;
+    try {
+      const url = CONFIG.sheetCsvUrl + (CONFIG.sheetCsvUrl.includes("?") ? "&" : "?") + "_cb=" + Date.now();
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 7000);
+      const res = await fetch(url, { signal: ctrl.signal, cache: "no-store" });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const built = buildSchedule(recordsFromCsv(await res.text()));
+      if (built._count < 1) throw new Error("No valid rows");
+      SCHEDULE = built; renderAll();
+    } catch (err) {
+      console.warn("[schedule] Using built-in week; sheet not loaded:", err && err.message);
+    }
+  }
+  loadSheet();
+  setInterval(() => { if (activeDay === todayKey) renderList(); }, 60000);
+})();
+</script>
+
+</body>
+</html>

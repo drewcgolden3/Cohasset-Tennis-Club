@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Cohasset Tennis Club</title>
+<meta name="description" content="Contact the Cohasset Tennis Club at 21 Cedar St, Cohasset, MA 02025. Call (781) 383-9533 or email cohassettennis-club@gmail.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#123141">
+<style>
+  .map-embed { position: relative; width: 100%; aspect-ratio: 16/9; border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow-md); background: var(--bone-alt); }
+  .map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(0.2) contrast(1.02); }
+  @media (max-width: 620px) { .map-embed { aspect-ratio: 4/3; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html">Adult</a></li>
+    <li><a href="junior-tennis.html">Junior</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" class="mm-cta" onclick="closeMobile()">Contact <span>07</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>Contact</span>
+    <h1 data-reveal style="transition-delay:.08s">We'd love to see<br><em>you on the courts.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">Questions about membership, lessons, or junior programs?
+    Give us a call, send an email, or use one of the quick links below.</p>
+  </div>
+</header>
+
+<!-- CONTACT INFO -->
+<section class="section">
+  <div class="container">
+    <div class="info-grid" data-reveal-stagger>
+      <div class="info-item" data-reveal>
+        <div class="k">Call</div>
+        <div class="v"><a href="tel:17813839533">(781) 383-9533</a></div>
+      </div>
+      <div class="info-item" data-reveal>
+        <div class="k">Email</div>
+        <div class="v"><a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a></div>
+      </div>
+      <div class="info-item" data-reveal>
+        <div class="k">Visit</div>
+        <div class="v"><a href="https://www.google.com/maps/search/?api=1&query=21+Cedar+St+Cohasset+MA+02025" target="_blank" rel="noopener">21 Cedar St<br>Cohasset, MA 02025</a></div>
+      </div>
+    </div>
+
+    <div class="map-embed" style="margin-top:clamp(40px,6vw,56px)" data-reveal>
+      <iframe title="Map to Cohasset Tennis Club, 21 Cedar St, Cohasset MA" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=21%20Cedar%20St%2C%20Cohasset%2C%20MA%2002025&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<section class="section band-alt">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Quick links</span>
+      <h2 class="section-title">How can we help?</h2>
+    </div>
+    <div class="card-grid cols-3" style="margin-top:clamp(40px,6vw,56px)" data-reveal-stagger>
+      <a href="adult-request.html" class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.4"/></svg></span>
+        <h3>Book a Lesson</h3>
+        <p>Request a private, semi-private, or small-group lesson with the pro of your choice.</p>
+        <span class="card-foot link-arrow">Request a lesson <span class="arw">→</span></span>
+      </a>
+      <a href="junior-registration.html" class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 21c0-4 2.9-6.5 6.5-6.5S18.5 17 18.5 21"/></svg></span>
+        <h3>Register a Junior</h3>
+        <p>Sign your child up for our junior development program. Questions? Email Sonny.</p>
+        <span class="card-foot link-arrow">Junior registration <span class="arw">→</span></span>
+      </a>
+      <a href="membership.html" class="pcard" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4zM4 7l8 6 8-6"/></svg></span>
+        <h3>Join the Club</h3>
+        <p>Explore junior, individual, couple, and family memberships and how to sign up.</p>
+        <span class="card-foot link-arrow">See membership <span class="arw">→</span></span>
+      </a>
+    </div>
+    <div data-reveal style="margin-top:40px">
+      <p class="prose" style="max-width:60ch"><strong>Junior program questions?</strong> Reach Director of Junior Tennis Sonny Bisazza at
+      <a href="mailto:sonny@cohassettennis-club.com" class="link-arrow" style="display:inline-flex">sonny@cohassettennis-club.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
