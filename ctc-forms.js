@@ -59,9 +59,55 @@
     if (g && g.classList.contains("has-error") && !groupInvalid(g)) setError(g, false);
   });
 
+  /* Mirror the enquiry into Switchboard OS so it shows up in the club's
+     Leads dashboard alongside chat leads. Fire-and-forget: Google Forms
+     stays the system of record and the UI never waits on this. */
+  function mirrorLead() {
+    var isJunior = !!document.getElementById("jr-player");
+    var val = function (id) {
+      var el = document.getElementById(id);
+      return el && el.value.trim() ? el.value.trim() : null;
+    };
+    var player = val(isJunior ? "jr-player" : "a-player");
+    var parent = val(isJunior ? "jr-parent" : "a-parent");
+    var body = {
+      clientSlug: "cohasset-tennis-club",
+      // For juniors the parent is the person the club actually contacts.
+      name: (isJunior ? parent || player : player) || "Website visitor",
+      email: val(isJunior ? "jr-email" : "a-email"),
+      phone: isJunior ? null : val("a-phone"),
+      interest: isJunior ? "Junior Program Registration" : "Private Lesson Request",
+      source: isJunior ? "Junior Registration Form" : "Lesson Request Form",
+      notes: isJunior && parent && player ? "Player: " + player : null,
+      path: location.pathname,
+      referrer: document.referrer || null,
+    };
+    try {
+      var utm = JSON.parse(sessionStorage.getItem("ctc_utm") || "{}");
+      for (var k in utm) body[k] = utm[k];
+    } catch (err) {}
+    try {
+      fetch("https://switchboard-os.vercel.app/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+        keepalive: true,
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          // Same key the chat widget uses, so a later booking-option click
+          // in the chat is attributed to this person.
+          if (d && d.id) localStorage.setItem("sb_lead_cohasset-tennis-club", d.id);
+        })
+        .catch(function () {});
+    } catch (err) {}
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!validate()) return;
+
+    mirrorLead();
 
     if (submitBtn) {
       submitBtn.disabled = true;

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drewcgolden3.github.io/Cohasset-Tennis-Club/sitemap.xml
