@@ -71,8 +71,7 @@
     <p class="hero-sub" data-reveal style="transition-delay:.16s">Members reserve our four clay courts online, around
     the clock, through CourtReserve. New to the club? Join in a few minutes, then book your first hit the same day.</p>
     <div class="hero-cta" data-reveal style="transition-delay:.24s">
-      <a href="https://app.courtreserve.com/Online/Reservations/Index/16801" target="_blank" rel="noopener"
-         class="btn btn-lt" data-book="hero-reserve">Reserve a court <span class="ext-arw">↗</span></a>
+      <a href="#availability" class="btn btn-lt">See what's open <span class="arw">→</span></a>
       <a href="#lanes" class="btn btn-ghost">All booking options</a>
     </div>
   </div>
@@ -183,6 +182,31 @@
       </article>
 
     </div>
+  </div>
+</section>
+
+<!-- LIVE AVAILABILITY (CourtReserve widget) -->
+<section class="section" id="availability" style="padding-top:0">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Live from the courts</span>
+      <h2 class="section-title">What's open right now.</h2>
+      <p class="section-lead">This is our real booking calendar — the same one the front desk sees, updating as
+      courts are taken. Pick a free slot and hit Reserve to finish booking in CourtReserve.</p>
+    </div>
+
+    <div class="cr-widget-frame" style="margin-top:clamp(32px,4.5vw,44px)" data-reveal>
+      <iframe id="cr-courts-widget" class="form-iframe-105144"
+              src="https://widgets.courtreserve.com/Online/Public/EmbedCode/16801/105144"
+              title="Cohasset Tennis Club live court availability"
+              loading="lazy" scrolling="no"></iframe>
+    </div>
+
+    <p class="cr-widget-note" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <span>Reserving opens CourtReserve in a new tab and carries your chosen court and time across — you'll just
+      need to log in. Not a member yet? <a href="#lanes" class="inline-link">Join the club</a> first.</span>
+    </p>
   </div>
 </section>
 
@@ -323,5 +347,34 @@
 
 <script src="script.js"></script>
 <script src="chat.js?v=1"></script>
+
+<!-- CourtReserve widget auto-height.
+     The widget posts its rendered height back to us so the iframe can grow
+     instead of scrolling internally. CourtReserve's own snippet accepts a
+     message from any origin; this one checks the sender first and ignores
+     anything that isn't a sane number from their widget host. -->
+<script>
+(function () {
+  "use strict";
+  var WIDGET_ORIGIN = "https://widgets.courtreserve.com";
+  var frame = document.getElementById("cr-courts-widget");
+  if (!frame) return;
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== WIDGET_ORIGIN) return;
+    var d = e.data;
+    if (!d || d.action !== "setHeight") return;
+    var h = parseInt(d.height, 10);
+    if (!isFinite(h) || h < 200 || h > 6000) return;
+
+    // Their payload names the embed code, so a page with several widgets
+    // still sizes the right one.
+    var targets = d.embedCodeId
+      ? document.getElementsByClassName("form-iframe-" + d.embedCodeId)
+      : [frame];
+    for (var i = 0; i < targets.length; i++) targets[i].style.height = h + "px";
+  }, false);
+})();
+</script>
 </body>
 </html>
