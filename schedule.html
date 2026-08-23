@@ -111,7 +111,7 @@
     <li><a href="membership.html">Membership</a></li>
     <li><a href="our-story.html">Our Story</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="adult-request.html" class="nav-cta">Book a Lesson</a></li>
+    <li><a href="book.html" class="nav-cta">Book Now</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
@@ -126,7 +126,7 @@
   <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
   <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
   <a href="contact.html" onclick="closeMobile()">Contact <span>07</span></a>
-  <a href="adult-request.html" class="mm-cta" onclick="closeMobile()">Book a Lesson <span>08</span></a>
+  <a href="book.html" class="mm-cta" onclick="closeMobile()">Book Now <span>08</span></a>
   <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
     <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
 </div>
@@ -166,9 +166,12 @@
   <div class="container callout" style="position:relative; max-width:760px; margin:0 auto" data-reveal>
     <span class="eyebrow" style="justify-content:center">Want a standing time?</span>
     <h2 class="section-title">Book a lesson or claim court time.</h2>
-    <p class="section-lead">Request a private lesson with your pro, or call the front desk about contract court time and league play.</p>
+    <p class="section-lead">Reserve a court online any time, request a private lesson with your pro, or call the
+    front desk about contract court time and league play.</p>
     <div class="hero-cta">
-      <a href="adult-request.html" class="btn btn-lt">Request a Lesson <span class="arw">→</span></a>
+      <a href="https://app.courtreserve.com/Online/Reservations/Index/16801" target="_blank" rel="noopener"
+         class="btn btn-lt" data-book="schedule-reserve">Reserve a court <span class="ext-arw">↗</span></a>
+      <a href="adult-request.html" class="btn btn-ghost">Request a Lesson</a>
       <a href="tel:17813839533" class="btn btn-ghost">(781) 383-9533</a>
     </div>
   </div>
@@ -188,6 +191,12 @@
         <a href="adult-request.html">Private Lessons</a>
         <a href="junior-registration.html">Junior Registration</a>
         <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>Book</h4>
+        <a href="book.html">Book &amp; Reserve</a>
+        <a href="https://app.courtreserve.com/Online/Reservations/Index/16801" target="_blank" rel="noopener" data-book="footer-reserve">Reserve a Court ↗</a>
+        <a href="https://app.courtreserve.com/Online/Memberships/Public/16801" target="_blank" rel="noopener" data-book="footer-membership">Buy a Membership ↗</a>
+        <a href="https://app.courtreserve.com/Online/Account/LogIn/16801" target="_blank" rel="noopener" data-book="footer-login">Member Log In ↗</a>
       </div>
       <div class="fcol"><h4>The Club</h4>
         <a href="coaches.html">Coaches</a>
@@ -224,7 +233,7 @@
     sheetCsvUrl: "",
 
     // Online booking link (if the club adds one). Leave "" to make every button "Call to book".
-    bookingUrl: "",
+    bookingUrl: "https://app.courtreserve.com/Online/Reservations/Index/16801",
 
     phone: "(781) 383-9533",
     phoneHref: "17813839533",

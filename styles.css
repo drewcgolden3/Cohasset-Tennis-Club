@@ -404,6 +404,7 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
 
 /* ---- Cards (programs / features) ----------------------------------------- */
 .card-grid { display: grid; gap: clamp(18px, 2.4vw, 26px); }
+.cols-1 { grid-template-columns: 1fr; }
 .cols-2 { grid-template-columns: repeat(2, 1fr); }
 .cols-3 { grid-template-columns: repeat(3, 1fr); }
 .cols-4 { grid-template-columns: repeat(4, 1fr); }
@@ -601,7 +602,7 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
 
 /* ---- Footer --------------------------------------------------------------- */
 footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 8vw, 92px) 0 34px; }
-.footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: clamp(28px, 4vw, 56px); }
+.footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr; gap: clamp(28px, 4vw, 56px); }
 .footer-brand .fmark { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
 .footer-brand .fmark .mark { width: 42px; height: 42px; border: 1.5px solid rgba(201,178,130,0.6); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); color: var(--brass-lt); font-size: 16px; }
 .footer-brand .fmark b { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; letter-spacing: -0.01em; }
@@ -654,3 +655,170 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
   .choice-grid.two, .choice-grid.three { grid-template-columns: 1fr; }
   .hero { min-height: 88vh; min-height: 88dvh; }
 }
+
+/* ==========================================================================
+   BOOKING — CourtReserve lanes, how-it-works steps, facility strip
+   Used on book.html; lane cards also appear on index.html.
+   ========================================================================== */
+
+/* ---- Booking lanes -------------------------------------------------------- */
+.lanes { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(18px, 2.4vw, 26px); }
+
+.lane {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--border-soft);
+  padding: clamp(28px, 3.2vw, 40px);
+  transition: transform .5s var(--ease-expo), box-shadow .5s var(--ease-expo), border-color .5s;
+}
+.lane::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--clay); transform: scaleX(0); transform-origin: left;
+  transition: transform .6s var(--ease-expo);
+}
+.lane:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--clay-line); }
+.lane:hover::before { transform: scaleX(1); }
+.lane:focus-within { border-color: var(--clay-line); }
+
+.lane .lane-ic {
+  width: 52px; height: 52px; display: grid; place-items: center;
+  background: var(--clay-soft); color: var(--clay); margin-bottom: 24px;
+}
+.lane .lane-ic svg { width: 25px; height: 25px; }
+
+.lane .lane-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: 10px;
+}
+.lane h3 {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+  color: var(--pine); letter-spacing: -0.015em; line-height: 1.15;
+}
+.lane > p { margin-top: 14px; color: var(--ink-mid); font-size: 1rem; line-height: 1.65; }
+
+.lane ul { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+.lane li { font-size: 0.95rem; color: var(--ink-mid); display: flex; gap: 10px; align-items: flex-start; }
+.lane li svg { width: 16px; height: 16px; flex: 0 0 auto; margin-top: 4px; color: var(--clay); }
+
+.lane .lane-foot { margin-top: auto; padding-top: 28px; }
+.lane .lane-foot .btn { width: 100%; }
+.lane .lane-note {
+  margin-top: 12px; font-size: 13px; color: var(--ink-mid); text-align: center; line-height: 1.5;
+}
+
+/* Featured (primary) lane — inverted on navy */
+.lane.featured { background: var(--pine); border-color: var(--pine); }
+.lane.featured::before { background: var(--brass-lt); }
+.lane.featured h3 { color: var(--white); }
+.lane.featured > p { color: var(--muted-lt); }
+.lane.featured .lane-tag { color: var(--brass-lt); }
+.lane.featured .lane-ic { background: rgba(246,199,51,0.16); color: var(--brass-lt); }
+.lane.featured li { color: rgba(245,248,248,0.84); }
+.lane.featured li svg { color: var(--brass-lt); }
+.lane.featured .lane-note { color: var(--muted-lt); }
+
+/* External-link affordance — a small arrow that lifts out of the button */
+.ext-arw { display: inline-block; transition: transform .4s var(--ease-expo); }
+.btn:hover .ext-arw { transform: translate(3px, -3px); }
+
+/* ---- How it works --------------------------------------------------------- */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3.4vw, 48px); counter-reset: step; }
+.step { position: relative; padding-top: 30px; border-top: 2px solid var(--border); }
+.step::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  position: absolute; top: -1px; left: 0; transform: translateY(-50%);
+  font-family: var(--font-display); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--clay); background: var(--bone); padding-right: 14px;
+}
+.band-alt .step::before { background: var(--bone-alt); }
+.step h3 {
+  font-family: var(--font-display); font-weight: 500; font-size: 1.35rem;
+  color: var(--pine); letter-spacing: -0.01em;
+}
+.step p { margin-top: 12px; color: var(--ink-mid); font-size: 0.98rem; line-height: 1.65; }
+.step .step-link { margin-top: 16px; display: inline-flex; }
+
+/* ---- Facility / hours strip ----------------------------------------------- */
+.facil { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+
+.courts-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.court-chip {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(245,248,248,0.07); border: 1px solid var(--border-dark);
+  padding: 16px 18px;
+}
+.court-chip .cnum {
+  font-family: var(--font-display); font-size: 1.15rem; color: var(--brass-lt);
+  flex: 0 0 auto; min-width: 26px;
+}
+.court-chip .cname { font-weight: 600; font-size: 0.98rem; color: var(--bone); }
+.court-chip .csurf {
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(245,248,248,0.72); margin-top: 2px;
+}
+
+.hours-table { display: grid; gap: 0; }
+.hours-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 20px;
+  padding: 16px 0; border-bottom: 1px solid var(--border-dark);
+}
+.hours-row:first-child { border-top: 1px solid var(--border-dark); }
+.hours-row .hday { font-weight: 600; color: var(--bone); font-size: 0.98rem; }
+.hours-row .htime { color: var(--muted-lt); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+
+/* ---- Responsive ----------------------------------------------------------- */
+@media (max-width: 960px) {
+  .lanes { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 34px; }
+  .facil { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .courts-list { grid-template-columns: 1fr; }
+}
+
+/* ---- Trial membership strip ----------------------------------------------- */
+.trial-bar {
+  display: grid; grid-template-columns: auto 1fr auto; gap: clamp(20px, 3vw, 40px);
+  align-items: center; background: var(--card);
+  border: 1px solid var(--border-soft); border-left: 3px solid var(--brass);
+  padding: clamp(24px, 3vw, 34px) clamp(24px, 3.4vw, 40px);
+  transition: box-shadow .5s var(--ease-expo), transform .5s var(--ease-expo);
+}
+.trial-bar:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.trial-bar .tprice {
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(2.1rem, 4vw, 2.7rem);
+  color: var(--pine); letter-spacing: -0.02em; line-height: 1;
+}
+.trial-bar .tprice small { display: block; font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+.trial-bar h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; color: var(--pine); letter-spacing: -0.01em; }
+.trial-bar p { margin-top: 10px; color: var(--ink-mid); font-size: 0.98rem; line-height: 1.6; max-width: 56ch; }
+.trial-bar .btn { white-space: nowrap; }
+
+@media (max-width: 860px) {
+  .trial-bar { grid-template-columns: 1fr; gap: 22px; text-align: left; }
+  .trial-bar .btn { width: 100%; }
+}
+
+/* ---- Booking link hit areas ------------------------------------------------
+   The step links and lane footnotes are small by design, so extend their
+   tappable area to the 44px minimum without shifting any layout. */
+.step-link::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -11px; bottom: -11px;
+}
+.lane-note a {
+  display: inline-block; padding: 12px 4px; margin: -12px -4px;
+  color: inherit; text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: var(--clay-line); transition: text-decoration-color .35s var(--ease-soft);
+}
+.lane-note a:hover { text-decoration-color: currentColor; }
+.lane.featured .lane-note a { text-decoration-color: rgba(246,199,51,0.5); }
+.lane.featured .lane-note a:hover { color: var(--brass-lt); text-decoration-color: var(--brass-lt); }
+
+/* ---- Inline text link (inside a sentence, not a standalone CTA) ------------ */
+.inline-link {
+  color: var(--clay-deep); font-weight: 600;
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: var(--clay-line);
+  padding: 10px 2px; margin: -10px -2px; display: inline-block;
+  transition: text-decoration-color .35s var(--ease-soft), color .35s var(--ease-soft);
+}
+.inline-link:hover { color: var(--pine); text-decoration-color: currentColor; }

@@ -35,6 +35,45 @@
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
+  /* ---- Booking-intent tracking ------------------------------------------
+     Any link carrying data-book (CourtReserve reservations, membership
+     purchase, member log in) pings Switchboard on click, so the club's
+     dashboard shows how many people the site actually pushed into booking.
+     Fire-and-forget with keepalive — the navigation is never delayed. */
+  var TRACK_BASE = "https://switchboard-os.vercel.app";
+  var TRACK_SLUG = "cohasset-tennis-club";
+
+  function trackSessionId() {
+    try {
+      var key = "sb_sid", id = sessionStorage.getItem(key);
+      if (!id) {
+        id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+           : String(Date.now()) + Math.random().toString(36).slice(2);
+        sessionStorage.setItem(key, id);
+      }
+      return id;
+    } catch (e) { return null; }
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[data-book]") : null;
+    if (!a) return;
+    var payload = { clientSlug: TRACK_SLUG, path: "/book-click/" + a.getAttribute("data-book"),
+                    referrer: location.pathname, sessionId: trackSessionId() };
+    try {
+      var utm = JSON.parse(sessionStorage.getItem("ctc_utm") || "{}");
+      for (var k in utm) payload[k] = utm[k];
+      var lead = localStorage.getItem("sb_lead_" + TRACK_SLUG);
+      if (lead) payload.leadId = lead;
+    } catch (err) {}
+    try {
+      fetch(TRACK_BASE + "/api/track", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload), keepalive: true,
+      }).catch(function () {});
+    } catch (err) {}
+  }, true);
+
   /* ---- Scroll reveal (staggered) ---------------------------------------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
   if (reduce || !("IntersectionObserver" in window)) {
