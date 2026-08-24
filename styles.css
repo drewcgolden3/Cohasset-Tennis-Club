@@ -847,3 +847,8 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
   .cr-widget-frame { padding: 8px; }
   .cr-widget-frame iframe { min-height: 520px; }
 }
+
+/* Registration form is a long form — reserve more space so it doesn't jump
+   when the widget reports its real height. */
+.cr-widget-frame--tall iframe { min-height: 980px; }
+@media (max-width: 700px) { .cr-widget-frame--tall iframe { min-height: 1180px; } }

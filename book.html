@@ -196,7 +196,7 @@
     </div>
 
     <div class="cr-widget-frame" style="margin-top:clamp(32px,4.5vw,44px)" data-reveal>
-      <iframe id="cr-courts-widget" class="form-iframe-105144"
+      <iframe class="cr-widget form-iframe-105144"
               src="https://widgets.courtreserve.com/Online/Public/EmbedCode/16801/105144"
               title="Cohasset Tennis Club live court availability"
               loading="lazy" scrolling="no"></iframe>
@@ -348,33 +348,6 @@
 <script src="script.js"></script>
 <script src="chat.js?v=1"></script>
 
-<!-- CourtReserve widget auto-height.
-     The widget posts its rendered height back to us so the iframe can grow
-     instead of scrolling internally. CourtReserve's own snippet accepts a
-     message from any origin; this one checks the sender first and ignores
-     anything that isn't a sane number from their widget host. -->
-<script>
-(function () {
-  "use strict";
-  var WIDGET_ORIGIN = "https://widgets.courtreserve.com";
-  var frame = document.getElementById("cr-courts-widget");
-  if (!frame) return;
-
-  window.addEventListener("message", function (e) {
-    if (e.origin !== WIDGET_ORIGIN) return;
-    var d = e.data;
-    if (!d || d.action !== "setHeight") return;
-    var h = parseInt(d.height, 10);
-    if (!isFinite(h) || h < 200 || h > 6000) return;
-
-    // Their payload names the embed code, so a page with several widgets
-    // still sizes the right one.
-    var targets = d.embedCodeId
-      ? document.getElementsByClassName("form-iframe-" + d.embedCodeId)
-      : [frame];
-    for (var i = 0; i < targets.length; i++) targets[i].style.height = h + "px";
-  }, false);
-})();
-</script>
+<script src="cr-widget.js"></script>
 </body>
 </html>
