@@ -365,6 +365,10 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
 .hero.hero-page .container { padding-top: clamp(30px, 5vw, 56px); padding-bottom: clamp(36px, 5vw, 64px); }
 .hero.hero-page h1 { font-size: clamp(2.5rem, 6.2vw, 4.6rem); max-width: 20ch; }
 
+/* Shorter hero for the signup page — the form is the point, not the banner. */
+.hero.hero-page.hero-compact { min-height: 38vh; min-height: 38dvh; }
+.hero.hero-page.hero-compact h1 { font-size: clamp(2.2rem, 4.8vw, 3.4rem); }
+
 .hero-scroll {
   position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 2;
   font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-lt);

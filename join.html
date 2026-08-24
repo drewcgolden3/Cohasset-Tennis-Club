@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Cohasset Tennis Club — Membership Signup</title>
+<meta name="description" content="Create your Cohasset Tennis Club account and choose your membership online. Junior, Individual, Couples and Family memberships, plus a junior trial.">
+<link rel="canonical" href="https://drewcgolden3.github.io/Cohasset-Tennis-Club/join.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://widgets.courtreserve.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#123141">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cohasset Tennis Club">
+<meta property="og:title" content="Join the Club | Cohasset Tennis Club">
+<meta property="og:description" content="Create your account and choose your membership online.">
+<meta property="og:url" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/join.html">
+<meta property="og:image" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="624">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Join the Club | Cohasset Tennis Club">
+<meta name="twitter:description" content="Create your account and choose your membership online.">
+<meta name="twitter:image" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/images/og-image.jpg">
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
+    <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
+  </a>
+  <ul class="nav-links">
+    <li><a href="adult-tennis.html">Adult</a></li>
+    <li><a href="junior-tennis.html">Junior</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="book.html" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
+  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
+  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
+  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
+  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
+  <a href="contact.html" onclick="closeMobile()">Contact <span>07</span></a>
+  <a href="book.html" class="mm-cta" onclick="closeMobile()">Book Now <span>08</span></a>
+  <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
+    <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-page hero-compact">
+  <div class="hero-bg"><div class="court-motif"></div></div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow" data-reveal>Join the club</span>
+    <h1 data-reveal style="transition-delay:.08s" id="join-heading">Become a member.</h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">Set up your household account and confirm your
+    membership. It takes a few minutes, and court booking opens up as soon as you're in.</p>
+  </div>
+</header>
+
+<!-- REGISTRATION -->
+<section class="section" id="join" style="padding-top:clamp(38px,4.5vw,58px)">
+  <div class="container">
+    <p class="join-chosen" id="cr-join-chosen" hidden></p>
+
+    <div class="cr-widget-frame cr-widget-frame--tall" style="margin-top:clamp(24px,3.4vw,34px)" data-reveal>
+      <iframe id="cr-join-widget" class="cr-widget form-iframe-105147"
+              src="https://widgets.courtreserve.com/Online/Public/EmbedCode/16801/105147"
+              title="Cohasset Tennis Club membership registration"
+              scrolling="no"></iframe>
+    </div>
+
+    <p class="cr-widget-note" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span>Your details go directly to CourtReserve, the club's booking system &mdash; we never see your password.
+      Enter the primary household member only; you can add family once your account exists. Questions first?
+      <a href="contact.html" class="inline-link">Talk to us</a>.</span>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fmark"><b>Cohasset Tennis Club</b></div>
+        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+      </div>
+      <div class="fcol"><h4>Programs</h4>
+        <a href="adult-tennis.html">Adult Tennis</a>
+        <a href="junior-tennis.html">Junior Tennis</a>
+        <a href="adult-request.html">Private Lessons</a>
+        <a href="junior-registration.html">Junior Registration</a>
+        <a href="schedule.html">Schedule</a>
+      </div>
+      <div class="fcol"><h4>Book</h4>
+        <a href="book.html">Book &amp; Reserve</a>
+        <a href="join.html">Join the Club</a>
+        <a href="https://app.courtreserve.com/Online/Reservations/Index/16801" target="_blank" rel="noopener" data-book="footer-reserve">Reserve a Court ↗</a>
+        <a href="https://app.courtreserve.com/Online/Memberships/Public/16801" target="_blank" rel="noopener" data-book="footer-membership">Buy a Membership ↗</a>
+        <a href="https://app.courtreserve.com/Online/Account/LogIn/16801" target="_blank" rel="noopener" data-book="footer-login">Member Log In ↗</a>
+      </div>
+      <div class="fcol"><h4>The Club</h4>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol"><h4>Visit</h4>
+        <p>21 Cedar St<br>Cohasset, MA 02025</p>
+        <a href="tel:17813839533">(781) 383-9533</a>
+        <a href="mailto:cohassettennis-club@gmail.com">cohassettennis-club@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cohasset Tennis Club · 21 Cedar St, Cohasset MA 02025</span>
+      <span>Website by <a href="https://switchboardcompany.com" target="_blank" rel="noopener">The Switchboard Co.</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="cr-widget.js"></script>
+<script src="join-tier.js"></script>
+<script src="chat.js?v=1"></script>
+</body>
+</html>

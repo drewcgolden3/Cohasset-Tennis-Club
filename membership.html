@@ -8,7 +8,6 @@
 <link rel="canonical" href="https://drewcgolden3.github.io/Cohasset-Tennis-Club/membership.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://widgets.courtreserve.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -73,7 +72,7 @@
     Join online and you can book your first court the same day.</p>
     <div class="hero-cta" data-reveal style="transition-delay:.24s">
       <a href="#tiers" class="btn btn-lt">See the tiers <span class="arw">→</span></a>
-      <a href="#join" class="btn btn-ghost">Join online <span class="arw">→</span></a>
+      <a href="join.html" class="btn btn-ghost">Join online <span class="arw">→</span></a>
     </div>
   </div>
 </header>
@@ -99,7 +98,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Club championships &amp; socials</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Priority program registration</li>
         </ul>
-        <a href="?tier=junior#join" class="btn btn-ghost" data-book="tier-junior">Join as Junior <span class="arw">→</span></a>
+        <a href="join.html?tier=junior" class="btn btn-ghost" data-book="tier-junior">Join as Junior <span class="arw">→</span></a>
       </div>
 
       <div class="tier" data-reveal>
@@ -112,7 +111,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>League &amp; team eligibility</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Member events all year</li>
         </ul>
-        <a href="?tier=individual#join" class="btn btn-ghost" data-book="tier-individual">Join as Individual <span class="arw">→</span></a>
+        <a href="join.html?tier=individual" class="btn btn-ghost" data-book="tier-individual">Join as Individual <span class="arw">→</span></a>
       </div>
 
       <div class="tier" data-reveal>
@@ -125,7 +124,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clinics, teams &amp; leagues</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Member events all year</li>
         </ul>
-        <a href="?tier=couples#join" class="btn btn-ghost" data-book="tier-couples">Join as a Couple <span class="arw">→</span></a>
+        <a href="join.html?tier=couples" class="btn btn-ghost" data-book="tier-couples">Join as a Couple <span class="arw">→</span></a>
       </div>
 
       <div class="tier featured" data-reveal>
@@ -139,7 +138,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Priority on camps &amp; clinics</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>The most tennis, per dollar</li>
         </ul>
-        <a href="?tier=family#join" class="btn btn-lt" data-book="tier-family">Join as a Family <span class="arw">→</span></a>
+        <a href="join.html?tier=family" class="btn btn-lt" data-book="tier-family">Join as a Family <span class="arw">→</span></a>
       </div>
     </div>
 
@@ -150,7 +149,7 @@
         <p>A lower-commitment way for a young player to try the club — full access to junior clinics and
         programs for a year, so you can see how they take to it before stepping up to a full membership.</p>
       </div>
-      <a href="?tier=trial#join" class="btn btn-primary" data-book="tier-junior-trial">Start a trial <span class="arw">→</span></a>
+      <a href="join.html?tier=trial" class="btn btn-primary" data-book="tier-junior-trial">Start a trial <span class="arw">→</span></a>
     </div>
 
     <p class="section-lead" style="margin-top:clamp(26px,3.4vw,34px); font-size:0.95rem; color:var(--muted)" data-reveal>
@@ -180,33 +179,6 @@
   </div>
 </section>
 
-<!-- JOIN ONLINE (CourtReserve member registration widget) -->
-<section class="section" id="join">
-  <div class="container">
-    <div data-reveal>
-      <span class="eyebrow">Join online</span>
-      <h2 class="section-title">Become a member.</h2>
-      <p class="section-lead">Set up your household account and choose your membership right here — it takes a few
-      minutes. Once you're in, court booking opens up straight away.</p>
-      <p class="join-chosen" id="cr-join-chosen" hidden></p>
-    </div>
-
-    <div class="cr-widget-frame cr-widget-frame--tall" style="margin-top:clamp(32px,4.5vw,44px)" data-reveal>
-      <iframe id="cr-join-widget" class="cr-widget form-iframe-105147"
-              src="https://widgets.courtreserve.com/Online/Public/EmbedCode/16801/105147"
-              title="Cohasset Tennis Club membership registration"
-              loading="lazy" scrolling="no"></iframe>
-    </div>
-
-    <p class="cr-widget-note" data-reveal>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      <span>Your details go directly to CourtReserve, the club's booking system — we never see your password.
-      Enter the primary household member only; you can add family once your account exists. Questions first?
-      <a href="contact.html" class="inline-link">Talk to us</a>.</span>
-    </p>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="section band-pine">
   <div class="court-motif" style="opacity:.3"></div>
@@ -216,7 +188,7 @@
     <p class="section-lead">Join online in a few minutes and start booking courts today — or reach out and we'll
     walk you through the options first.</p>
     <div class="hero-cta">
-      <a href="#join" class="btn btn-lt">Join online <span class="arw">→</span></a>
+      <a href="join.html" class="btn btn-lt">Join online <span class="arw">→</span></a>
       <a href="contact.html" class="btn btn-ghost">Get in touch</a>
       <a href="tel:17813839533" class="btn btn-ghost">(781) 383-9533</a>
     </div>
@@ -240,6 +212,7 @@
       </div>
       <div class="fcol"><h4>Book</h4>
         <a href="book.html">Book &amp; Reserve</a>
+        <a href="join.html">Join the Club</a>
         <a href="https://app.courtreserve.com/Online/Reservations/Index/16801" target="_blank" rel="noopener" data-book="footer-reserve">Reserve a Court ↗</a>
         <a href="https://app.courtreserve.com/Online/Memberships/Public/16801" target="_blank" rel="noopener" data-book="footer-membership">Buy a Membership ↗</a>
         <a href="https://app.courtreserve.com/Online/Account/LogIn/16801" target="_blank" rel="noopener" data-book="footer-login">Member Log In ↗</a>
@@ -264,8 +237,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="cr-widget.js"></script>
-<script src="join-tier.js"></script>
 <script src="chat.js?v=1"></script>
 </body>
 </html>
