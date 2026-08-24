@@ -852,3 +852,14 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
    when the widget reports its real height. */
 .cr-widget-frame--tall iframe { min-height: 980px; }
 @media (max-width: 700px) { .cr-widget-frame--tall iframe { min-height: 1180px; } }
+
+/* "You're joining as X" confirmation above the embedded form */
+.join-chosen {
+  /* Plain inline flow — a flex container would treat each text node and the
+     <strong> as separate items and insert gaps mid-sentence. */
+  margin-top: 18px; display: block; max-width: 62ch;
+  background: var(--clay-soft); border-left: 3px solid var(--clay);
+  padding: 14px 20px; font-size: 1rem; color: var(--ink-mid); line-height: 1.7;
+}
+.join-chosen a { margin-left: 4px; }
+.join-chosen strong { color: var(--pine); font-weight: 600; }
