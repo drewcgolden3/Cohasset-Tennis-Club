@@ -3,99 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weekly Tennis Schedule | Cohasset Tennis Club — Cohasset, MA</title>
-<meta name="description" content="This week on the courts at Cohasset Tennis Club — Early Ballers, Stroke of the Week, the 105 clinic, men's round robins and more. Live, interactive weekly schedule.">
-<link rel="canonical" href="https://drewcgolden3.github.io/Cohasset-Tennis-Club/schedule.html">
+<title>Tennis Leagues, Teams & Weekly Schedule | Cohasset Tennis Club</title>
+<meta name="description" content="Men's match play, women's USTA and MITA teams, round robins and contract time at the Cohasset Tennis Club, plus the full weekly programme schedule.">
+<link rel="canonical" href="https://drewcgolden3.github.io/Cohasset-Tennis-Club/competition.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#123141">
-<!-- Social / link preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cohasset Tennis Club">
-<meta property="og:title" content="Weekly Schedule | Cohasset Tennis Club">
-<meta property="og:description" content="This week on the courts at Cohasset Tennis Club — Early Ballers, Stroke of the Week, the 105 clinic, men's round robins and more. Live, interactive weekly schedule.">
-<meta property="og:url" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/schedule.html">
+<meta property="og:title" content="Competition | Cohasset Tennis Club">
+<meta property="og:description" content="Men's match play, women's USTA and MITA teams, round robins and contract time at the Cohasset Tennis Club, plus the full weekly programme schedule.">
+<meta property="og:url" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/competition.html">
 <meta property="og:image" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="624">
-<meta property="og:image:alt" content="Cohasset Tennis Club — A Coastal Home for the Game">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Weekly Schedule | Cohasset Tennis Club">
-<meta name="twitter:description" content="This week on the courts at Cohasset Tennis Club — Early Ballers, Stroke of the Week, the 105 clinic, men's round robins and more. Live, interactive weekly schedule.">
+<meta name="twitter:title" content="Competition | Cohasset Tennis Club">
+<meta name="twitter:description" content="Men's match play, women's USTA and MITA teams, round robins and contract time at the Cohasset Tennis Club, plus the full weekly programme schedule.">
 <meta name="twitter:image" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/images/og-image.jpg">
-<style>
-  #schedule { background: var(--bone); }
-  #schedule .container { max-width: 1060px; }
-
-  .sched-days { display: flex; gap: 8px; margin: clamp(30px,4vw,44px) 0 22px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .sched-days::-webkit-scrollbar { display: none; }
-  .day-tab { flex: 0 0 auto; cursor: pointer; background: var(--card); border: 1px solid var(--border); padding: 12px 18px; min-width: 80px; text-align: center; font-family: inherit; color: var(--ink-mid);
-    transition: background .35s var(--ease-soft), color .35s var(--ease-soft), border-color .35s var(--ease-soft); border-radius: 3px; }
-  .day-tab .day-abbr { font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: .02em; line-height: 1; display: block; }
-  .day-tab .day-meta { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
-  .day-tab:hover { border-color: var(--clay); color: var(--clay-deep); }
-  .day-tab.active { background: var(--pine); border-color: var(--pine); color: var(--white); }
-  .day-tab.active .day-meta { color: var(--brass-lt); }
-  .day-tab.is-today .day-abbr::after { content: '•'; color: var(--clay); margin-left: 4px; }
-  .day-tab.active.is-today .day-abbr::after { color: var(--brass-lt); }
-
-  .sched-filters { display: flex; flex-wrap: wrap; gap: 8px; }
-  .filter-chip { cursor: pointer; background: transparent; border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px; font-family: inherit;
-    font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
-    transition: background .35s var(--ease-soft), color .35s var(--ease-soft), border-color .35s var(--ease-soft); }
-  .filter-chip:hover { border-color: var(--clay); color: var(--clay-deep); }
-  .filter-chip.active { background: var(--clay-deep); border-color: var(--clay-deep); color: var(--white); }
-
-  .sched-count { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 24px 2px 14px; min-height: 14px; font-weight: 600; }
-
-  .sched-list { display: flex; flex-direction: column; gap: 12px; }
-  .session { background: var(--card); border: 1px solid var(--border-soft); border-left: 3px solid var(--clay);
-    display: grid; grid-template-columns: 130px 1fr auto; align-items: center; gap: 26px; padding: 22px 28px;
-    transition: box-shadow .45s var(--ease-expo), transform .45s var(--ease-expo); }
-  .session:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-  .session-time .t { font-family: var(--font-display); font-weight: 500; font-size: 32px; letter-spacing: .01em; line-height: .95; color: var(--pine); font-variant-numeric: tabular-nums; }
-  .session-time .t .ampm { font-size: 14px; color: var(--muted); margin-left: 3px; font-weight: 600; }
-  .session-time .dur { font-size: 11px; letter-spacing: .06em; color: var(--muted); margin-top: 5px; }
-  .session-main { min-width: 0; }
-  .session-name { font-family: var(--font-display); font-weight: 500; font-size: 24px; letter-spacing: 0; line-height: 1.05; color: var(--pine); display: flex; align-items: center; gap: 11px; }
-  .session-name .ic { display: inline-flex; align-items: center; flex: 0 0 auto; color: var(--clay-deep); }
-  .session-name .ic svg { width: 22px; height: 22px; }
-  .session-meta { font-size: 13px; color: var(--muted); margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
-  .session-meta .cat { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-deep); border: 1px solid var(--clay-line); padding: 2px 8px; border-radius: 3px; }
-
-  .session-cta { display: inline-block; text-align: center; white-space: nowrap; background: transparent; border: 1.5px solid var(--border); color: var(--ink);
-    padding: 12px 24px; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-radius: 2px;
-    transition: background .4s var(--ease-soft), border-color .4s var(--ease-soft), color .4s var(--ease-soft); }
-  .session-cta:hover { background: var(--pine); border-color: var(--pine); color: var(--white); }
-
-  .status-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; white-space: nowrap; }
-  .status-tag.now { background: var(--live); color: var(--white); }
-  .status-tag.next { background: var(--brass-lt); color: var(--pine); }
-  .session.is-now { border-left-color: var(--live); box-shadow: 0 8px 26px rgba(207,90,42,0.14); }
-  .session.is-past { opacity: 0.5; }
-  .session.is-past .session-cta { pointer-events: none; border-color: var(--border); color: var(--muted); }
-
-  .sched-empty { background: var(--card); border: 1px dashed var(--border); padding: 56px 32px; text-align: center; color: var(--muted); border-radius: 3px; }
-  .sched-empty .eyebrow2 { font-family: var(--font-display); font-weight: 500; font-size: 28px; color: var(--pine); margin-bottom: 8px; display: block; }
-
-  .sched-foot { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
-  .sched-foot a { color: var(--clay-deep); text-decoration: none; }
-  .sched-foot a:hover { text-decoration: underline; }
-
-  @keyframes rowIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  .session { animation: rowIn .5s var(--ease-expo) both; }
-  @media (prefers-reduced-motion: reduce) { .session, .session:hover { animation: none; transition: none; transform: none; } }
-
-  @media (max-width: 680px) {
-    .session { grid-template-columns: 1fr; gap: 14px; padding: 20px 20px; align-items: start; }
-    .session-time { display: flex; align-items: baseline; gap: 12px; }
-    .session-time .dur { margin-top: 0; }
-    .session-cta { width: 100%; }
-  }
-</style>
 </head>
 <body>
 
@@ -104,14 +32,12 @@
     <img src="images/logo.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="349" height="297">
   </a>
   <ul class="nav-links">
-    <li><a href="adult-tennis.html">Adult</a></li>
-    <li><a href="junior-tennis.html">Junior</a></li>
-    <li><a href="schedule.html" class="active">Schedule</a></li>
-    <li><a href="coaches.html">Coaches</a></li>
-    <li><a href="membership.html">Membership</a></li>
+    <li><a href="instruction.html">Instruction</a></li>
+    <li><a href="competition.html" class="active">Competition</a></li>
     <li><a href="our-story.html">Our Story</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="book.html" class="nav-cta">Book Now</a></li>
+    <li><a href="https://app.courtreserve.com/Online/Portal/Index/16801" target="_blank" rel="noopener" class="nav-portal" data-book="nav-portal">Member Log In</a></li>
+    <li><a href="membership.html" class="nav-cta">Membership</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
@@ -119,26 +45,28 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="adult-tennis.html" onclick="closeMobile()">Adult Tennis <span>01</span></a>
-  <a href="junior-tennis.html" onclick="closeMobile()">Junior Tennis <span>02</span></a>
-  <a href="schedule.html" onclick="closeMobile()">Schedule <span>03</span></a>
-  <a href="coaches.html" onclick="closeMobile()">Coaches <span>04</span></a>
-  <a href="membership.html" onclick="closeMobile()">Membership <span>05</span></a>
-  <a href="our-story.html" onclick="closeMobile()">Our Story <span>06</span></a>
-  <a href="contact.html" onclick="closeMobile()">Contact <span>07</span></a>
-  <a href="book.html" class="mm-cta" onclick="closeMobile()">Book Now <span>08</span></a>
+  <a href="instruction.html" onclick="closeMobile()">Instruction <span>01</span></a>
+  <a href="competition.html" onclick="closeMobile()">Competition <span>02</span></a>
+  <a href="our-story.html" onclick="closeMobile()">Our Story <span>03</span></a>
+  <a href="contact.html" onclick="closeMobile()">Contact <span>04</span></a>
+  <a href="https://app.courtreserve.com/Online/Portal/Index/16801" target="_blank" rel="noopener" data-book="nav-portal-mobile">Member Log In <span>05</span></a>
+  <a href="membership.html" class="mm-cta" onclick="closeMobile()">Membership <span>06</span></a>
   <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
     <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
 </div>
 
 <!-- HERO -->
-<header class="hero hero-page" style="min-height:44vh">
+<header class="hero hero-page hero-compact">
   <div class="hero-bg"><div class="court-motif"></div></div>
   <div class="container">
-    <span class="eyebrow hero-eyebrow" data-reveal>This week on court</span>
-    <h1 data-reveal style="transition-delay:.08s">The <em>schedule.</em></h1>
-    <p class="hero-sub" data-reveal style="transition-delay:.16s">Pick a day to see what's on the courts. When you check today,
-    the board highlights what's happening right now and what's up next.</p>
+    <span class="eyebrow hero-eyebrow" data-reveal>Competition</span>
+    <h1 data-reveal style="transition-delay:.08s">Compete for<br><em>Cohasset.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">From in-house ladders and round robins to women's
+    USTA and MITA teams — competitive programs with a place for every level.</p>
+    <div class="hero-cta" data-reveal style="transition-delay:.24s">
+      <a href="#schedule" class="btn btn-lt">This week on court <span class="arw">→</span></a>
+      <a href="#join-a-team" class="btn btn-ghost">How to get involved</a>
+    </div>
   </div>
 </header>
 
@@ -160,18 +88,69 @@
   </div>
 </section>
 
+<!-- COMPETE FOR COHASSET -->
+<section class="section band-alt" id="compete">
+  <div class="container">
+    <div data-reveal>
+      <span class="eyebrow">Competitive tennis</span>
+      <h2 class="section-title">Ways to compete.</h2>
+      <p class="section-lead">Structured, competitive, and genuinely fun — whatever level you play at.</p>
+    </div>
+    <div class="card-grid cols-2" style="margin-top:clamp(36px,5vw,52px)" data-reveal-stagger>
+      <div class="icard" data-reveal><div class="idx">Men's</div><h3>Men's Match Play</h3><p>Singles and doubles, both in-house and out-of-house — competitive tennis at whatever level fits you.</p></div>
+      <div class="icard" data-reveal><div class="idx">Women's</div><h3>Women's Teams</h3><p>Represent CTC on our women's USTA and MITA teams, led by Director of Ladies Teams Whitney Berns.</p></div>
+      <div class="icard" data-reveal><div class="idx">Social</div><h3>Round Robins</h3><p>Rotating doubles with fast, friendly scoring — the easiest way to meet members and log match reps.</p></div>
+      <div class="icard" data-reveal><div class="idx">Standing</div><h3>Contract Time</h3><p>Reserve standing court time for your regular game, week after week, all season long.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO JOIN A TEAM -->
+<section class="section" id="join-a-team">
+  <div class="container">
+    <div class="split" style="align-items:flex-start">
+      <div data-reveal>
+        <span class="eyebrow">Getting involved</span>
+        <h2 class="section-title">How to join a team.</h2>
+        <p class="section-lead">Teams and match play are organised by our staff rather than booked online, so
+        placement matches you to the right level and format.</p>
+      </div>
+      <div class="steps-plain" data-reveal-stagger>
+        <div class="step" data-reveal>
+          <h3>Become a member</h3>
+          <p>Competitive programs are for club members. Joining takes a few minutes online and opens up
+          everything else the same day.</p>
+          <a href="membership.html" class="link-arrow step-link">See membership <span class="arw">→</span></a>
+        </div>
+        <div class="step" data-reveal>
+          <h3>Call the shop or stop in</h3>
+          <p>Once you're a member, talk to our staff about which team or match-play format fits your game.
+          They will handle placement from there.</p>
+          <a href="tel:17813839533" class="link-arrow step-link">(781) 383-9533 <span class="arw">→</span></a>
+        </div>
+        <div class="step" data-reveal>
+          <h3>Play</h3>
+          <p>You'll be added to the right group and the season schedule. Round robins and match play appear
+          on the weekly schedule above.</p>
+          <a href="#schedule" class="link-arrow step-link">See the schedule <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="section band-pine">
   <div class="court-motif" style="opacity:.3"></div>
-  <div class="container callout" style="position:relative; max-width:760px; margin:0 auto" data-reveal>
-    <span class="eyebrow" style="justify-content:center">Want a standing time?</span>
-    <h2 class="section-title">Book a lesson or claim court time.</h2>
-    <p class="section-lead">Reserve a court online any time, request a private lesson with your pro, or call the
-    front desk about contract court time and league play.</p>
+  <div class="container callout" style="position:relative; max-width:820px; margin:0 auto" data-reveal>
+    <span class="eyebrow" style="justify-content:center">Come compete</span>
+    <h2 class="section-title">Find your level, find your team.</h2>
+    <p class="section-lead">Stop by the shop or give us a call and we'll point you at the right format. Members
+    book courts and clinics in the portal.</p>
     <div class="hero-cta">
-      <a href="book.html" class="btn btn-lt" data-book="schedule-reserve">See court availability <span class="arw">→</span></a>
-      <a href="adult-request.html" class="btn btn-ghost">Request a Lesson</a>
-      <a href="tel:17813839533" class="btn btn-ghost">(781) 383-9533</a>
+      <a href="tel:17813839533" class="btn btn-lt">(781) 383-9533</a>
+      <a href="contact.html" class="btn btn-ghost">Visit the club <span class="arw">→</span></a>
+      <a href="https://app.courtreserve.com/Online/Portal/Index/16801" target="_blank" rel="noopener" class="btn btn-ghost" data-book="competition-portal">Member portal <span class="ext-arw">↗</span></a>
     </div>
   </div>
 </section>
@@ -184,23 +163,18 @@
         <div class="fmark"><b>Cohasset Tennis Club</b></div>
         <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
       </div>
-      <div class="fcol"><h4>Programs</h4>
-        <a href="adult-tennis.html">Adult Tennis</a>
-        <a href="junior-tennis.html">Junior Tennis</a>
-        <a href="adult-request.html">Private Lessons</a>
-        <a href="junior-registration.html">Junior Registration</a>
-        <a href="schedule.html">Schedule</a>
+      <div class="fcol"><h4>Play</h4>
+        <a href="instruction.html">Instruction</a>
+        <a href="competition.html">Competition</a>
+        <a href="coaches.html">Our Coaches</a>
       </div>
-      <div class="fcol"><h4>Book</h4>
-        <a href="book.html">Book &amp; Reserve</a>
-        <a href="join.html">Join the Club</a>
-        <a href="https://app.courtreserve.com/Online/Account/LogIn/16801" target="_blank" rel="noopener" data-book="footer-login">Member Log In ↗</a>
-      </div>
-      <div class="fcol"><h4>The Club</h4>
-        <a href="coaches.html">Coaches</a>
+      <div class="fcol"><h4>Join</h4>
         <a href="membership.html">Membership</a>
-        <a href="our-story.html">Our Story</a>
-        <a href="contact.html">Contact</a>
+        <a href="join.html">Sign Up Online</a>
+      </div>
+      <div class="fcol"><h4>Members</h4>
+        <a href="https://app.courtreserve.com/Online/Portal/Index/16801" target="_blank" rel="noopener" data-book="footer-portal">Member Portal ↗</a>
+        <p style="font-size:0.88rem; color:var(--muted-lt); padding-top:2px">Court booking, clinic registration and your account.</p>
       </div>
       <div class="fcol"><h4>Visit</h4>
         <p>21 Cedar St<br>Cohasset, MA 02025</p>

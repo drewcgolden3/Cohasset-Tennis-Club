@@ -877,3 +877,19 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 }
 .join-chosen a { margin-left: 4px; }
 .join-chosen strong { color: var(--pine); font-weight: 600; }
+
+/* ---- Member portal link in the nav ----------------------------------------
+   Sits beside the Membership button; quieter than a CTA but always reachable,
+   since booking is the thing existing members come back for. */
+.nav-links .nav-portal {
+  font-weight: 600; color: var(--clay-deep);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.nav-links .nav-portal::after {
+  content: "↗"; font-size: 0.85em; transition: transform .4s var(--ease-expo);
+}
+.nav-links .nav-portal:hover::after { transform: translate(2px, -2px); }
+
+/* Steps in a column (competition page) rather than the 3-across grid */
+.steps-plain { display: flex; flex-direction: column; gap: clamp(26px, 3.4vw, 38px); counter-reset: step; }
+.steps-plain .step { padding-top: 26px; border-top: 2px solid var(--border); }
