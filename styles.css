@@ -832,10 +832,20 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
    widgets.courtreserve.com. It posts its height back to us, so the iframe is
    sized by script; min-height reserves space to avoid layout shift on load. */
 .cr-widget-frame {
+  position: relative;
   background: var(--card); border: 1px solid var(--border-soft);
   padding: clamp(10px, 1.4vw, 18px); box-shadow: var(--shadow-sm);
 }
+/* Placeholder behind the frame, so a slow widget never looks like a bug.
+   The iframe paints its own white ground on top once it has loaded. */
+.cr-widget-frame::before {
+  content: "Loading live availability\2026";
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 0.95rem; color: var(--muted); letter-spacing: 0.02em;
+}
+.cr-widget-frame--tall::before { content: "Loading the signup form\2026"; }
 .cr-widget-frame iframe {
+  position: relative; z-index: 1; background: var(--white);
   display: block; width: 100%; border: 0; min-height: 620px;
   transition: height .3s var(--ease-soft);
 }
