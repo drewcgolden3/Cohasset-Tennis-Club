@@ -888,8 +888,7 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .steps-plain .step { padding-top: 26px; border-top: 2px solid var(--border); }
 
 /* ==========================================================================
-   CENTRED CREST HERO (homepage)
-   The club's mark carries the hero rather than a headline sitting on a photo.
+   CENTRED HERO (homepage)
    Interior heroes stay left-aligned on purpose — if every hero is centred the
    whole site flattens into one rhythm.
    ========================================================================== */
@@ -897,14 +896,6 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .hero.hero--center .container {
   display: flex; flex-direction: column; align-items: center;
   padding-bottom: clamp(40px, 6vw, 72px);
-}
-
-/* The crest is a compact badge, not a wordmark — it reads as a seal at this
-   size. Bigger and it starts to look like a placeholder. */
-.hero-crest {
-  width: clamp(92px, 11vw, 134px); height: auto; display: block;
-  margin-bottom: clamp(22px, 3vw, 30px);
-  filter: drop-shadow(0 10px 30px rgba(10, 28, 38, 0.5));
 }
 
 /* Rules either side, the way a club plaque sets its town and date. */
@@ -925,8 +916,8 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
    that works for a left-aligned hero is too much here — it wrapped badly and
    crowded the mark. Smaller, and the pair reads as one lockup. */
 .hero.hero--center h1 {
-  font-size: clamp(2.4rem, 5.6vw, 4.5rem);
-  line-height: 1.02; margin-top: 18px;
+  font-size: clamp(2.6rem, 6.4vw, 5.2rem);
+  line-height: 1.0; margin-top: 20px;
 }
 
 /* Centred hero puts the CTAs where the scroll cue used to sit. */
@@ -934,7 +925,6 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 
 @media (max-width: 700px) {
   .hero.hero--center h1 { max-width: 15ch; font-size: clamp(2.2rem, 9vw, 3rem); }
-  .hero-crest { width: clamp(84px, 22vw, 104px); }
 }
 
 /* ==========================================================================
