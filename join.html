@@ -3,27 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join the Cohasset Tennis Club — Membership Signup</title>
-<meta name="description" content="Create your Cohasset Tennis Club account and choose your membership online. Junior, Individual, Couples and Family memberships, plus a junior trial.">
+<title>Membership Enquiry | Cohasset Tennis Club</title>
+<meta name="description" content="Enquire about membership at the Cohasset Tennis Club. We're a small local club — tell us about yourself and we'll arrange a visit to meet the staff and see the courts.">
 <link rel="canonical" href="https://drewcgolden3.github.io/Cohasset-Tennis-Club/join.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://widgets.courtreserve.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#123141">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cohasset Tennis Club">
-<meta property="og:title" content="Join the Club | Cohasset Tennis Club">
-<meta property="og:description" content="Create your account and choose your membership online.">
+<meta property="og:title" content="Membership Enquiry | Cohasset Tennis Club">
+<meta property="og:description" content="Enquire about membership at the Cohasset Tennis Club. We're a small local club — tell us about yourself and we'll arrange a visit to meet the staff and see the courts.">
 <meta property="og:url" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/join.html">
 <meta property="og:image" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="624">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Join the Club | Cohasset Tennis Club">
-<meta name="twitter:description" content="Create your account and choose your membership online.">
+<meta name="twitter:title" content="Membership Enquiry | Cohasset Tennis Club">
+<meta name="twitter:description" content="Enquire about membership at the Cohasset Tennis Club. We're a small local club — tell us about yourself and we'll arrange a visit to meet the staff and see the courts.">
 <meta name="twitter:image" content="https://drewcgolden3.github.io/Cohasset-Tennis-Club/images/og-image.jpg">
 </head>
 <body>
@@ -38,7 +37,7 @@
     <li><a href="membership.html" class="active">Membership</a></li>
     <li><a href="our-story.html">Our Story</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://app.courtreserve.com/Online/Account/LogIn/16801" target="_blank" rel="noopener" class="nav-cta" data-book="nav-portal">Member Log In <span class="ext-arw">↗</span></a></li>
+    <li><a href="https://app.courtreserve.com/Online/Portal/Index/16801" target="_blank" rel="noopener" class="nav-cta" data-book="nav-portal">Member Log In <span class="ext-arw">↗</span></a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
@@ -51,7 +50,7 @@
   <a href="membership.html" onclick="closeMobile()">Membership <span>03</span></a>
   <a href="our-story.html" onclick="closeMobile()">Our Story <span>04</span></a>
   <a href="contact.html" onclick="closeMobile()">Contact <span>05</span></a>
-  <a href="https://app.courtreserve.com/Online/Account/LogIn/16801" target="_blank" rel="noopener" class="mm-cta" data-book="nav-portal-mobile">Member Log In <span>06</span></a>
+  <a href="https://app.courtreserve.com/Online/Portal/Index/16801" target="_blank" rel="noopener" class="mm-cta" data-book="nav-portal-mobile">Member Log In <span>06</span></a>
   <div class="mm-foot">21 Cedar St, Cohasset MA 02025<br>
     <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
 </div>
@@ -60,31 +59,107 @@
 <header class="hero hero-page hero-compact">
   <div class="hero-bg"><div class="court-motif"></div></div>
   <div class="container">
-    <span class="eyebrow hero-eyebrow" data-reveal>Join the club</span>
-    <h1 data-reveal style="transition-delay:.08s" id="join-heading">Become a member.</h1>
-    <p class="hero-sub" data-reveal style="transition-delay:.16s">Set up your household account and confirm your
-    membership. It takes a few minutes, and court booking opens up as soon as you're in.</p>
+    <span class="eyebrow hero-eyebrow" data-reveal>Membership enquiry</span>
+    <h1 data-reveal style="transition-delay:.08s">Come and see<br><em>the club first.</em></h1>
+    <p class="hero-sub" data-reveal style="transition-delay:.16s">We're a small, local club, so we like to meet
+    people before they join. Tell us a little about yourself and we'll arrange a visit — have a look round, meet
+    the pros, and see whether we're the right fit.</p>
   </div>
 </header>
 
-<!-- REGISTRATION -->
-<section class="section" id="join" style="padding-top:clamp(38px,4.5vw,58px)">
+<!-- REQUEST FORM -->
+<section class="section" id="request">
   <div class="container">
-    <p class="join-chosen" id="cr-join-chosen" hidden></p>
+    <div class="split" style="align-items:flex-start">
 
-    <div class="cr-widget-frame cr-widget-frame--tall" style="margin-top:clamp(24px,3.4vw,34px)">
-      <iframe id="cr-join-widget" class="cr-widget form-iframe-105147"
-              src="https://widgets.courtreserve.com/Online/Public/EmbedCode/16801/105147"
-              title="Cohasset Tennis Club membership registration"
-              scrolling="no"></iframe>
+      <aside data-reveal>
+        <span class="eyebrow">How joining works</span>
+        <h2 class="section-title" style="font-size:clamp(1.9rem,3.4vw,2.6rem)">Three steps.</h2>
+        <div class="steps-plain" style="margin-top:30px">
+          <div class="step">
+            <h3>Send an enquiry</h3>
+            <p>Fill in the form and tell us what you're looking for — courts, coaching, junior programs, or all three.</p>
+          </div>
+          <div class="step">
+            <h3>Visit the club</h3>
+            <p>We'll be in touch to arrange a time. Come and see the courts, meet our staff, and ask whatever you like.</p>
+          </div>
+          <div class="step">
+            <h3>Join</h3>
+            <p>If it's a fit, we'll set up your membership and your online account so you can start booking.</p>
+          </div>
+        </div>
+        <p class="cr-widget-note" style="margin-top:34px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span>Not sure which membership suits you? <a href="membership.html" class="inline-link">Compare the tiers</a>
+          — but there's no need to decide before you visit.</span>
+        </p>
+      </aside>
+
+      <div data-reveal style="transition-delay:.1s">
+        <div class="form-wrap">
+          <div class="form-error-summary" id="formErrorSummary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            Please complete the required fields highlighted below.
+          </div>
+
+          <form data-leadform novalidate>
+
+            <div class="form-section-label">Your details</div>
+
+            <div class="fgroup" data-required="text">
+              <label class="flabel" for="mb-name">Your Name <span class="req">*</span></label>
+              <input class="finput" id="mb-name" name="name" type="text" autocomplete="name" placeholder="First and last name">
+            </div>
+
+            <div class="fgroup" data-required="text">
+              <label class="flabel" for="mb-email">Email <span class="req">*</span></label>
+              <input class="finput" id="mb-email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
+            </div>
+
+            <div class="fgroup" data-required="text">
+              <label class="flabel" for="mb-phone">Phone <span class="req">*</span></label>
+              <input class="finput" id="mb-phone" name="phone" type="tel" autocomplete="tel" placeholder="(781) 555-0123">
+            </div>
+
+            <div class="form-section-label" style="margin-top:30px">What you're looking for</div>
+
+            <div class="fgroup">
+              <label class="flabel" for="mb-tier">Membership of interest</label>
+              <select class="finput" id="mb-tier" name="membership">
+                <option value="">Not sure yet — happy to discuss</option>
+                <option value="Junior">Junior</option>
+                <option value="Individual">Individual</option>
+                <option value="Couples">Couples</option>
+                <option value="Family">Family</option>
+                <option value="Junior Trial">Junior Trial</option>
+              </select>
+            </div>
+
+            <div class="fgroup">
+              <label class="flabel" for="mb-notes">Anything else?</label>
+              <textarea class="finput" id="mb-notes" name="notes" rows="4" placeholder="Who'd be playing, roughly what level, and when you're usually free to visit."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:28px">Send enquiry <span class="arw">→</span></button>
+            <p style="margin-top:16px; font-size:0.9rem; color:var(--muted); text-align:center">
+              We'll reply within two days to arrange a visit.
+            </p>
+          </form>
+
+          <div class="form-status" id="formStatus">
+            <div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>Enquiry sent!</h3>
+            <p>Thanks — we've got your details. One of our staff will be in touch within two days to arrange a time
+            for you to come and see the club.</p>
+            <div class="hero-cta" style="justify-content:center; margin-top:26px">
+              <a href="instruction.html" class="btn btn-ghost" style="color:var(--ink); border-color:var(--border)">See our programs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <p class="cr-widget-note" data-reveal>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      <span>Your details go directly to CourtReserve, the club's booking system &mdash; we never see your password.
-      Enter the primary household member only; you can add family once your account exists. Questions first?
-      <a href="contact.html" class="inline-link">Talk to us</a>.</span>
-    </p>
   </div>
 </section>
 
@@ -106,7 +181,7 @@
         <a href="join.html">Sign Up Online</a>
       </div>
       <div class="fcol"><h4>Members</h4>
-        <a href="https://app.courtreserve.com/Online/Account/LogIn/16801" target="_blank" rel="noopener" data-book="footer-portal">Member Portal ↗</a>
+        <a href="https://app.courtreserve.com/Online/Portal/Index/16801" target="_blank" rel="noopener" data-book="footer-portal">Member Portal ↗</a>
         <p style="font-size:0.88rem; color:var(--muted-lt); padding-top:2px">Court booking, clinic registration and your account.</p>
       </div>
       <div class="fcol"><h4>Visit</h4>
@@ -123,8 +198,7 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="cr-widget.js"></script>
-<script src="join-tier.js"></script>
+<script src="ctc-forms.js"></script>
 <script src="chat.js?v=1"></script>
 </body>
 </html>
