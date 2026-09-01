@@ -936,3 +936,54 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
   .hero.hero--center h1 { max-width: 15ch; font-size: clamp(2.2rem, 9vw, 3rem); }
   .hero-crest { width: clamp(84px, 22vw, 104px); }
 }
+
+/* ==========================================================================
+   LEDGER
+   Replaces the boxed card grid. Same information, but set as ruled rows —
+   the way a club prints its programme on a board rather than a web page.
+   Boxes with shadows repeated three-up are the most templated thing on any
+   site; hairlines and a numeral read as typeset.
+   ========================================================================== */
+.ledger { border-top: 1px solid var(--border); }
+.ledger-row {
+  display: grid;
+  grid-template-columns: 3.6rem minmax(0, 0.85fr) minmax(0, 1.3fr);
+  gap: clamp(14px, 2.6vw, 40px);
+  padding: clamp(22px, 3vw, 30px) 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.ledger-row .lnum {
+  font-family: var(--font-display); font-weight: 400; font-size: 0.95rem;
+  color: var(--clay); letter-spacing: 0.06em; font-variant-numeric: tabular-nums;
+  transition: color .45s var(--ease-soft);
+}
+.ledger-row .lterm {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(1.12rem, 1.7vw, 1.4rem); color: var(--pine);
+  letter-spacing: -0.01em; line-height: 1.25;
+}
+.ledger-row .ldesc { color: var(--ink-mid); font-size: 0.99rem; line-height: 1.65; }
+.ledger-row:hover .lnum { color: var(--brass); }
+
+/* On navy the same rows need their own hairline and ink. */
+.band-pine .ledger { border-top-color: var(--border-dark); }
+.band-pine .ledger-row { border-bottom-color: var(--border-dark); }
+.band-pine .ledger-row .lnum { color: var(--brass-lt); }
+.band-pine .ledger-row .lterm { color: var(--white); }
+.band-pine .ledger-row .ldesc { color: var(--muted-lt); }
+
+@media (max-width: 760px) {
+  .ledger-row {
+    grid-template-columns: 2.4rem 1fr; gap: 4px 14px;
+    padding: 22px 0;
+  }
+  .ledger-row .ldesc { grid-column: 2; margin-top: 6px; }
+}
+
+/* Category kicker above the term — the label that used to sit on the card. */
+.ledger-row .lkick {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--clay); margin-bottom: 7px;
+}
+.band-pine .ledger-row .lkick { color: var(--brass-lt); }
