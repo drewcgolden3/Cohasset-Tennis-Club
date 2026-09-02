@@ -406,6 +406,29 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
 }
 .split-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
+/* ---- Photography ---------------------------------------------------------- */
+/* Portrait source (a standing shot) needs the taller frame or it crops to torsos. */
+.split-media.tall { aspect-ratio: 3/4; }
+
+/* One photograph given a whole column, captioned like a plate in a book rather
+   than dressed up as a card. */
+.plate { position: relative; border-radius: 2px; overflow: hidden; background: var(--pine); box-shadow: var(--shadow-md); }
+.plate img { display: block; width: 100%; height: auto; }
+/* --crop is where the kept window sits vertically: lower % keeps more headroom,
+   higher % keeps more floor. Set it per photo so nobody's head gets clipped. */
+.plate.crop img { aspect-ratio: 16/9; object-fit: cover; object-position: center var(--crop, 40%); }
+.plate-cap {
+  display: flex; gap: 14px; align-items: baseline; margin-top: 15px;
+  font-size: 0.9rem; line-height: 1.5; color: var(--muted);
+}
+.plate-cap b {
+  font-family: var(--font-display); font-weight: 500; color: var(--ink);
+  font-variant-numeric: tabular-nums; flex: 0 0 auto;
+}
+.band-alt .plate-cap b, .band-pine .plate-cap b { color: inherit; }
+.band-pine .plate-cap { color: var(--muted-lt); }
+@media (max-width: 620px) { .plate.crop img { aspect-ratio: 4/3; } }
+
 /* ---- Cards (programs / features) ----------------------------------------- */
 .card-grid { display: grid; gap: clamp(18px, 2.4vw, 26px); }
 .cols-1 { grid-template-columns: 1fr; }
