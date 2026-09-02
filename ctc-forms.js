@@ -1,12 +1,13 @@
 /* ==========================================================================
    COHASSET TENNIS CLUB — native forms bridge
 
-   Every enquiry mirrors into Switchboard OS so the club works it in the
-   Leads dashboard. Where the club already had a Google Form (junior
-   registration, lesson requests) we keep posting there too, so their
-   existing sheet and workflow are untouched.
+   Every request mirrors into Switchboard OS, which both files it in the
+   Leads dashboard and emails the club's inbox — so a request that arrives
+   while nobody is at the desk still lands somewhere a person reads.
 
-   A form with no Google action (membership enquiries) simply goes to
+   Where the club already had a Google Form (junior registration, lesson
+   requests) we keep posting there too, so their existing sheet and workflow
+   are untouched. A form with no Google action (membership requests) goes to
    Switchboard alone. Client-side validation, in-page success, no backend.
    ========================================================================== */
 (function () {
@@ -14,6 +15,22 @@
 
   var form = document.querySelector("form[data-gform], form[data-leadform]");
   if (!form) return;
+
+  /* The membership form sits below the pricing table on the same page, so a
+     tier button is a jump link that also answers the tier question for you.
+     Nothing here is required — the select works fine on its own. */
+  (function preselectTier() {
+    var tierField = document.getElementById("mb-tier");
+    if (!tierField) return;
+    document.addEventListener("click", function (e) {
+      var trigger = e.target.closest("[data-tier]");
+      if (!trigger) return;
+      var wanted = trigger.getAttribute("data-tier");
+      for (var i = 0; i < tierField.options.length; i++) {
+        if (tierField.options[i].value === wanted) { tierField.selectedIndex = i; break; }
+      }
+    });
+  })();
 
   // Google Form is optional — membership enquiries have no sheet behind them.
   var gformAction = form.getAttribute("action") || "";
@@ -90,7 +107,7 @@
         name: val("mb-name") || "Website visitor",
         email: val("mb-email"),
         phone: val("mb-phone"),
-        interest: "Membership Enquiry" + (tierEl && tierEl.value ? " — " + tierEl.value : ""),
+        interest: "Membership Request" + (tierEl && tierEl.value ? " — " + tierEl.value : ""),
         source: "Membership Request Form",
         notes: val("mb-notes"),
       };
@@ -108,6 +125,9 @@
         notes: isJunior && parent && player ? "Player: " + player : null,
       };
     }
+
+    var honeypot = form.querySelector('[name="company"]');
+    if (honeypot && honeypot.value.trim()) body.company = honeypot.value.trim();
 
     body.path = location.pathname;
     body.referrer = document.referrer || null;

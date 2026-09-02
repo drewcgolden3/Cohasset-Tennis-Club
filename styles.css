@@ -557,6 +557,9 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
 .day-block .day-name { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 10px; }
 
 .form-note { font-size: 13px; color: var(--muted); margin-top: 4px; }
+/* Honeypot: off-screen rather than display:none, which some bots skip. */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 .form-error { color: var(--live); font-size: 13px; margin-top: 8px; display: none; }
 .form-error.show { display: block; }
 
