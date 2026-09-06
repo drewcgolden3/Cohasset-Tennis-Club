@@ -124,6 +124,7 @@ section { position: relative; }
   font-optical-sizing: auto;
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.05;
+  text-wrap: balance;
   letter-spacing: -0.02em;
   color: var(--pine);
   margin-top: 18px;
@@ -131,6 +132,7 @@ section { position: relative; }
 .section-title em { font-style: italic; color: var(--clay); font-weight: 400; }
 
 .section-lead {
+  text-wrap: pretty;
   max-width: 60ch;
   margin-top: 22px;
   font-size: clamp(1.05rem, 1.6vw, 1.22rem);
@@ -629,6 +631,80 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
 .callout .section-title { margin-left: auto; margin-right: auto; }
 .callout .section-lead { margin-left: auto; margin-right: auto; }
 .callout .hero-cta { justify-content: center; }
+
+/* ---- Facts list -----------------------------------------------------------
+   Replaces two more icon cards on the homepage. When the interesting part is
+   the facts themselves — four courts, a day's notice, $150 — setting them as
+   a term/value list reads better than wrapping each one in a box.
+   -------------------------------------------------------------------------- */
+.facts { margin: 0; border-top: 1px solid var(--border); }
+.facts > div {
+  display: grid; grid-template-columns: minmax(7.5rem, 30%) 1fr; gap: 8px 24px;
+  align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--border);
+}
+.facts dt {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--clay);
+}
+.facts dd {
+  margin: 0; font-family: var(--font-display); font-weight: 400; font-optical-sizing: auto;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.3; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 520px) {
+  .facts > div { grid-template-columns: 1fr; gap: 5px; padding: 15px 0; }
+}
+
+/* ---- Pull quote -----------------------------------------------------------
+   The club's own line about why they opened. Set as a quotation with an
+   attribution rather than as a headline with an eyebrow over it — the words
+   are theirs, and saying whose they are is worth more than labelling them.
+   -------------------------------------------------------------------------- */
+.pullquote { margin: 0; }
+.pullquote blockquote {
+  margin: 0; font-family: var(--font-display); font-weight: 400; font-optical-sizing: auto;
+  font-size: clamp(2.1rem, 5.4vw, 4rem); line-height: 1.06; letter-spacing: -0.025em;
+  color: var(--bone); text-indent: -0.42em; text-wrap: balance;
+  max-width: 17ch; /* on the blockquote: 17 characters of the display face */
+}
+.pullquote blockquote::before { content: "\201C"; }
+.pullquote blockquote::after { content: "\201D"; }
+.pullquote figcaption {
+  margin-top: clamp(24px, 3vw, 36px); max-width: 34ch;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--brass-lt); line-height: 1.7;
+}
+@media (max-width: 620px) { .pullquote blockquote { text-indent: 0; } }
+
+/* ---- Page closer ----------------------------------------------------------
+   Every interior page used to end with the same centred dark box: eyebrow,
+   title, lead, two buttons. Seven pages, one shape — which reads as padding
+   rather than design. This is the replacement: a hairline rule, one line of
+   type held left, and the action on the same baseline. Quiet enough that the
+   dark band on the homepage becomes the site's single loud ending.
+   -------------------------------------------------------------------------- */
+.closer { border-top: 1px solid var(--border); padding: clamp(60px, 8.5vw, 116px) 0; }
+.closer-in {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: clamp(22px, 4vw, 72px); align-items: end;
+}
+.closer h2 {
+  font-family: var(--font-display); font-weight: 400; font-optical-sizing: auto;
+  font-size: clamp(1.75rem, 3.3vw, 2.75rem); line-height: 1.12;
+  letter-spacing: -0.02em; color: var(--ink); margin: 0; max-width: 20ch;
+  text-wrap: balance;
+}
+.closer h2 em { font-style: italic; color: var(--clay); }
+.closer p {
+  max-width: 46ch; margin: 16px 0 0; color: var(--ink-mid);
+  font-size: 1.02rem; line-height: 1.6; text-wrap: pretty;
+}
+.closer-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
+.band-alt + .closer, .closer + .closer { border-top-color: var(--border-soft); }
+@media (max-width: 780px) {
+  .closer-in { grid-template-columns: 1fr; align-items: start; }
+  .closer-actions { margin-top: 6px; }
+}
 
 /* ---- Footer --------------------------------------------------------------- */
 footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 8vw, 92px) 0 34px; }
