@@ -1003,3 +1003,95 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
   text-transform: uppercase; color: var(--clay); margin-bottom: 7px;
 }
 .band-pine .ledger-row .lkick { color: var(--brass-lt); }
+
+/* ==========================================================================
+   WEEKLY SCHEDULE
+   These rules used to live in a <style> block inside the old schedule.html.
+   When the engine moved into another page the markup came with it and the CSS
+   did not, which left every session row unstyled — most visibly a racquet icon
+   with no width rendering at the full page width. They belong here now, with
+   the rest of the site's components.
+   ========================================================================== */
+#schedule { background: var(--bone); }
+#schedule .container { max-width: 1060px; }
+
+/* ---- Day tabs ---- */
+.sched-days {
+  display: flex; gap: 8px; margin: clamp(30px,4vw,44px) 0 22px;
+  overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.sched-days::-webkit-scrollbar { display: none; }
+.day-tab {
+  flex: 0 0 auto; cursor: pointer; background: var(--card); border: 1px solid var(--border);
+  padding: 12px 18px; min-width: 80px; text-align: center; font-family: inherit; color: var(--ink-mid);
+  border-radius: 3px;
+  transition: background .35s var(--ease-soft), color .35s var(--ease-soft), border-color .35s var(--ease-soft);
+}
+.day-tab .day-abbr { font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: .02em; line-height: 1; display: block; }
+.day-tab .day-meta { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+.day-tab:hover { border-color: var(--clay); color: var(--clay-deep); }
+.day-tab.active { background: var(--pine); border-color: var(--pine); color: var(--white); }
+.day-tab.active .day-meta { color: var(--brass-lt); }
+.day-tab.is-today .day-abbr::after { content: '•'; color: var(--clay); margin-left: 4px; }
+.day-tab.active.is-today .day-abbr::after { color: var(--brass-lt); }
+
+/* ---- Type filters ---- */
+.sched-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-chip {
+  cursor: pointer; background: transparent; border: 1px solid var(--border); border-radius: 999px;
+  padding: 8px 16px; font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted);
+  transition: background .35s var(--ease-soft), color .35s var(--ease-soft), border-color .35s var(--ease-soft);
+}
+.filter-chip:hover { border-color: var(--clay); color: var(--clay-deep); }
+.filter-chip.active { background: var(--clay-deep); border-color: var(--clay-deep); color: var(--white); }
+
+.sched-count { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 24px 2px 14px; min-height: 14px; font-weight: 600; }
+
+/* ---- Session rows ---- */
+.sched-list { display: flex; flex-direction: column; gap: 12px; }
+.session {
+  background: var(--card); border: 1px solid var(--border-soft); border-left: 3px solid var(--clay);
+  display: grid; grid-template-columns: 130px 1fr auto; align-items: center; gap: 26px; padding: 22px 28px;
+  transition: box-shadow .45s var(--ease-expo), transform .45s var(--ease-expo);
+}
+.session:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.session-time .t { font-family: var(--font-display); font-weight: 500; font-size: 32px; letter-spacing: .01em; line-height: .95; color: var(--pine); font-variant-numeric: tabular-nums; }
+.session-time .t .ampm { font-size: 14px; color: var(--muted); margin-left: 3px; font-weight: 600; }
+.session-time .dur { font-size: 11px; letter-spacing: .06em; color: var(--muted); margin-top: 5px; }
+.session-main { min-width: 0; }
+.session-name { font-family: var(--font-display); font-weight: 500; font-size: 24px; letter-spacing: 0; line-height: 1.05; color: var(--pine); display: flex; align-items: center; gap: 11px; }
+.session-name .ic { display: inline-flex; align-items: center; flex: 0 0 auto; color: var(--clay-deep); }
+.session-name .ic svg { width: 22px; height: 22px; }
+.session-meta { font-size: 13px; color: var(--muted); margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.session-meta .cat { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-deep); border: 1px solid var(--clay-line); padding: 2px 8px; border-radius: 3px; }
+
+/* The third column is a status word ("Ended"), never a booking button — this
+   site does no booking — so it is set as a label, not styled as a control. */
+.session-cta.is-status {
+  white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+.status-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; white-space: nowrap; }
+.status-tag.now { background: var(--live); color: var(--white); }
+.status-tag.next { background: var(--brass-lt); color: var(--pine); }
+.session.is-now { border-left-color: var(--live); box-shadow: 0 8px 26px rgba(207,90,42,0.14); }
+.session.is-past { opacity: 0.5; }
+
+.sched-empty { background: var(--card); border: 1px dashed var(--border); padding: 56px 32px; text-align: center; color: var(--muted); border-radius: 3px; }
+.sched-empty .eyebrow2 { font-family: var(--font-display); font-weight: 500; font-size: 28px; color: var(--pine); margin-bottom: 8px; display: block; }
+
+.sched-foot { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
+.sched-foot a { color: var(--clay-deep); text-decoration: none; }
+.sched-foot a:hover { text-decoration: underline; }
+
+@keyframes rowIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.session { animation: rowIn .5s var(--ease-expo) both; }
+@media (prefers-reduced-motion: reduce) { .session, .session:hover { animation: none; transition: none; transform: none; } }
+
+@media (max-width: 680px) {
+  .session { grid-template-columns: 1fr; gap: 14px; padding: 20px; align-items: start; }
+  .session-time { display: flex; align-items: baseline; gap: 12px; }
+  .session-time .dur { margin-top: 0; }
+}
