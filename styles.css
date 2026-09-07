@@ -209,18 +209,54 @@ section { position: relative; }
   background: rgba(245,248,248,0.95);
   box-shadow: var(--shadow-sm);
 }
-/* On pages with a dark hero, the nav sits over pine until scrolled */
-body.nav-over-dark #navbar:not(.scrolled) { color: var(--bone); }
+/* Menu open: the nav sits on top of the dark overlay, so it takes the dark
+   treatment regardless of scroll position. */
+body.menu-open #navbar,
+body.menu-open #navbar.scrolled {
+  background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none;
+  border-bottom-color: transparent; box-shadow: none; color: var(--bone);
+}
+body.menu-open #navbar::before { opacity: 0; }
+body.menu-open .nav-logo-dark { opacity: 0; }
+body.menu-open .nav-logo-light { opacity: 1; }
+body.menu-open .hamburger span { background: var(--bone); }
+/* On pages with a dark hero the nav has no bar of its own: it is transparent
+   over the photograph, which therefore runs the full height of the viewport
+   including behind the nav. It only becomes a surface once you scroll off the
+   hero, where it needs to separate from the content underneath. */
+body.nav-over-dark #navbar:not(.scrolled) {
+  background: transparent;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  color: var(--bone);
+}
+/* A soft gradient rather than a flat panel — enough to hold the logo and links
+   legible over a bright patch of ceiling without reading as a bar. */
+body.nav-over-dark #navbar::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0;
+  height: calc(var(--nav-h) * 2.1); pointer-events: none; z-index: -1;
+  background: linear-gradient(180deg,
+    rgba(18,49,65,0.62) 0%, rgba(18,49,65,0.38) 42%, rgba(18,49,65,0.12) 74%, transparent 100%);
+  transition: opacity .5s var(--ease-soft);
+}
+body.nav-over-dark #navbar.scrolled::before { opacity: 0; }
 body.nav-over-dark #navbar:not(.scrolled) .nav-logo .mark { border-color: rgba(244,240,230,0.5); color: var(--bone); }
 body.nav-over-dark #navbar:not(.scrolled) .nav-links a { color: rgba(244,240,230,0.86); }
 body.nav-over-dark #navbar:not(.scrolled) .nav-cta { border-color: rgba(244,240,230,0.5); color: var(--bone); }
 body.nav-over-dark #navbar:not(.scrolled) .hamburger span { background: var(--bone); }
 
-.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; position: relative; }
 .nav-logo-img {
   height: clamp(50px, 5.8vw, 62px); width: auto; display: block;
-  transition: height .4s var(--ease-soft);
+  transition: height .4s var(--ease-soft), opacity .45s var(--ease-soft);
 }
+.nav-logo-light {
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  opacity: 0; pointer-events: none;
+}
+body.nav-over-dark #navbar:not(.scrolled) .nav-logo-dark { opacity: 0; }
+body.nav-over-dark #navbar:not(.scrolled) .nav-logo-light { opacity: 1; }
 #navbar.scrolled .nav-logo-img { height: clamp(44px, 5vw, 54px); }
 .nav-logo .mark {
   width: 38px; height: 38px; flex: 0 0 auto;
@@ -258,15 +294,16 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-logo .word span { color: var(--br
 .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 .nav-links a.active { color: var(--clay-deep); }
 
-.nav-cta {
-  border: 1.5px solid var(--pine); color: var(--pine) !important;
-  padding: 10px 22px !important; border-radius: 999px;
-  font-weight: 600 !important; font-size: 13px !important;
-  letter-spacing: 0.05em; transition: background .4s var(--ease-soft), color .4s var(--ease-soft) !important;
+.nav-links a.nav-cta {
+  border: 1.5px solid var(--pine); color: var(--pine);
+  padding: 10px 22px; border-radius: 999px;
+  font-weight: 600; font-size: 13px;
+  letter-spacing: 0.05em;
+  transition: background .4s var(--ease-soft), color .4s var(--ease-soft), border-color .4s var(--ease-soft);
 }
-.nav-cta::after { display: none; }
-.nav-cta:hover { background: var(--pine); color: var(--bone) !important; }
-body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bone); color: var(--pine) !important; }
+.nav-links a.nav-cta::after { display: none; }
+.nav-links a.nav-cta:hover { background: var(--pine); color: var(--bone); }
+body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bone); color: var(--pine); }
 
 .hamburger { display: none; width: 30px; height: 22px; position: relative; background: none; border: 0; }
 .hamburger span {

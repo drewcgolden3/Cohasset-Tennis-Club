@@ -27,6 +27,8 @@
     burger.classList.toggle("open", isOpen);
     burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
     document.body.style.overflow = isOpen ? "hidden" : "";
+    // The nav renders above the menu overlay, so it needs to know.
+    document.body.classList.toggle("menu-open", isOpen);
   }
   if (burger) burger.addEventListener("click", function () { toggleMenu(); });
   window.closeMobile = function () { toggleMenu(false); };
