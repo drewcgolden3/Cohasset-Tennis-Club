@@ -129,7 +129,6 @@ section { position: relative; }
   color: var(--pine);
   margin-top: 18px;
 }
-.section-title em { font-style: italic; color: var(--clay); font-weight: 400; }
 
 .section-lead {
   text-wrap: pretty;
@@ -338,8 +337,8 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(2.9rem, 8.5vw, 6.4rem); line-height: 0.98;
   letter-spacing: -0.025em; margin: 22px 0 0; max-width: 15ch;
+  text-wrap: balance;
 }
-.hero h1 em { font-style: italic; color: var(--brass-lt); }
 .hero-sub { max-width: 52ch; margin-top: 26px; font-size: clamp(1.05rem, 1.7vw, 1.3rem); color: rgba(244,240,230,0.82); line-height: 1.55; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
 /* Light, logo-forward hero (homepage) */
@@ -355,7 +354,6 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
     linear-gradient(90deg, rgba(31,110,128,0.09) 1px, transparent 1px);
 }
 .hero.hero-light h1 { color: var(--pine); }
-.hero.hero-light h1 em { color: var(--clay); font-style: italic; }
 .hero.hero-light .hero-eyebrow { color: var(--clay); }
 .hero.hero-light .hero-eyebrow::before { background: var(--clay-line); }
 .hero.hero-light .hero-sub { color: var(--ink-mid); }
@@ -694,7 +692,6 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bon
   letter-spacing: -0.02em; color: var(--ink); margin: 0; max-width: 20ch;
   text-wrap: balance;
 }
-.closer h2 em { font-style: italic; color: var(--clay); }
 .closer p {
   max-width: 46ch; margin: 16px 0 0; color: var(--ink-mid);
   font-size: 1.02rem; line-height: 1.6; text-wrap: pretty;
