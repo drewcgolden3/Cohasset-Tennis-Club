@@ -55,7 +55,7 @@
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body:    "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  --nav-h: 84px;
+  --nav-h: 72px;
   --maxw: 1200px;
 }
 
@@ -198,66 +198,36 @@ section { position: relative; }
   height: var(--nav-h);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 clamp(22px, 5vw, 56px);
-  background: rgba(245,248,248,0.86);
-  backdrop-filter: saturate(140%) blur(14px);
-  -webkit-backdrop-filter: saturate(140%) blur(14px);
-  border-bottom: 1px solid var(--border);
+  /* Translucent, not solid: the hero photo runs to y=0 underneath and stays
+     faintly visible through the bar, so the image still reads as full-bleed
+     while the navy mark keeps a light ground to sit on. */
+  background: rgba(245,248,248,0.80);
+  backdrop-filter: saturate(150%) blur(18px);
+  -webkit-backdrop-filter: saturate(150%) blur(18px);
+  border-bottom: 1px solid rgba(214,225,225,0.5);
   transition: background .5s var(--ease-soft), box-shadow .5s var(--ease-soft),
               border-color .5s var(--ease-soft), height .4s var(--ease-soft);
 }
+/* Past the hero there is content to separate from, so it firms up. */
 #navbar.scrolled {
   background: rgba(245,248,248,0.95);
+  border-bottom-color: var(--border);
   box-shadow: var(--shadow-sm);
 }
-/* Menu open: the nav sits on top of the dark overlay, so it takes the dark
-   treatment regardless of scroll position. */
+/* The nav paints above the menu overlay (z-1000 vs z-999), so it goes fully
+   opaque while the menu is open — a translucent bar over the dark overlay
+   would dim the navy mark and the close icon. */
 body.menu-open #navbar,
 body.menu-open #navbar.scrolled {
-  background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none;
-  border-bottom-color: transparent; box-shadow: none; color: var(--bone);
+  background: var(--bone); border-bottom-color: var(--border); box-shadow: none;
 }
-body.menu-open #navbar::before { opacity: 0; }
-body.menu-open .nav-logo-dark { opacity: 0; }
-body.menu-open .nav-logo-light { opacity: 1; }
-body.menu-open .hamburger span { background: var(--bone); }
-/* On pages with a dark hero the nav has no bar of its own: it is transparent
-   over the photograph, which therefore runs the full height of the viewport
-   including behind the nav. It only becomes a surface once you scroll off the
-   hero, where it needs to separate from the content underneath. */
-body.nav-over-dark #navbar:not(.scrolled) {
-  background: transparent;
-  backdrop-filter: none; -webkit-backdrop-filter: none;
-  border-bottom-color: transparent;
-  box-shadow: none;
-  color: var(--bone);
-}
-/* A soft gradient rather than a flat panel — enough to hold the logo and links
-   legible over a bright patch of ceiling without reading as a bar. */
-body.nav-over-dark #navbar::before {
-  content: ""; position: absolute; left: 0; right: 0; top: 0;
-  height: calc(var(--nav-h) * 2.1); pointer-events: none; z-index: -1;
-  background: linear-gradient(180deg,
-    rgba(18,49,65,0.62) 0%, rgba(18,49,65,0.38) 42%, rgba(18,49,65,0.12) 74%, transparent 100%);
-  transition: opacity .5s var(--ease-soft);
-}
-body.nav-over-dark #navbar.scrolled::before { opacity: 0; }
-body.nav-over-dark #navbar:not(.scrolled) .nav-logo .mark { border-color: rgba(244,240,230,0.5); color: var(--bone); }
-body.nav-over-dark #navbar:not(.scrolled) .nav-links a { color: rgba(244,240,230,0.86); }
-body.nav-over-dark #navbar:not(.scrolled) .nav-cta { border-color: rgba(244,240,230,0.5); color: var(--bone); }
-body.nav-over-dark #navbar:not(.scrolled) .hamburger span { background: var(--bone); }
 
-.nav-logo { display: flex; align-items: center; gap: 12px; position: relative; }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
 .nav-logo-img {
-  height: clamp(50px, 5.8vw, 62px); width: auto; display: block;
-  transition: height .4s var(--ease-soft), opacity .45s var(--ease-soft);
+  height: clamp(44px, 5vw, 54px); width: auto; display: block;
+  transition: height .4s var(--ease-soft);
 }
-.nav-logo-light {
-  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-  opacity: 0; pointer-events: none;
-}
-body.nav-over-dark #navbar:not(.scrolled) .nav-logo-dark { opacity: 0; }
-body.nav-over-dark #navbar:not(.scrolled) .nav-logo-light { opacity: 1; }
-#navbar.scrolled .nav-logo-img { height: clamp(44px, 5vw, 54px); }
+#navbar.scrolled .nav-logo-img { height: clamp(40px, 4.4vw, 47px); }
 .nav-logo .mark {
   width: 38px; height: 38px; flex: 0 0 auto;
   border: 1.5px solid var(--pine); border-radius: 50%;
@@ -277,7 +247,6 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-logo-light { opacity: 1; }
   font-size: 9.5px; font-weight: 600; letter-spacing: 0.28em;
   text-transform: uppercase; color: var(--clay); margin-top: 3px;
 }
-body.nav-over-dark #navbar:not(.scrolled) .nav-logo .word span { color: var(--brass-lt); }
 
 .nav-links { list-style: none; display: flex; align-items: center; gap: clamp(18px, 2.4vw, 34px); }
 .nav-links a {
@@ -303,7 +272,6 @@ body.nav-over-dark #navbar:not(.scrolled) .nav-logo .word span { color: var(--br
 }
 .nav-links a.nav-cta::after { display: none; }
 .nav-links a.nav-cta:hover { background: var(--pine); color: var(--bone); }
-body.nav-over-dark #navbar:not(.scrolled) .nav-cta:hover { background: var(--bone); color: var(--pine); }
 
 .hamburger { display: none; width: 30px; height: 22px; position: relative; background: none; border: 0; }
 .hamburger span {

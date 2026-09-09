@@ -13,15 +13,17 @@ above "ennis" that belonged to whatever the screenshot was taken from.
   3. sharpen — steepen the alpha coverage ramp. This narrows the transition band
                without moving any outline, so it cannot alter a letterform.
 
-Outputs images/logo.png (navy ink) and images/logo-light.png (bone ink, for the
-transparent nav over a dark hero).
+Outputs images/logo.png. There was briefly a bone-ink variant for a transparent
+nav over the dark hero; the wordmark is a low-resolution raster and did not hold
+up light-on-dark, so the navy mark is used everywhere and the nav carries a
+light bar instead.
 """
 from PIL import Image
 from collections import deque
 
 SRC   = "images/logo-source.png"
 GREEN = (49, 95, 54)          # the artifact; appears nowhere else in the brand
-WHITE, BRASS, NAVY, BONE = (255,255,255), (246,199,51), (28,68,89), (245,248,248)
+WHITE, BRASS, NAVY = (255,255,255), (246,199,51), (28,68,89)
 SUPERSAMPLE = 8
 SHARPEN     = 2.1             # alpha contrast; higher re-introduces stair-steps
 
@@ -96,4 +98,3 @@ def compose(ink_rgb, out):
     canvas.save(out); print("wrote", out)
 
 compose(NAVY, "images/logo.png")
-compose(BONE, "images/logo-light.png")
