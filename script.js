@@ -1,6 +1,6 @@
 /* ==========================================================================
    COHASSET TENNIS CLUB — shared behavior
-   Nav state · mobile menu · Lenis smooth scroll · staggered scroll-reveal
+   Nav state · mobile menu · staggered scroll-reveal
    ========================================================================== */
 (function () {
   "use strict";
@@ -92,7 +92,11 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      // Pre-trigger: a positive bottom margin extends the root box *below* the
+      // viewport, so a section reveals just before it scrolls into view rather
+      // than 12% after it already has. The old negative margin was why content
+      // read as blank on arrival and popped in late on the way down.
+    }, { threshold: 0, rootMargin: "0px 0px 18% 0px" });
     revealEls.forEach(function (el) { io.observe(el); });
   }
 })();

@@ -374,6 +374,65 @@ body.menu-open #navbar.scrolled {
 .hero.hero-page.hero-compact { min-height: 38vh; min-height: 38dvh; }
 .hero.hero-page.hero-compact h1 { font-size: clamp(2.2rem, 4.8vw, 3.4rem); }
 
+/* ---- Interior photo hero --------------------------------------------------
+   Every interior page used to be the same dark slab with the same court
+   motif, so the set read as seven clones. Each one now leads with its own
+   photograph. The club's pictures are all roughly 3:2 of people standing,
+   and a full-bleed banner crop cuts them off at the knees — so the photo
+   takes a right-hand panel that lands near its native aspect instead of a
+   wide strip. Column 2 of the grid is deliberately empty: it reserves the
+   space while the image itself bleeds past the container to the viewport
+   edge. The 1 : 0.88 ratio tracks the 50% mark at every container width. */
+.hero.hero-split { min-height: 62vh; min-height: 62dvh; align-items: center; }
+.hero.hero-split .court-motif { display: none; }
+.hero.hero-split .container {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+  align-items: center; gap: clamp(30px, 5vw, 70px);
+}
+.hero.hero-split .hero-copy { grid-column: 1; min-width: 0; }
+/* width must be explicit: on an absolutely positioned replaced element,
+   `width: auto` resolves to the image's own intrinsic ratio rather than to
+   the left/right box, so the portrait photo covered only part of the panel. */
+.hero.hero-split .hero-photo {
+  position: absolute; top: 0; left: 40%;
+  width: 60%; height: 100%; object-fit: cover;
+  object-position: center var(--crop, 38%); z-index: 0;
+}
+/* The photo starts well left of the copy column and is veiled back to solid
+   pine over a long ramp, so it emerges out of the navy instead of meeting it
+   at a hard vertical seam. A short fade read as two rectangles butted
+   together. The second gradient darkens the top edge, where the frosted nav
+   crosses the picture. */
+.hero.hero-split .hero-bg::after {
+  background:
+    linear-gradient(90deg,
+      var(--pine-deep) 0%, var(--pine-deep) 44%, rgba(18,49,65,0.94) 52%,
+      rgba(18,49,65,0.70) 62%, rgba(18,49,65,0.34) 74%,
+      rgba(18,49,65,0.10) 86%, rgba(18,49,65,0) 96%),
+    linear-gradient(180deg, rgba(11,30,41,0.58) 0%, rgba(11,30,41,0) 30%);
+}
+.hero.hero-split h1 { font-size: clamp(2.4rem, 4.6vw, 3.9rem); max-width: 15ch; }
+.hero.hero-split .hero-sub { max-width: 42ch; }
+
+/* Below the split point the photo goes full-bleed behind the copy, the way
+   the homepage hero already works, rather than shrinking to a letterbox. */
+@media (max-width: 900px) {
+  .hero.hero-split { min-height: 66vh; min-height: 66dvh; }
+  .hero.hero-split .container { display: block; }
+  /* Stacked, the copy sits straight on the picture instead of on the pine
+     column, and these are bright gym interiors — so the photo is knocked
+     down the same way the homepage hero does it, not just scrimmed. */
+  .hero.hero-split .hero-photo {
+    left: 0; width: 100%; object-position: center var(--crop-sm, 30%);
+    filter: brightness(0.48) saturate(1.05);
+  }
+  .hero.hero-split .hero-bg::after {
+    background:
+      linear-gradient(180deg, rgba(11,30,41,0.74) 0%, rgba(11,30,41,0.52) 40%, rgba(11,30,41,0.92) 100%);
+  }
+  .hero.hero-split .hero-sub { max-width: 46ch; }
+}
+
 .hero-scroll {
   position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 2;
   font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-lt);
@@ -725,8 +784,10 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .footer-bottom a:hover { text-decoration: underline; }
 
 /* ---- Scroll reveal -------------------------------------------------------- */
-[data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity .9s var(--ease-expo), transform .9s var(--ease-expo); will-change: opacity, transform; }
-[data-reveal].in { opacity: 1; transform: none; }
+[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease-expo), transform .7s var(--ease-expo); will-change: opacity, transform; }
+/* Drop the compositor hint once the element has arrived — otherwise every
+   revealed block keeps a GPU layer for the life of the page. */
+[data-reveal].in { opacity: 1; transform: none; will-change: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
