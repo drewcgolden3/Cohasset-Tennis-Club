@@ -114,6 +114,9 @@ body > * { position: relative; z-index: 1; }
 section { position: relative; }
 .section { padding: clamp(76px, 12vw, 148px) 0; }
 .section-sm { padding: clamp(56px, 8vw, 96px) 0; }
+/* First section on a page that leads with content instead of a hero: the nav
+   is fixed, so the section's own top padding has to clear it. */
+.section-top { padding-top: calc(var(--nav-h) + clamp(52px, 7vw, 104px)); }
 .band-alt { background: var(--bone-alt); }
 .band-pine { background: var(--pine); color: var(--bone); }
 .band-pine .section-title { color: var(--white); }
