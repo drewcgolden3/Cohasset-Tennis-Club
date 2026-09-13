@@ -7,10 +7,13 @@
 
 /* ---- Tokens --------------------------------------------------------------- */
 :root {
-  /* Ground / surfaces — clean, cool, coastal (never pure white for grounds) */
-  --bone:        #F5F8F8;   /* dominant clean ground       */
-  --bone-alt:    #E7F0F0;   /* sea-glass alternating band  */
-  --card:        #FFFFFF;   /* raised card                 */
+  /* Ground / surfaces — warm, never pure white.
+     The grounds carry the club's temperature: a small, personal, local club
+     wants warm paper, not cool coastal glass. Navy, brass and clay below are
+     untouched — they come from the lighthouse logo. */
+  --bone:        #F8F5EF;   /* dominant warm ground        */
+  --bone-alt:    #F1EADD;   /* sand alternating band       */
+  --card:        #FFFDFA;   /* raised card (warm white)    */
   --white:       #FFFFFF;
 
   /* Deep navy — lighthouse blue (contrast sections + headings) */
@@ -18,8 +21,11 @@
   --pine-deep:   #123141;   /* darkest surface             */
   --pine-soft:   #275F77;   /* lifted navy                 */
   --ink:         #163540;   /* body headings (navy-slate)  */
-  --ink-mid:     #43585F;   /* secondary text              */
-  --muted:       #7A8B90;   /* tertiary / meta             */
+  --ink-mid:     #4B5257;   /* secondary text              */
+  --muted:       #6F6659;   /* tertiary / meta — clears AA on all three
+                                 grounds: 5.6 card / 5.2 bone / 4.7 sand.
+                                 The old cool grey was 3.3:1 and had never
+                                 passed AA; warming it surfaced that. */
   --muted-lt:    #A7C1C6;   /* on-dark meta                */
 
   /* Accent — brand teal (readable on light grounds) */
@@ -33,18 +39,26 @@
   --brass-lt:    #F6C733;
 
   /* Lines */
-  --border:      #D6E1E1;   /* on ground                   */
-  --border-soft: #E3ECEC;
-  --border-dark: rgba(245,248,248,0.16); /* on navy         */
+  --border:      #E4DBCB;   /* on ground                   */
+  --border-soft: #EFE8DA;
+  --border-dark: rgba(248,245,239,0.16); /* on navy         */
 
   /* Status (schedule) */
   --live:        #CF5A2A;
   --live-soft:   rgba(207,90,42,0.14);
 
   /* Elevation (navy-tinted) */
-  --shadow-sm:   0 1px 2px rgba(18,49,65,0.05), 0 2px 6px rgba(18,49,65,0.06);
-  --shadow-md:   0 10px 30px -12px rgba(18,49,65,0.20), 0 4px 10px -6px rgba(18,49,65,0.10);
-  --shadow-lg:   0 30px 70px -30px rgba(18,49,65,0.34);
+  /* Warm-tinted: navy shadows grey a warm ground. */
+  --shadow-sm:   0 1px 2px rgba(74,58,38,0.05), 0 2px 6px rgba(74,58,38,0.07);
+  --shadow-md:   0 10px 30px -12px rgba(74,58,38,0.18), 0 4px 10px -6px rgba(74,58,38,0.10);
+  --shadow-lg:   0 30px 70px -30px rgba(74,58,38,0.30);
+
+  /* Fraunces ships a SOFT axis (rounded terminals) and a WONK axis (the
+     single-storey g, the curly ampersand, canted italic terminals). Neither
+     was being loaded. Inherits to everything; DM Sans has neither axis and
+     ignores both, and because `wght` is not named here font-weight still
+     drives weight normally. */
+  font-variation-settings: "SOFT" 60, "WONK" 1;
 
   /* Motion */
   --ease-expo:   cubic-bezier(0.16, 1, 0.3, 1);
@@ -149,6 +163,7 @@ section { position: relative; }
   font-family: var(--font-body);
   font-size: 13px; font-weight: 600;
   letter-spacing: 0.14em; text-transform: uppercase;
+  border-radius: 9px;
   padding: 16px 30px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -201,16 +216,16 @@ section { position: relative; }
   /* Translucent, not solid: the hero photo runs to y=0 underneath and stays
      faintly visible through the bar, so the image still reads as full-bleed
      while the navy mark keeps a light ground to sit on. */
-  background: rgba(245,248,248,0.80);
+  background: rgba(248,245,239,0.82);
   backdrop-filter: saturate(150%) blur(18px);
   -webkit-backdrop-filter: saturate(150%) blur(18px);
-  border-bottom: 1px solid rgba(214,225,225,0.5);
+  border-bottom: 1px solid rgba(228,219,203,0.6);
   transition: background .5s var(--ease-soft), box-shadow .5s var(--ease-soft),
               border-color .5s var(--ease-soft), height .4s var(--ease-soft);
 }
 /* Past the hero there is content to separate from, so it firms up. */
 #navbar.scrolled {
-  background: rgba(245,248,248,0.95);
+  background: rgba(248,245,239,0.95);
   border-bottom-color: var(--border);
   box-shadow: var(--shadow-sm);
 }
@@ -306,7 +321,7 @@ body.menu-open #navbar.scrolled {
 }
 .mobile-menu a:hover { color: var(--brass-lt); padding-left: 10px; }
 .mobile-menu a span { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.16em; color: var(--muted-lt); text-transform: uppercase; }
-.mobile-menu .mm-cta { color: var(--clay); }
+.mobile-menu .mm-cta { color: var(--brass-lt); }  /* clay on navy was 2.3:1 */
 .mobile-menu .mm-foot { margin-top: auto; padding-top: 36px; font-size: 14px; color: var(--muted-lt); line-height: 1.9; }
 .mobile-menu .mm-foot a { font-family: var(--font-body); font-size: 14px; border: 0; padding: 0; display: inline; color: var(--brass-lt); }
 
@@ -346,25 +361,6 @@ body.menu-open #navbar.scrolled {
 }
 .hero-sub { max-width: 52ch; margin-top: 26px; font-size: clamp(1.05rem, 1.7vw, 1.3rem); color: rgba(244,240,230,0.82); line-height: 1.55; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
-/* Light, logo-forward hero (homepage) */
-.hero.hero-light {
-  background: linear-gradient(158deg, #E9F2F1 0%, #F5F8F8 55%, #EAF3F2 100%);
-  color: var(--ink);
-}
-.hero.hero-light .hero-bg::after { display: none; }
-.hero.hero-light .court-motif {
-  opacity: 0.7;
-  background-image:
-    linear-gradient(rgba(31,110,128,0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31,110,128,0.09) 1px, transparent 1px);
-}
-.hero.hero-light h1 { color: var(--pine); }
-.hero.hero-light .hero-eyebrow { color: var(--clay); }
-.hero.hero-light .hero-eyebrow::before { background: var(--clay-line); }
-.hero.hero-light .hero-sub { color: var(--ink-mid); }
-.hero.hero-light .hero-scroll { color: var(--muted); }
-.hero.hero-light .hero-scroll .line { background: linear-gradient(var(--clay), transparent); }
-
 /* Compact interior-page header */
 .hero.hero-page { min-height: 56vh; min-height: 56dvh; align-items: center; }
 .hero.hero-page .container { padding-top: clamp(30px, 5vw, 56px); padding-bottom: clamp(36px, 5vw, 64px); }
@@ -373,6 +369,33 @@ body.menu-open #navbar.scrolled {
 /* Shorter hero for the signup page — the form is the point, not the banner. */
 .hero.hero-page.hero-compact { min-height: 38vh; min-height: 38dvh; }
 .hero.hero-page.hero-compact h1 { font-size: clamp(2.2rem, 4.8vw, 3.4rem); }
+
+/* ---- Interior heroes are light -------------------------------------------
+   Nine dark slabs in a row is what made the site read cold and formal. Only
+   the homepage keeps the dark photo hero now, so arriving there still has
+   drama and every page after it is warm. The three .band-pine sections and
+   the footer carry the dark end of the rhythm. */
+.hero.hero-page {
+  background: var(--bone-alt); color: var(--ink);
+}
+.hero.hero-page .hero-bg::after { background: none; }
+.hero.hero-page h1 { color: var(--pine); }
+.hero.hero-page .hero-sub { color: var(--ink-mid); }
+.hero.hero-page .hero-eyebrow { color: var(--clay); }
+.hero.hero-page .hero-eyebrow::before,
+.hero.hero-page .hero-eyebrow::after { background: var(--clay-line); }
+/* The motif was brass-on-navy; on a warm ground it becomes clay-on-sand. */
+.hero.hero-page .court-motif {
+  opacity: 0.6;
+  background-image:
+    linear-gradient(rgba(31,110,128,0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31,110,128,0.10) 1px, transparent 1px);
+}
+/* .btn-lt is a cream fill built for dark grounds — invisible here. */
+.hero.hero-page .btn-lt { background: var(--pine); color: var(--bone); border-color: var(--pine); }
+.hero.hero-page .btn-lt:hover { background: var(--clay-deep); border-color: var(--clay-deep); color: var(--white); }
+.hero.hero-page .btn-ghost { color: var(--pine); border-color: rgba(28,68,89,0.28); background: transparent; }
+.hero.hero-page .btn-ghost:hover { background: var(--pine); color: var(--bone); border-color: var(--pine); }
 
 /* ---- Interior photo hero --------------------------------------------------
    Every interior page used to be the same dark slab with the same court
@@ -398,18 +421,17 @@ body.menu-open #navbar.scrolled {
   width: 60%; height: 100%; object-fit: cover;
   object-position: center var(--crop, 38%); z-index: 0;
 }
-/* The photo starts well left of the copy column and is veiled back to solid
-   pine over a long ramp, so it emerges out of the navy instead of meeting it
-   at a hard vertical seam. A short fade read as two rectangles butted
-   together. The second gradient darkens the top edge, where the frosted nav
-   crosses the picture. */
-.hero.hero-split .hero-bg::after {
+/* The photo starts well left of the copy column and is veiled back to the
+   solid ground over a long ramp, so it emerges out of the sand instead of
+   meeting it at a hard vertical seam. A short fade read as two rectangles
+   butted together. No scrim over the picture itself: the copy sits on the
+   ground, not on the photograph, so the photo runs at full brightness. */
+.hero.hero-page.hero-split .hero-bg::after {
   background:
     linear-gradient(90deg,
-      var(--pine-deep) 0%, var(--pine-deep) 44%, rgba(18,49,65,0.94) 52%,
-      rgba(18,49,65,0.70) 62%, rgba(18,49,65,0.34) 74%,
-      rgba(18,49,65,0.10) 86%, rgba(18,49,65,0) 96%),
-    linear-gradient(180deg, rgba(11,30,41,0.58) 0%, rgba(11,30,41,0) 30%);
+      var(--bone-alt) 0%, var(--bone-alt) 44%, rgba(241,234,221,0.94) 52%,
+      rgba(241,234,221,0.70) 62%, rgba(241,234,221,0.34) 74%,
+      rgba(241,234,221,0.10) 86%, rgba(241,234,221,0) 96%);
 }
 .hero.hero-split h1 { font-size: clamp(2.4rem, 4.6vw, 3.9rem); max-width: 15ch; }
 .hero.hero-split .hero-sub { max-width: 42ch; }
@@ -419,16 +441,16 @@ body.menu-open #navbar.scrolled {
 @media (max-width: 900px) {
   .hero.hero-split { min-height: 66vh; min-height: 66dvh; }
   .hero.hero-split .container { display: block; }
-  /* Stacked, the copy sits straight on the picture instead of on the pine
-     column, and these are bright gym interiors — so the photo is knocked
-     down the same way the homepage hero does it, not just scrimmed. */
+  /* Stacked, the copy has no ground column to sit on. The photo takes a warm
+     veil rather than being crushed to 48% brightness — washed, not dimmed.
+     0.80 is the floor: below it, dark patches in the photo stop carrying
+     navy text at AA. */
   .hero.hero-split .hero-photo {
     left: 0; width: 100%; object-position: center var(--crop-sm, 30%);
-    filter: brightness(0.48) saturate(1.05);
   }
-  .hero.hero-split .hero-bg::after {
+  .hero.hero-page.hero-split .hero-bg::after {
     background:
-      linear-gradient(180deg, rgba(11,30,41,0.74) 0%, rgba(11,30,41,0.52) 40%, rgba(11,30,41,0.92) 100%);
+      linear-gradient(180deg, rgba(241,234,221,0.90) 0%, rgba(241,234,221,0.80) 44%, rgba(241,234,221,0.95) 100%);
   }
   .hero.hero-split .hero-sub { max-width: 46ch; }
 }
@@ -465,7 +487,7 @@ body.menu-open #navbar.scrolled {
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
 .split.reverse .split-media { order: 2; }
 .split-media {
-  position: relative; aspect-ratio: 4/3.2; border-radius: 2px; overflow: hidden;
+  position: relative; aspect-ratio: 4/3.2; border-radius: 14px; overflow: hidden;
   background: var(--pine); box-shadow: var(--shadow-md);
 }
 .split-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -476,7 +498,7 @@ body.menu-open #navbar.scrolled {
 
 /* One photograph given a whole column, captioned like a plate in a book rather
    than dressed up as a card. */
-.plate { position: relative; border-radius: 2px; overflow: hidden; background: var(--pine); box-shadow: var(--shadow-md); }
+.plate { position: relative; border-radius: 14px; overflow: hidden; background: var(--pine); box-shadow: var(--shadow-md); }
 .plate img { display: block; width: 100%; height: auto; }
 /* --crop is where the kept window sits vertically: lower % keeps more headroom,
    higher % keeps more floor. Set it per photo so nobody's head gets clipped. */
@@ -501,7 +523,7 @@ body.menu-open #navbar.scrolled {
 .cols-4 { grid-template-columns: repeat(4, 1fr); }
 
 .pcard {
-  background: var(--card); border: 1px solid var(--border-soft);
+  background: var(--card); border: 1px solid var(--border-soft); border-radius: 14px;
   padding: clamp(26px, 3vw, 38px); position: relative;
   display: flex; flex-direction: column;
   transition: transform .5s var(--ease-expo), box-shadow .5s var(--ease-expo), border-color .5s var(--ease-soft);
@@ -524,7 +546,7 @@ body.menu-open #navbar.scrolled {
 
 /* ---- Coaches -------------------------------------------------------------- */
 .coach {
-  background: var(--card); border: 1px solid var(--border-soft);
+  background: var(--card); border: 1px solid var(--border-soft); border-radius: 14px;
   overflow: hidden; display: flex; flex-direction: column;
   transition: transform .5s var(--ease-expo), box-shadow .5s var(--ease-expo);
 }
@@ -551,7 +573,7 @@ body.menu-open #navbar.scrolled {
 /* ---- Pricing / membership ------------------------------------------------- */
 .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2vw, 22px); }
 .tier {
-  background: var(--card); border: 1px solid var(--border-soft); padding: clamp(26px, 3vw, 34px);
+  background: var(--card); border: 1px solid var(--border-soft); border-radius: 14px; padding: clamp(26px, 3vw, 34px);
   display: flex; flex-direction: column; position: relative;
   transition: transform .5s var(--ease-expo), box-shadow .5s var(--ease-expo), border-color .5s;
 }
@@ -609,7 +631,7 @@ body.menu-open #navbar.scrolled {
 .finput, .fselect, .ftext {
   width: 100%; font-family: inherit; font-size: 16px; color: var(--ink);
   background: var(--white); border: 1px solid var(--border);
-  padding: 13px 15px; border-radius: 2px;
+  padding: 13px 15px; border-radius: 10px;
   transition: border-color .3s var(--ease-soft), box-shadow .3s var(--ease-soft);
 }
 .ftext { min-height: 120px; resize: vertical; }
@@ -621,14 +643,14 @@ body.menu-open #navbar.scrolled {
 .choice-grid.three { grid-template-columns: repeat(3, 1fr); }
 .choice {
   display: flex; align-items: center; gap: 11px; cursor: pointer;
-  border: 1px solid var(--border); background: var(--white); padding: 12px 15px; border-radius: 2px;
+  border: 1px solid var(--border); background: var(--card); padding: 12px 15px; border-radius: 10px;
   font-size: 15px; color: var(--ink);
   transition: border-color .3s var(--ease-soft), background .3s var(--ease-soft);
 }
 .choice:hover { border-color: var(--clay-line); }
 .choice input { position: absolute; opacity: 0; width: 0; height: 0; }
 .choice .box {
-  width: 20px; height: 20px; flex: 0 0 auto; border: 1.5px solid var(--muted); border-radius: 4px;
+  width: 20px; height: 20px; flex: 0 0 auto; border: 1.5px solid var(--muted); border-radius: 6px;
   display: grid; place-items: center; transition: background .25s var(--ease-soft), border-color .25s var(--ease-soft);
 }
 .choice .box.radio { border-radius: 50%; }
@@ -672,7 +694,7 @@ body.menu-open #navbar.scrolled {
 .form-error-summary {
   display: none; align-items: center; gap: 10px;
   background: var(--live-soft); border: 1px solid rgba(207,90,42,0.4); color: #8f3a1d;
-  padding: 14px 18px; border-radius: 2px; margin-bottom: 26px; font-size: 14px; font-weight: 500;
+  padding: 14px 18px; border-radius: 10px; margin-bottom: 26px; font-size: 14px; font-weight: 500;
 }
 .form-error-summary.show { display: flex; }
 .form-error-summary svg { width: 18px; height: 18px; flex: 0 0 auto; }
@@ -835,7 +857,7 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 
 .lane {
   position: relative; display: flex; flex-direction: column;
-  background: var(--card); border: 1px solid var(--border-soft);
+  background: var(--card); border: 1px solid var(--border-soft); border-radius: 14px;
   padding: clamp(28px, 3.2vw, 40px);
   transition: transform .5s var(--ease-expo), box-shadow .5s var(--ease-expo), border-color .5s;
 }
@@ -1203,7 +1225,7 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .session-name .ic { display: inline-flex; align-items: center; flex: 0 0 auto; color: var(--clay-deep); }
 .session-name .ic svg { width: 22px; height: 22px; }
 .session-meta { font-size: 13px; color: var(--muted); margin-top: 9px; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
-.session-meta .cat { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-deep); border: 1px solid var(--clay-line); padding: 2px 8px; border-radius: 3px; }
+.session-meta .cat { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-deep); border: 1px solid var(--clay-line); padding: 2px 8px; border-radius: 999px; }
 
 /* The third column is a status word ("Ended"), never a booking button — this
    site does no booking — so it is set as a label, not styled as a control. */
@@ -1212,13 +1234,13 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
   text-transform: uppercase; color: var(--muted);
 }
 
-.status-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; white-space: nowrap; }
+.status-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
 .status-tag.now { background: var(--live); color: var(--white); }
 .status-tag.next { background: var(--brass-lt); color: var(--pine); }
 .session.is-now { border-left-color: var(--live); box-shadow: 0 8px 26px rgba(207,90,42,0.14); }
 .session.is-past { opacity: 0.5; }
 
-.sched-empty { background: var(--card); border: 1px dashed var(--border); padding: 56px 32px; text-align: center; color: var(--muted); border-radius: 3px; }
+.sched-empty { background: var(--card); border: 1px dashed var(--border); padding: 56px 32px; text-align: center; color: var(--muted); border-radius: 12px; }
 .sched-empty .eyebrow2 { font-family: var(--font-display); font-weight: 500; font-size: 28px; color: var(--pine); margin-bottom: 8px; display: block; }
 
 .sched-foot { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
