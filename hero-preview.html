@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero options — Cohasset Tennis Club</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..500,0..100,0..1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+/* ---- preview chrome only ------------------------------------------------ */
+.opt-label{
+  position:sticky; top:0; z-index:50;
+  background:var(--pine); color:var(--bone);
+  font-family:var(--font-body); font-size:13px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase;
+  padding:12px clamp(22px,5vw,56px);
+}
+.opt-label span{ color:var(--brass-lt); text-transform:none; letter-spacing:.02em; font-weight:400; }
+.preview-hero{ padding-top:40px; }        /* no fixed nav on this page */
+
+/* ---- B: same photo, honest treatment ------------------------------------ */
+.hb .hero-photo{
+  filter:brightness(.82) saturate(1.04);   /* was .56 + blur(1px) */
+  object-position:center 70%;              /* sit lower, less ceiling */
+  transform:scale(1.03);
+}
+.hb .hero-bg::after{
+  background:
+    linear-gradient(180deg, rgba(28,42,38,.30) 0%, rgba(28,42,38,0) 34%),
+    linear-gradient(14deg, rgba(24,38,34,.90) 8%, rgba(24,38,34,.55) 38%, rgba(24,38,34,0) 68%);
+}
+.hb .container{ text-align:left; max-width:var(--maxw); }
+.hb h1{ max-width:16ch; margin-inline:0; }
+.hb .hero-sub{ max-width:46ch; margin-inline:0; }
+.hb .hero-cta{ justify-content:flex-start; }
+.hb .hero-eyebrow{ justify-content:flex-start; }
+
+/* ---- C: people-led, copy clear of the faces ----------------------------- */
+.hc .hero-photo{
+  filter:brightness(.80) saturate(1.05);
+  object-position:center 34%;
+  transform:scale(1.04);
+}
+.hc .hero-bg::after{
+  background:
+    linear-gradient(180deg, rgba(24,38,34,.38) 0%, rgba(24,38,34,0) 30%),
+    linear-gradient(0deg, rgba(20,33,30,.94) 4%, rgba(20,33,30,.62) 30%, rgba(20,33,30,.08) 58%);
+}
+.hc .container{ text-align:left; }
+.hc h1{ max-width:15ch; margin-inline:0; font-size:clamp(2.6rem,6.4vw,5rem); }
+.hc .hero-sub{ max-width:44ch; margin-inline:0; }
+.hc .hero-cta{ justify-content:flex-start; }
+.hc .hero-eyebrow{ justify-content:flex-start; }
+
+/* ---- D: warm/light, matching the rest of the site ----------------------- */
+.hd{ background:var(--bone-alt); color:var(--ink); align-items:center; }
+.hero.hero-photo-bg.hd .hero-photo{
+  position:absolute; top:0; left:42%; width:58%; height:100%;
+  object-fit:cover; object-position:center 34%; filter:none; transform:none;
+}
+.hero.hero-photo-bg.hd .hero-bg::after{
+  background:linear-gradient(90deg,
+    var(--bone-alt) 0%, var(--bone-alt) 46%, rgba(241,234,221,.94) 54%,
+    rgba(241,234,221,.70) 64%, rgba(241,234,221,.34) 76%,
+    rgba(241,234,221,.10) 88%, rgba(241,234,221,0) 97%);
+}
+.hd .container{ text-align:left; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.82fr); gap:clamp(30px,5vw,70px); align-items:center; }
+.hd .hero-copy{ grid-column:1; }
+.hd h1{ color:var(--pine); max-width:14ch; margin-inline:0; font-size:clamp(2.5rem,5.4vw,4.4rem); }
+.hd .hero-sub{ color:var(--ink-mid); max-width:42ch; margin-inline:0; }
+.hd .hero-eyebrow{ color:var(--clay); justify-content:flex-start; }
+.hd .hero-eyebrow::before,.hd .hero-eyebrow::after{ background:var(--clay-line); }
+.hd .hero-cta{ justify-content:flex-start; }
+.hd .btn-lt{ background:var(--pine); color:var(--bone); border-color:var(--pine); }
+.hd .btn-ghost{ color:var(--pine); border-color:rgba(28,68,89,.28); }
+@media(max-width:900px){
+  .hero.hero-photo-bg.hd .hero-photo{ left:0; width:100%; }
+  .hd .container{ display:block; }
+  .hero.hero-photo-bg.hd .hero-bg::after{ background:linear-gradient(180deg, rgba(241,234,221,.90) 0%, rgba(241,234,221,.80) 44%, rgba(241,234,221,.95) 100%); }
+}
+</style>
+</head>
+<body>
+
+<div class="opt-label">A — Live now <span>· hero-courts, brightness .56 + blur(1px), centred copy</span></div>
+<header class="hero hero-photo-bg hero--center preview-hero">
+  <div class="hero-bg">
+    <img src="images/hero-courts.jpg" alt="" class="hero-photo" width="2000" height="756">
+  </div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow">Est. 2002 · Cohasset, Massachusetts</span>
+    <h1>A coastal home for the game of tennis.</h1>
+    <p class="hero-sub">A members' club on Boston's South Shore where families learn the game, players sharpen it, and friends meet on the court.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-lt">Explore Membership <span class="arw">→</span></a>
+      <a href="#" class="btn btn-ghost">See what we offer</a>
+    </div>
+  </div>
+</header>
+
+<div class="opt-label">B — Same photo, stop hiding it <span>· no blur, brightness .82, warm scrim, copy to the left</span></div>
+<header class="hero hero-photo-bg hb preview-hero">
+  <div class="hero-bg">
+    <img src="images/hero-courts.jpg" alt="" class="hero-photo" width="2000" height="756">
+  </div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow">Est. 2002 · Cohasset, Massachusetts</span>
+    <h1>A coastal home for the game of tennis.</h1>
+    <p class="hero-sub">A members' club on Boston's South Shore where families learn the game, players sharpen it, and friends meet on the court.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-lt">Explore Membership <span class="arw">→</span></a>
+      <a href="#" class="btn btn-ghost">See what we offer</a>
+    </div>
+  </div>
+</header>
+
+<div class="opt-label">C — Lead with the people <span>· club-family, copy sitting below them, warm scrim</span></div>
+<header class="hero hero-photo-bg hc preview-hero">
+  <div class="hero-bg">
+    <img src="images/club-family.jpg" alt="" class="hero-photo" width="1600" height="1054">
+  </div>
+  <div class="container">
+    <span class="eyebrow hero-eyebrow">Est. 2002 · Cohasset, Massachusetts</span>
+    <h1>A coastal home for the game of tennis.</h1>
+    <p class="hero-sub">A members' club on Boston's South Shore where families learn the game, players sharpen it, and friends meet on the court.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-lt">Explore Membership <span class="arw">→</span></a>
+      <a href="#" class="btn btn-ghost">See what we offer</a>
+    </div>
+  </div>
+</header>
+
+<div class="opt-label">D — Warm, like the rest of the site <span>· no dark slab at all; photo at full brightness</span></div>
+<header class="hero hero-photo-bg hd preview-hero">
+  <div class="hero-bg">
+    <img src="images/club-family.jpg" alt="" class="hero-photo" width="1600" height="1054">
+  </div>
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow hero-eyebrow">Est. 2002 · Cohasset, Massachusetts</span>
+      <h1>A coastal home for the game of tennis.</h1>
+      <p class="hero-sub">A members' club on Boston's South Shore where families learn the game, players sharpen it, and friends meet on the court.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-lt">Explore Membership <span class="arw">→</span></a>
+        <a href="#" class="btn btn-ghost">See what we offer</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+</body>
+</html>
