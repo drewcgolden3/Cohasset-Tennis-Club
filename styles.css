@@ -1129,7 +1129,7 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
    out for a dark ground without the serifs breaking up. */
 .hero-mark { margin: 0; line-height: 0; }
 .hero-mark img {
-  display: block; width: clamp(270px, 34vw, 520px); height: auto;
+  display: block; width: clamp(240px, 29vw, 440px); height: auto;
   margin-inline: auto;
   filter: drop-shadow(0 6px 34px rgba(8,20,16,0.42));
 }
