@@ -352,7 +352,8 @@ body.menu-open #navbar.scrolled {
 }
 .hero.hero-photo-bg .hero-bg::after {
   background:
-    linear-gradient(180deg, rgba(20,33,30,0.52) 0%, rgba(20,33,30,0.30) 40%, rgba(20,33,30,0.72) 100%);
+    radial-gradient(74% 58% at 50% 46%, rgba(16,28,25,0.56) 0%, rgba(16,28,25,0.26) 58%, rgba(16,28,25,0.04) 100%),
+    linear-gradient(180deg, rgba(20,33,30,0.50) 0%, rgba(20,33,30,0.26) 40%, rgba(20,33,30,0.70) 100%);
 }
 
 .hero-logo { width: clamp(96px, 13vw, 138px); height: auto; margin-bottom: 22px; filter: drop-shadow(0 8px 24px rgba(10,28,38,0.35)); }
@@ -1121,23 +1122,23 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 /* Centred hero puts the CTAs where the scroll cue used to sit. */
 .hero.hero--center .hero-scroll { display: none; }
 
-/* ---- Homepage wordmark ---------------------------------------------------
-   The club's name set in type instead of the logo raster. Live text has no
-   resolution ceiling, so it runs at full display size, and nothing has to be
-   reversed out of white — the two things that kept the mark small. This
-   replaces the old headline; the name is the headline. */
-.hero.hero--center h1.wordmark {
-  max-width: none; margin-top: 26px;
-  font-family: var(--font-display); font-weight: 500;
-  font-size: clamp(2.7rem, 8vw, 6.4rem); line-height: 0.92;
-  letter-spacing: -0.025em; color: var(--bone);
-  text-wrap: normal;              /* the line break is explicit, not balanced */
+/* ---- Homepage mark ------------------------------------------------------
+   The club's mark carries the hero, the way The Oaks Club and Brookline do
+   it: centred seal, hairline rule, one line of copy. The 2026 logo is 1502px
+   wide, so unlike the old 349px file it can run at this size and be reversed
+   out for a dark ground without the serifs breaking up. */
+.hero-mark { margin: 0; line-height: 0; }
+.hero-mark img {
+  display: block; width: clamp(270px, 34vw, 520px); height: auto;
+  margin-inline: auto;
+  filter: drop-shadow(0 6px 34px rgba(8,20,16,0.42));
 }
-.wordmark .wm-two { display: block; }
+/* Hairline between the mark and the line of copy — the reference sites both
+   use one. Cream, not brass: the mark already carries a large brass arc. */
 .wm-rule {
-  width: clamp(84px, 9vw, 132px); height: 2px; border: 0; border-radius: 2px;
-  background: var(--brass-lt); opacity: 0.9;
-  margin: clamp(20px, 2.4vw, 28px) auto;
+  display: block; width: 46px; height: 1px; border: 0; border-radius: 0;
+  background: rgba(248,245,239,0.45);
+  margin: clamp(22px, 3vh, 34px) auto clamp(16px, 2.2vh, 22px);
 }
 .hero-foot {
   margin-top: clamp(32px, 4.5vw, 50px);
@@ -1145,7 +1146,7 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
   color: var(--muted-lt);
 }
 @media (max-width: 700px) {
-  .hero.hero--center h1.wordmark { font-size: clamp(2.3rem, 11.5vw, 3.6rem); }
+  .hero-mark img { width: clamp(240px, 66vw, 340px); }
   /* the block is proportionally taller on a phone, so the same top padding
      squeezes the foot line against the bottom edge */
   .hero.hero--center { padding-top: calc(var(--nav-h) + clamp(36px, 5vh, 60px)); }
