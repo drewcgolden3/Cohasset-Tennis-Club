@@ -349,12 +349,11 @@ body.menu-open #navbar.scrolled {
   transform: scale(1.03); z-index: 0;
 }
 .hero.hero-photo-bg .hero-bg::after {
+  /* The photo runs at full strength now; the mark gets its own light ground
+     instead of bleaching the whole frame to make room for it. Just enough
+     shading for depth at the edges. */
   background:
-    /* Heaviest right behind the mark, easing off at the edges so the courts
-       still read. 0.80 is the floor: under it the photo's dark curtains stop
-       carrying navy type at AA. */
-    radial-gradient(70% 54% at 50% 42%, rgba(241,234,221,0.93) 0%, rgba(241,234,221,0.84) 55%, rgba(241,234,221,0.62) 100%),
-    linear-gradient(180deg, rgba(241,234,221,0.76) 0%, rgba(241,234,221,0.66) 40%, rgba(241,234,221,0.84) 100%);
+    radial-gradient(86% 70% at 50% 46%, rgba(18,34,30,0) 40%, rgba(18,34,30,0.22) 78%, rgba(18,34,30,0.40) 100%);
 }
 
 .hero-logo { width: clamp(96px, 13vw, 138px); height: auto; margin-bottom: 22px; filter: drop-shadow(0 8px 24px rgba(10,28,38,0.35)); }
@@ -1312,3 +1311,22 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .hero.hero-photo-bg .btn-lt:hover { background: var(--clay-deep); border-color: var(--clay-deep); color: var(--white); }
 .hero.hero-photo-bg .btn-ghost { color: var(--pine); border-color: rgba(28,68,89,0.28); background: transparent; }
 .hero.hero-photo-bg .btn-ghost:hover { background: var(--pine); color: var(--bone); border-color: var(--pine); }
+
+/* The mark sits on a light plate over the photograph. A navy wordmark needs a
+   light ground and a photograph that actually reads is mid-tone, so the two
+   cannot share the same pixels — veiling the whole frame to reconcile them
+   just erased the picture. Frosted rather than solid, to match the nav. */
+.hero.hero-photo-bg .container {
+  width: auto; max-width: 680px;
+  padding: clamp(34px, 4.2vw, 58px) clamp(30px, 4vw, 58px) clamp(30px, 3.6vw, 50px);
+  background: rgba(248, 245, 239, 0.93);
+  backdrop-filter: saturate(150%) blur(12px);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  border-radius: 18px;
+  box-shadow: 0 40px 90px -40px rgba(30, 24, 14, 0.55), 0 2px 10px rgba(30, 24, 14, 0.10);
+}
+.hero.hero-photo-bg .hero-mark img { width: clamp(220px, 26vw, 360px); }
+.hero.hero-photo-bg .hero-foot { margin-top: clamp(24px, 3vw, 34px); }
+@media (max-width: 700px) {
+  .hero.hero-photo-bg .container { max-width: none; margin-inline: 18px; border-radius: 14px; }
+}
