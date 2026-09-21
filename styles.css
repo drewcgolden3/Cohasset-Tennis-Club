@@ -1128,7 +1128,7 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
    it: centred seal, hairline rule, one line of copy. The 2026 logo is 1502px
    wide, so unlike the old 349px file it can run at this size and be reversed
    out for a dark ground without the serifs breaking up. */
-.hero-mark { margin: 0; line-height: 0; }
+.hero-mark { margin: clamp(22px, 2.8vh, 32px) 0 0; line-height: 0; }
 .hero-mark img {
   display: block; width: clamp(240px, 29vw, 440px); height: auto;
   margin-inline: auto;
@@ -1139,7 +1139,9 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .wm-rule {
   display: block; width: 46px; height: 1px; border: 0; border-radius: 0;
   background: rgba(248,245,239,0.45);
-  margin: clamp(22px, 3vh, 34px) auto clamp(16px, 2.2vh, 22px);
+  /* the lead carries its own 26px top margin, so the rule's lower side is
+     deliberately short — otherwise the gap under it reads twice the one above */
+  margin: clamp(26px, 3.4vh, 36px) auto clamp(8px, 1.2vh, 14px);
 }
 .hero-foot {
   margin-top: clamp(32px, 4.5vw, 50px);
@@ -1304,5 +1306,5 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
    The club's name lifted straight out of the logo artwork — the actual
    letterforms, not a lookalike — knocked to white over the photograph. No
    lighthouse, no arc, so nothing has to be reconciled against the brass. */
-.hero.hero-photo-bg .hero-mark img { width: clamp(220px, 27vw, 400px); }
+.hero.hero-photo-bg .hero-mark img { width: clamp(250px, 35vw, 520px); }
 .hero.hero-photo-bg .hero-foot { color: var(--muted-lt); }
