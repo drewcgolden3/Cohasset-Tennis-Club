@@ -1312,21 +1312,29 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .hero.hero-photo-bg .btn-ghost { color: var(--pine); border-color: rgba(28,68,89,0.28); background: transparent; }
 .hero.hero-photo-bg .btn-ghost:hover { background: var(--pine); color: var(--bone); border-color: var(--pine); }
 
-/* The mark sits on a light plate over the photograph. A navy wordmark needs a
-   light ground and a photograph that actually reads is mid-tone, so the two
-   cannot share the same pixels — veiling the whole frame to reconcile them
-   just erased the picture. Frosted rather than solid, to match the nav. */
-.hero.hero-photo-bg .container {
-  width: auto; max-width: 680px;
-  padding: clamp(34px, 4.2vw, 58px) clamp(30px, 4vw, 58px) clamp(30px, 3.6vw, 50px);
-  background: rgba(248, 245, 239, 0.93);
-  backdrop-filter: saturate(150%) blur(12px);
-  -webkit-backdrop-filter: saturate(150%) blur(12px);
-  border-radius: 18px;
-  box-shadow: 0 40px 90px -40px rgba(30, 24, 14, 0.55), 0 2px 10px rgba(30, 24, 14, 0.10);
+/* The mark sits directly on the photograph. Instead of a card, a soft pool of
+   light and blur is laid in behind the seal and masked out to nothing at its
+   edges, so the navy reads without anything drawing a boundary. The mask is
+   the point: a backdrop-filter without one blurs to a hard rectangle. */
+.hero-glow {
+  /* sits lower than the hero's own centre: the seal runs from the eyebrow
+     down to the location line, so centring on the box left the copy and the
+     ghost button hanging off the bottom edge of the pool */
+  position: absolute; left: 50%; top: 56%; translate: -50% -50%;
+  width: min(1240px, 96vw); height: min(980px, 112%);
+  z-index: 1; pointer-events: none;
+  backdrop-filter: blur(18px) saturate(115%);
+  -webkit-backdrop-filter: blur(18px) saturate(115%);
+  background: radial-gradient(ellipse 50% 50% at 50% 50%,
+    rgba(248,245,239,0.88) 0%, rgba(248,245,239,0.84) 42%,
+    rgba(248,245,239,0.62) 62%, rgba(248,245,239,0.24) 78%, rgba(248,245,239,0) 92%);
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, #000 52%, rgba(0,0,0,0.45) 72%, transparent 90%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, #000 52%, rgba(0,0,0,0.45) 72%, transparent 90%);
 }
-.hero.hero-photo-bg .hero-mark img { width: clamp(220px, 26vw, 360px); }
-.hero.hero-photo-bg .hero-foot { margin-top: clamp(24px, 3vw, 34px); }
+.hero.hero-photo-bg .hero-mark img { width: clamp(230px, 28vw, 390px); }
 @media (max-width: 700px) {
-  .hero.hero-photo-bg .container { max-width: none; margin-inline: 18px; border-radius: 14px; }
+  .hero-glow { width: 108vw; height: 86%; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 }
+
+
+.hero.hero-photo-bg .hero-foot { color: var(--ink-mid); }  /* sits where the pool is fading */
