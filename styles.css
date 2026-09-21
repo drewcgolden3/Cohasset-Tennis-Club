@@ -341,19 +341,20 @@ body.menu-open #navbar.scrolled {
 .hero .container { position: relative; z-index: 2; padding-bottom: clamp(56px, 8vw, 104px); width: 100%; }
 
 /* Photo hero (homepage) — real facility photo, darkened for legible text */
-.hero.hero-photo-bg { background: var(--bone-alt); color: var(--ink); }
+.hero.hero-photo-bg { background: var(--pine-deep); color: var(--bone); }
 .hero.hero-photo-bg .court-motif { display: none; }
 .hero.hero-photo-bg .hero-photo {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  object-position: center 62%; filter: none;
+  object-position: center 62%;
+  filter: brightness(0.58) saturate(1.05);
   transform: scale(1.03); z-index: 0;
 }
 .hero.hero-photo-bg .hero-bg::after {
-  /* The photo runs at full strength now; the mark gets its own light ground
-     instead of bleaching the whole frame to make room for it. Just enough
-     shading for depth at the edges. */
+  /* Pooled behind the wordmark so the white holds against the bright ceiling,
+     easing off at the edges so the courts still read. */
   background:
-    radial-gradient(86% 70% at 50% 46%, rgba(18,34,30,0) 40%, rgba(18,34,30,0.22) 78%, rgba(18,34,30,0.40) 100%);
+    radial-gradient(76% 60% at 50% 45%, rgba(16,28,25,0.46) 0%, rgba(16,28,25,0.22) 62%, rgba(16,28,25,0.04) 100%),
+    linear-gradient(180deg, rgba(16,28,25,0.44) 0%, rgba(16,28,25,0.16) 38%, rgba(16,28,25,0.52) 100%);
 }
 
 .hero-logo { width: clamp(96px, 13vw, 138px); height: auto; margin-bottom: 22px; filter: drop-shadow(0 8px 24px rgba(10,28,38,0.35)); }
@@ -1131,19 +1132,19 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 .hero-mark img {
   display: block; width: clamp(240px, 29vw, 440px); height: auto;
   margin-inline: auto;
-  filter: drop-shadow(0 8px 30px rgba(74,58,38,0.16));
+  filter: drop-shadow(0 6px 30px rgba(8,18,14,0.45));
 }
 /* Hairline between the mark and the line of copy — the reference sites both
    use one. Cream, not brass: the mark already carries a large brass arc. */
 .wm-rule {
   display: block; width: 46px; height: 1px; border: 0; border-radius: 0;
-  background: var(--clay-line);
+  background: rgba(248,245,239,0.45);
   margin: clamp(22px, 3vh, 34px) auto clamp(16px, 2.2vh, 22px);
 }
 .hero-foot {
   margin-top: clamp(32px, 4.5vw, 50px);
   font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted-lt);
 }
 @media (max-width: 700px) {
   .hero-mark img { width: clamp(240px, 66vw, 340px); }
@@ -1299,42 +1300,9 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
   .session-time .dur { margin-top: 0; }
 }
 
-/* ---- Homepage hero on the light ground -----------------------------------
-   The mark is used exactly as supplied: navy wordmark on the brass arc, the
-   contrast pairing it was drawn for. Reversing it out either killed that
-   contrast or needed cut-out gaps that read as a sticker. */
-.hero.hero-photo-bg .hero-eyebrow { color: var(--clay); }
-.hero.hero-photo-bg .hero-eyebrow::before,
-.hero.hero-photo-bg .hero-eyebrow::after { background: var(--clay-line); }
-.hero.hero-photo-bg .hero-sub { color: var(--ink-mid); }
-.hero.hero-photo-bg .btn-lt { background: var(--pine); color: var(--bone); border-color: var(--pine); }
-.hero.hero-photo-bg .btn-lt:hover { background: var(--clay-deep); border-color: var(--clay-deep); color: var(--white); }
-.hero.hero-photo-bg .btn-ghost { color: var(--pine); border-color: rgba(28,68,89,0.28); background: transparent; }
-.hero.hero-photo-bg .btn-ghost:hover { background: var(--pine); color: var(--bone); border-color: var(--pine); }
-
-/* The mark sits directly on the photograph. Instead of a card, a soft pool of
-   light and blur is laid in behind the seal and masked out to nothing at its
-   edges, so the navy reads without anything drawing a boundary. The mask is
-   the point: a backdrop-filter without one blurs to a hard rectangle. */
-.hero-glow {
-  /* sits lower than the hero's own centre: the seal runs from the eyebrow
-     down to the location line, so centring on the box left the copy and the
-     ghost button hanging off the bottom edge of the pool */
-  position: absolute; left: 50%; top: 56%; translate: -50% -50%;
-  width: min(1240px, 96vw); height: min(980px, 112%);
-  z-index: 1; pointer-events: none;
-  backdrop-filter: blur(18px) saturate(115%);
-  -webkit-backdrop-filter: blur(18px) saturate(115%);
-  background: radial-gradient(ellipse 50% 50% at 50% 50%,
-    rgba(248,245,239,0.88) 0%, rgba(248,245,239,0.84) 42%,
-    rgba(248,245,239,0.62) 62%, rgba(248,245,239,0.24) 78%, rgba(248,245,239,0) 92%);
-  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, #000 52%, rgba(0,0,0,0.45) 72%, transparent 90%);
-  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 0%, #000 52%, rgba(0,0,0,0.45) 72%, transparent 90%);
-}
-.hero.hero-photo-bg .hero-mark img { width: clamp(230px, 28vw, 390px); }
-@media (max-width: 700px) {
-  .hero-glow { width: 108vw; height: 86%; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-}
-
-
-.hero.hero-photo-bg .hero-foot { color: var(--ink-mid); }  /* sits where the pool is fading */
+/* ---- Homepage hero --------------------------------------------------------
+   The club's name lifted straight out of the logo artwork — the actual
+   letterforms, not a lookalike — knocked to white over the photograph. No
+   lighthouse, no arc, so nothing has to be reconciled against the brass. */
+.hero.hero-photo-bg .hero-mark img { width: clamp(220px, 27vw, 400px); }
+.hero.hero-photo-bg .hero-foot { color: var(--muted-lt); }
