@@ -16,20 +16,34 @@
   var form = document.querySelector("form[data-gform], form[data-leadform]");
   if (!form) return;
 
-  /* The membership form sits below the pricing table on the same page, so a
-     tier button is a jump link that also answers the tier question for you.
-     Nothing here is required — the select works fine on its own. */
+  /* Tier buttons on membership.html link here as membership-request.html?tier=family,
+     so the tier question is already answered when the form opens. An unknown or
+     missing tier just leaves the select on "Not sure yet". */
   (function preselectTier() {
     var tierField = document.getElementById("mb-tier");
     if (!tierField) return;
-    document.addEventListener("click", function (e) {
-      var trigger = e.target.closest("[data-tier]");
-      if (!trigger) return;
-      var wanted = trigger.getAttribute("data-tier");
-      for (var i = 0; i < tierField.options.length; i++) {
-        if (tierField.options[i].value === wanted) { tierField.selectedIndex = i; break; }
+    var slugs = { junior: "Junior", individual: "Individual", couples: "Couples", family: "Family", trial: "Junior Trial" };
+    var wanted = null;
+    try { wanted = slugs[(new URLSearchParams(location.search).get("tier") || "").toLowerCase()]; } catch (e) {}
+    if (!wanted) return;
+
+    for (var i = 0; i < tierField.options.length; i++) {
+      if (tierField.options[i].value !== wanted) continue;
+      tierField.selectedIndex = i;
+
+      var pick = document.getElementById("tierPick");
+      if (pick) {
+        // Option text reads "Family — $1,800 / year"; show the price beside the name.
+        var price = tierField.options[i].textContent.split("—")[1];
+        document.getElementById("tierPickName").textContent = wanted + " membership";
+        document.getElementById("tierPickPrice").textContent = price ? "· " + price.trim() : "";
+        pick.hidden = false;
       }
-    });
+      var title = document.getElementById("request-title");
+      if (title) title.textContent = "Request " + (wanted === "Junior Trial" ? "a Junior Trial." : wanted + " membership.");
+      document.title = "Request " + wanted + " Membership | Cohasset Tennis Club";
+      break;
+    }
   })();
 
   // Google Form is optional — membership enquiries have no sheet behind them.
