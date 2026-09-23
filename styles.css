@@ -1319,3 +1319,8 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
    lighthouse, no arc, so nothing has to be reconciled against the brass. */
 .hero.hero-photo-bg .hero-mark img { width: clamp(250px, 35vw, 520px); }
 .hero.hero-photo-bg .hero-foot { color: var(--muted-lt); }
+/* Name in the logo's own yellow (#FEC201, sampled from logo-mark.png), so the
+   white moves to the date line above it. */
+.hero.hero-photo-bg .hero-eyebrow { color: var(--white); }
+.hero.hero--center.hero-photo-bg .hero-eyebrow::before,
+.hero.hero--center.hero-photo-bg .hero-eyebrow::after { background: rgba(255,255,255,0.45); }
