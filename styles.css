@@ -1322,5 +1322,6 @@ footer { background: var(--pine-deep); color: var(--bone); padding: clamp(60px, 
 /* Name in the logo's own yellow (#FEC201, sampled from logo-mark.png), so the
    white moves to the date line above it. */
 .hero.hero-photo-bg .hero-eyebrow { color: var(--white); }
+.hero.hero-photo-bg .btn-lt:hover { background: #FEC201; border-color: #FEC201; color: var(--pine-deep); }
 .hero.hero--center.hero-photo-bg .hero-eyebrow::before,
 .hero.hero--center.hero-photo-bg .hero-eyebrow::after { background: rgba(255,255,255,0.45); }
