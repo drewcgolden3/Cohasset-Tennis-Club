@@ -132,7 +132,7 @@ section { position: relative; }
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(2.5rem, 5.4vw, 4.6rem);
-  line-height: 1.0;
+  line-height: 1.1;
   letter-spacing: -0.012em;
   text-wrap: balance;
   color: var(--pine);
@@ -325,7 +325,7 @@ body.menu-open #navbar, body.menu-open #navbar.scrolled {
 .hero-eyebrow { color: var(--brass-lt); }
 .hero h1 {
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(3rem, 8vw, 6.6rem); line-height: 0.96;
+  font-size: clamp(3rem, 8vw, 6.6rem); line-height: 1.06;
   letter-spacing: -0.015em; margin: 22px 0 0; max-width: 15ch;
   text-wrap: balance;
 }
@@ -630,7 +630,7 @@ a.pcard:hover h3 { color: var(--court); }
 .pullquote { margin: 0; }
 .pullquote blockquote {
   margin: 0; font-family: var(--font-display); font-weight: 400; font-style: italic;
-  font-size: clamp(2.4rem, 5.8vw, 4.8rem); line-height: 1.04; letter-spacing: -0.015em;
+  font-size: clamp(2.4rem, 5.8vw, 4.8rem); line-height: 1.14; letter-spacing: -0.015em;
   color: var(--bone); text-indent: -0.4em; text-wrap: balance;
   max-width: 18ch;
 }
@@ -648,7 +648,7 @@ a.pcard:hover h3 { color: var(--court); }
 .closer-in { display: grid; grid-template-columns: 1fr auto; gap: clamp(22px, 4vw, 72px); align-items: end; }
 .closer h2 {
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(2.1rem, 3.9vw, 3.4rem); line-height: 1.05;
+  font-size: clamp(2.1rem, 3.9vw, 3.4rem); line-height: 1.14;
   letter-spacing: -0.012em; color: var(--pine); margin: 0; max-width: 20ch;
   text-wrap: balance;
 }
@@ -664,7 +664,7 @@ a.pcard:hover h3 { color: var(--court); }
 footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9vw, 128px) 0 30px; border-top: 1px solid var(--border); }
 .footer-word {
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(3.4rem, 8.7vw, 8.9rem); line-height: 0.9; letter-spacing: -0.025em; margin-left: -0.04em;
+  font-size: clamp(3.4rem, 8.7vw, 8.9rem); line-height: 1.0; letter-spacing: -0.025em; margin-left: -0.04em;
   color: var(--pine); margin-bottom: clamp(48px, 6vw, 88px);
 }
 .footer-word span { display: inline-block; }
@@ -756,7 +756,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .lane::before { display: none; }
 .lane .lane-ic { display: none; }
 .lane .lane-tag { font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--clay); margin-bottom: 12px; }
-.lane h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.8rem, 2.8vw, 2.4rem); color: var(--pine); line-height: 1.05; }
+.lane h3 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.8rem, 2.8vw, 2.4rem); color: var(--pine); line-height: 1.12; }
 .lane > p { margin-top: 14px; color: var(--ink-mid); font-size: 1rem; line-height: 1.7; }
 .lane ul { list-style: none; margin-top: 22px; display: flex; flex-direction: column; border-top: 1px solid var(--border); }
 .lane li { font-size: 0.95rem; color: var(--ink-mid); padding: 11px 0; border-bottom: 1px solid var(--border-soft); }
@@ -998,10 +998,10 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .club-title {
   grid-column: 1 / span 10;
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(2.8rem, 6.6vw, 6.2rem); line-height: 0.98; letter-spacing: -0.02em;
+  font-size: clamp(2.8rem, 6.6vw, 6.2rem); line-height: 1.1; letter-spacing: -0.02em;
   color: var(--pine); margin-top: 26px; text-wrap: balance;
 }
-.club-body { grid-column: 7 / span 5; margin-top: clamp(40px, 5vw, 72px); }
+.club-body { grid-column: 7 / span 5; margin-top: clamp(32px, 4vw, 56px); }
 .club-body p:first-child::first-letter {
   font-family: var(--font-display); float: left; font-size: 4.4em; line-height: .8;
   padding: .06em .1em 0 0; color: var(--pine);
@@ -1044,7 +1044,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .way-num { font-family: var(--font-display); font-style: italic; font-size: 1.25rem; color: var(--clay); line-height: 1.5; transition: color .3s var(--ease-soft); }
 .way h3 {
   font-family: var(--font-display); font-weight: 500; font-size: clamp(1.75rem, 2.4vw, 2.2rem);
-  line-height: 1.05; color: var(--pine); transition: color .3s var(--ease-soft);
+  line-height: 1.12; color: var(--pine); transition: color .3s var(--ease-soft);
 }
 .way p { margin-top: 10px; color: var(--ink-mid); font-size: 0.98rem; line-height: 1.65; }
 .way .way-link {
@@ -1084,7 +1084,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 }
 .founders h2 {
   font-family: var(--font-display); font-weight: 400; font-style: italic;
-  font-size: clamp(2.3rem, 3.8vw, 3.4rem); line-height: 1.02; letter-spacing: -0.01em;
+  font-size: clamp(2.3rem, 3.8vw, 3.4rem); line-height: 1.12; letter-spacing: -0.01em;
   color: var(--bone); margin-top: 26px;
 }
 .founders .prose { margin-top: 28px; }
@@ -1130,7 +1130,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .week-line {
   grid-column: 1 / span 9;
   font-family: var(--font-display); font-weight: 400; font-style: italic;
-  font-size: clamp(2.2rem, 4.6vw, 4.1rem); line-height: 1.04; letter-spacing: -0.012em;
+  font-size: clamp(2.2rem, 4.6vw, 4.1rem); line-height: 1.14; letter-spacing: -0.012em;
   color: var(--pine); margin-top: 22px; text-wrap: balance;
 }
 .week-aside { grid-column: 10 / -1; }
@@ -1143,7 +1143,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .invite h2 {
   grid-column: 1 / span 8;
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(3rem, 7.4vw, 7rem); line-height: .92; letter-spacing: -0.025em; color: var(--bone);
+  font-size: clamp(3rem, 7.4vw, 7rem); line-height: 1.04; letter-spacing: -0.025em; color: var(--bone);
   text-wrap: balance;
 }
 .invite-aside { grid-column: 9 / -1; }
