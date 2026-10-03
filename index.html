@@ -8,12 +8,12 @@
 <link rel="canonical" href="https://drewcgolden3.github.io/Cohasset-Tennis-Club/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..500,0..100,0..1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=12">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#123141">
+<meta name="theme-color" content="#1F3B2D">
 <!-- Social / link preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cohasset Tennis Club">
@@ -58,12 +58,13 @@
 }
 </script>
 </head>
-<body>
+<body class="home">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ============================= NAV ============================= -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo" aria-label="Cohasset Tennis Club — home">
-    <img src="images/logo-mark.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="1502" height="1024">
+    <img src="images/logo-nav.png" alt="Cohasset Tennis Club" class="nav-logo-img" width="246" height="168">
   </a>
   <ul class="nav-links">
     <li><a href="adult-tennis.html">Adult Tennis</a></li>
@@ -89,39 +90,43 @@
     <a href="tel:17813839533">(781) 383-9533</a> · <a href="mailto:cohassettennis-club@gmail.com">Email the club</a></div>
 </div>
 
-<!-- ============================= HERO ============================= -->
-<header class="hero hero-photo-bg hero--center">
-  <div class="hero-bg">
-    <img src="images/hero-courts.jpg" alt="Members playing on the indoor Har-Tru courts at Cohasset Tennis Club" class="hero-photo" fetchpriority="high" width="2000" height="756">
-    <div class="court-motif"></div>
-  </div>
+<main id="main">
+<!-- ============================= MASTHEAD ============================= -->
+<header class="masthead">
   <div class="container">
-    <span class="eyebrow hero-eyebrow" data-reveal>Est. 2002</span>
-    <h1 class="hero-mark" data-reveal style="transition-delay:.12s">
-      <img src="images/wordmark-yellow.png" alt="Cohasset Tennis Club" width="1040" height="423" fetchpriority="high">
-    </h1>
-    <hr class="wm-rule" data-reveal style="transition-delay:.18s">
-    <p class="hero-sub" data-reveal style="transition-delay:.24s">
-      A members' club on Boston's South Shore where families learn the game,
-      players sharpen it, and friends meet on the court.
-    </p>
-    <div class="hero-cta" data-reveal style="transition-delay:.3s">
-      <a href="membership.html" class="btn btn-lt">Explore Membership <span class="arw">→</span></a>
-      <a href="#programs" class="btn btn-ghost">See what we offer</a>
+    <div class="mast-meta" data-reveal>
+      <span>Est. 2002</span>
+      <span class="mid">Junior &amp; adult tennis · Lessons · Teams</span>
+      <span>Cohasset, Massachusetts</span>
     </div>
-    <p class="hero-foot" data-reveal style="transition-delay:.36s">Cohasset, Massachusetts</p>
+    <div class="mast-body grid-12">
+      <h1 class="mast-title" data-reveal style="transition-delay:.08s"><span>Cohasset</span> <span>Tennis Club</span></h1>
+      <div class="mast-aside">
+        <p class="mast-sub" data-reveal style="transition-delay:.18s">A members' club on Boston's South Shore where families learn the game,
+        players sharpen it, and friends meet on the court.</p>
+        <div class="mast-cta" data-reveal style="transition-delay:.26s">
+          <a href="membership.html" class="btn btn-primary">Explore Membership <span class="arw">→</span></a>
+          <a href="#programs" class="link-arrow">See what we offer <span class="arw">→</span></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
+  <figure class="mast-plate">
+    <img src="images/hero-courts.jpg" alt="Members playing on the indoor Har-Tru courts at Cohasset Tennis Club" fetchpriority="high" width="2000" height="756">
+  </figure>
+  <div class="container mast-cap">
+    <p class="cap"><b>Plate I</b><span>The indoor Har-Tru courts, 21 Cedar Street.</span></p>
+    <a href="#club" class="scroll-cue" aria-label="Scroll to the club">Scroll <i></i></a>
+  </div>
 </header>
 
-<!-- ========================= WELCOME + STATS ========================= -->
-<section class="section">
+<!-- ============================= THE CLUB ============================= -->
+<section class="section club" id="club">
   <div class="container">
-    <div class="split" style="align-items:flex-start">
-      <div data-reveal>
-        <h2 class="section-title">An oasis for players of every age and ability.</h2>
-      </div>
-      <div class="prose" data-reveal style="transition-delay:.1s; align-self:center">
+    <div class="grid-12">
+      <span class="eyebrow" data-reveal>The Club</span>
+      <h2 class="club-title" data-reveal>An oasis for players of every age and ability.</h2>
+      <div class="club-body prose" data-reveal style="transition-delay:.1s">
         <p>Owned and run by Bud Schultz and Elaine Cosseboom since 2002, the Cohasset Tennis Club
         pairs a warm, family-first atmosphere with genuinely world-class coaching. Between them, our
         pros have played Grand Slams, coached Hall of Famers, and led Division&nbsp;1 and professional programs.</p>
@@ -132,72 +137,89 @@
       </div>
     </div>
 
-    <div class="stats" style="margin-top:clamp(56px,8vw,90px)" data-reveal-stagger>
-      <div class="stat" data-reveal><div class="num">2002</div><div class="lbl">Family owned</div></div>
-      <div class="stat" data-reveal><div class="num">6:1</div><div class="lbl">Junior ratio</div></div>
-      <div class="stat" data-reveal><div class="num">40<span style="font-size:.5em">yrs</span></div><div class="lbl">Coaching pedigree</div></div>
-      <div class="stat" data-reveal><div class="num">4</div><div class="lbl">Ways to join</div></div>
-    </div>
+    <dl class="figures" data-reveal-stagger>
+      <div data-reveal><dt>Family owned</dt><dd>2002</dd></div>
+      <div data-reveal><dt>Junior ratio</dt><dd>6:1</dd></div>
+      <div data-reveal><dt>Coaching pedigree</dt><dd>40<small>yrs</small></dd></div>
+      <div data-reveal><dt>Ways to join</dt><dd>4</dd></div>
+    </dl>
   </div>
 </section>
 
 <!-- ============================= PROGRAMS ============================= -->
 <section class="section band-alt" id="programs">
   <div class="container">
-    <div data-reveal>
-      <span class="eyebrow">On the courts</span>
-      <h2 class="section-title">Four ways to play.</h2>
+    <div class="grid-12 ways-head" data-reveal>
+      <div>
+        <span class="eyebrow">On the courts</span>
+        <h2 class="section-title">Four ways to play.</h2>
+      </div>
       <p class="section-lead">From a child's very first red-ball clinic to competitive USTA and MITA team play —
       there's a place for you at Cohasset.</p>
     </div>
 
-    <div style="margin-top:clamp(36px,5vw,56px)">
-      <figure class="plate crop" data-reveal style="margin:0; --crop:40%">
-        <img src="images/club-family-racquets.jpg" alt="Bud Schultz and Elaine Cosseboom with three junior players and a ball cart on court at Cohasset Tennis Club" decoding="async" width="1600" height="1056">
+    <div class="grid-12 ways-body">
+      <figure class="ways-figure" data-reveal>
+        <div class="frame"><img src="images/club-family-racquets.jpg" alt="Bud Schultz and Elaine Cosseboom with three junior players and a ball cart on court at Cohasset Tennis Club" decoding="async" width="1600" height="1056"></div>
+        <figcaption class="plate-cap"><b>At the club</b><span>Owners Bud Schultz and Elaine Cosseboom with a junior group.</span></figcaption>
       </figure>
-      <p class="plate-cap"><b>At the club</b><span>Owners Bud Schultz and Elaine Cosseboom with a junior group.</span></p>
-    </div>
 
-    <div class="card-grid cols-4" style="margin-top:clamp(40px,6vw,64px)" data-reveal-stagger>
-      <a href="junior-tennis.html" class="pcard" data-reveal>
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 21c0-4 2.9-6.5 6.5-6.5S18.5 17 18.5 21"/></svg></span>
-        <h3>Junior Tennis</h3>
-        <p>A high-energy development program for all ages and abilities, capped at a 6:1 ratio. Four seasonal sessions a year.</p>
-        <span class="card-foot link-arrow">Explore &amp; register <span class="arw">→</span></span>
-      </a>
-      <a href="adult-tennis.html#clinics" class="pcard" data-reveal>
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5"/><path d="M11.5 11.5 20 20"/></svg></span>
-        <h3>Adult Clinics</h3>
-        <p>Stroke-focused clinics from beginner to 105 level, plus custom small-group sessions built around you.</p>
-        <span class="card-foot link-arrow">See adult tennis <span class="arw">→</span></span>
-      </a>
-      <a href="adult-tennis.html#lessons" class="pcard" data-reveal>
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3.4"/></svg></span>
-        <h3>Private Lessons</h3>
-        <p>One-on-one, semi-private, or small-group coaching with the pro of your choice — kids and adults alike.</p>
-        <span class="card-foot link-arrow">Request a lesson <span class="arw">→</span></span>
-      </a>
-      <a href="adult-tennis.html#competitive" class="pcard" data-reveal>
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0zM7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg></span>
-        <h3>Competitive Play</h3>
-        <p>In-house and travel match play, men's singles &amp; doubles, and women's USTA and MITA teams.</p>
-        <span class="card-foot link-arrow">Join a team <span class="arw">→</span></span>
-      </a>
+      <div class="ways-list" data-reveal-stagger>
+        <a href="junior-tennis.html" class="way" data-reveal>
+          <span class="way-num">i.</span>
+          <div>
+            <h3>Junior Tennis</h3>
+            <p>A high-energy development program for all ages and abilities, capped at a 6:1 ratio. Four seasonal sessions a year.</p>
+            <span class="way-link">Explore &amp; register <span class="arw">→</span></span>
+          </div>
+        </a>
+        <a href="adult-tennis.html#clinics" class="way" data-reveal>
+          <span class="way-num">ii.</span>
+          <div>
+            <h3>Adult Clinics</h3>
+            <p>Stroke-focused clinics from beginner to 105 level, plus custom small-group sessions built around you.</p>
+            <span class="way-link">See adult tennis <span class="arw">→</span></span>
+          </div>
+        </a>
+        <a href="adult-tennis.html#lessons" class="way" data-reveal>
+          <span class="way-num">iii.</span>
+          <div>
+            <h3>Private Lessons</h3>
+            <p>One-on-one, semi-private, or small-group coaching with the pro of your choice — kids and adults alike.</p>
+            <span class="way-link">Request a lesson <span class="arw">→</span></span>
+          </div>
+        </a>
+        <a href="adult-tennis.html#competitive" class="way" data-reveal>
+          <span class="way-num">iv.</span>
+          <div>
+            <h3>Competitive Play</h3>
+            <p>In-house and travel match play, men's singles &amp; doubles, and women's USTA and MITA teams.</p>
+            <span class="way-link">Join a team <span class="arw">→</span></span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= BOOK ONLINE ============================= -->
-<section class="section" id="book-online">
+<!-- ============================= INTERLUDE ============================= -->
+<figure class="interlude" data-reveal>
+  <img src="images/junior-clinic.jpg" alt="Elaine Cosseboom feeding balls across the net to a junior player during a clinic at Cohasset Tennis Club" decoding="async" width="1600" height="1053">
+</figure>
+<div class="interlude-wrap">
+  <div class="container"><p class="cap" style="margin-top:14px"><b>Plate II</b><span>Elaine Cosseboom feeding a junior clinic.</span></p></div>
+</div>
+
+<!-- ============================= COURTS ============================= -->
+<section class="section courts" id="book-online">
   <div class="container">
-    <div class="split" style="align-items:center">
-      <div data-reveal>
+    <div class="grid-12">
+      <div class="courts-copy" data-reveal>
+        <span class="eyebrow">The courts</span>
         <h2 class="section-title">Members get the run of the place.</h2>
         <p class="section-lead">Courts are booked in the CourtReserve portal, and reservations open a day
         ahead so the pros can schedule lessons around them.</p>
-        <div class="hero-cta">
-          <a href="membership.html" class="btn btn-primary">See membership <span class="arw">→</span></a>
-        </div>
+        <a href="membership.html" class="link-arrow">See membership <span class="arw">→</span></a>
       </div>
       <dl class="facts" data-reveal style="transition-delay:.1s">
         <div><dt>Courts</dt><dd>Four Har-Tru clay</dd></div>
@@ -210,120 +232,134 @@
   </div>
 </section>
 
-<!-- ============================= STORY SPLIT ============================= -->
-<section class="section">
+<!-- ============================= FOUNDERS ============================= -->
+<section class="founders" id="story">
   <div class="container">
-    <div class="split">
-      <div class="split-media" data-reveal>
-        <img src="images/founders.jpg" alt="Bud Schultz and Elaine Cosseboom at the net on the indoor courts at Cohasset Tennis Club" decoding="async" width="1600" height="1056">
-      </div>
-      <div data-reveal style="transition-delay:.1s">
-        <h2 class="section-title">They came home in 2002.</h2>
-        <div class="prose" style="margin-top:22px">
+    <div class="grid-12 founders-grid">
+      <figure class="founders-photo" data-reveal>
+        <div class="frame"><img src="images/founders.jpg" alt="Bud Schultz and Elaine Cosseboom at the net on the indoor courts at Cohasset Tennis Club" decoding="async" width="1600" height="1056"></div>
+        <figcaption class="cap"><b>The founders</b><span>Bud Schultz &amp; Elaine Cosseboom at the net.</span></figcaption>
+      </figure>
+      <div class="founders-copy" data-reveal style="transition-delay:.1s">
+        <span class="eyebrow">The Story</span>
+        <span class="founders-year" aria-hidden="true">2002</span>
+        <h2>They came home in 2002.</h2>
+        <div class="prose">
           <p>Elaine captained Boston College's Division&nbsp;1 team and was named to a USTA National Tennis
           Family of the Year. Bud reached the top 40 on the ATP Tour, played all four Grand Slams, and coached
           world top-ten players including Ivan Lendl and Pam Shriver.</p>
           <p>In 2002 they brought that lifetime of tennis home to Cohasset — and built the culture members love today.</p>
         </div>
-        <a href="our-story.html" class="btn btn-ghost" style="margin-top:30px">Meet the founders <span class="arw">→</span></a>
+        <a href="our-story.html" class="link-arrow">Meet the founders <span class="arw">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= COACHES BAND ============================= -->
-<section class="section band-pine">
-  <div class="court-motif" style="opacity:.35"></div>
-  <div class="container" style="position:relative">
-    <div data-reveal>
-      <span class="eyebrow">The team</span>
-      <h2 class="section-title">Coached by champions.</h2>
-      <p class="section-lead">A Harvard All-Ivy director, a MIAA state champion, an African junior No.&nbsp;1, and
-      NCAA-title athletes — all on one small-club staff.</p>
-    </div>
-    <div class="ledger" style="margin-top:clamp(38px,5vw,56px)" data-reveal-stagger>
-      <div class="ledger-row" data-reveal>
-        <span class="lnum">CS</span>
-        <div><span class="lkick">Tennis Director</span><h3 class="lterm">Christo Schultz</h3></div>
-        <p class="ldesc">Harvard grad, First-Team All-Ivy, and former head coach at Brandeis with a program-best No.&nbsp;8 national rank.</p>
-      </div>
-      <div class="ledger-row" data-reveal>
-        <span class="lnum">SB</span>
-        <div><span class="lkick">Dir. of Junior Tennis</span><h3 class="lterm">Sonny Bisazza</h3></div>
-        <p class="ldesc">USPTA-certified junior-development specialist, MIAA Division&nbsp;1 State Champion and Franklin Pierce MVP.</p>
-      </div>
-      <div class="ledger-row" data-reveal>
-        <span class="lnum">WB</span>
-        <div><span class="lkick">Dir. of Ladies Teams</span><h3 class="lterm">Whitney Berns</h3></div>
-        <p class="ldesc">NCAA-champion athlete from Middlebury with years of competitive tennis at CTC.</p>
-      </div>
-      <div class="ledger-row" data-reveal>
-        <span class="lnum">CL</span>
-        <div><span class="lkick">Assistant Pro</span><h3 class="lterm">Chizzy Lumeta</h3></div>
-        <p class="ldesc">Former No.&nbsp;1 in Africa at U14 &amp; U16 and an All-American in college.</p>
-      </div>
-    </div>
-
-    <div data-reveal style="margin-top:40px">
-      <a href="coaches.html" class="btn btn-ghost">Meet every coach <span class="arw">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= MEMBERSHIP PREVIEW ============================= -->
-<section class="section">
+<!-- ============================= THE PROS ============================= -->
+<section class="section pros">
   <div class="container">
-    <div class="split" style="align-items:flex-start">
-      <div data-reveal>
+    <div class="grid-12 pros-head">
+      <div class="pros-copy" data-reveal>
+        <span class="eyebrow">The team</span>
+        <h2 class="section-title">Coached by champions.</h2>
+        <p class="section-lead">A Harvard All-Ivy director, a MIAA state champion, an African junior No.&nbsp;1, and
+        NCAA-title athletes — all on one small-club staff.</p>
+        <a href="coaches.html" class="link-arrow">Meet every coach <span class="arw">→</span></a>
+      </div>
+      <figure class="pros-photo" data-reveal style="transition-delay:.1s">
+        <div class="frame"><img src="images/christo-hug.jpg" alt="Tennis Director Christo Schultz crouching on court, surrounded by three young players holding racquets" decoding="async" width="1600" height="1055"></div>
+        <figcaption class="cap"><b>On court</b><span>Tennis Director Christo Schultz after a junior session.</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="pros-roster" data-reveal-stagger>
+      <div class="pro" data-reveal>
+        <span class="role">Tennis Director</span>
+        <h3>Christo Schultz</h3>
+        <p>Harvard grad, First-Team All-Ivy, and former head coach at Brandeis with a program-best No.&nbsp;8 national rank.</p>
+      </div>
+      <div class="pro" data-reveal>
+        <span class="role">Dir. of Junior Tennis</span>
+        <h3>Sonny Bisazza</h3>
+        <p>USPTA-certified junior-development specialist, MIAA Division&nbsp;1 State Champion and Franklin Pierce MVP.</p>
+      </div>
+      <div class="pro" data-reveal>
+        <span class="role">Dir. of Ladies Teams</span>
+        <h3>Whitney Berns</h3>
+        <p>NCAA-champion athlete from Middlebury with years of competitive tennis at CTC.</p>
+      </div>
+      <div class="pro" data-reveal>
+        <span class="role">Assistant Pro</span>
+        <h3>Chizzy Lumeta</h3>
+        <p>Former No.&nbsp;1 in Africa at U14 &amp; U16 and an All-American in college.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= MEMBERSHIP ============================= -->
+<section class="section band-alt belong">
+  <div class="container">
+    <div class="grid-12 belong-head" data-reveal>
+      <div>
+        <span class="eyebrow">Membership</span>
         <h2 class="section-title">Four ways to belong.</h2>
+      </div>
+      <div class="belong-aside">
         <p class="section-lead">Four straightforward ways to belong — for juniors, individuals, couples, and
         families. We're a small local club, so joining starts with a visit rather than a checkout page.</p>
-        <a href="membership.html" class="btn btn-primary" style="margin-top:30px">View membership <span class="arw">→</span></a>
+        <a href="membership.html" class="btn btn-primary">View membership <span class="arw">→</span></a>
       </div>
-      <div class="card-grid cols-2" data-reveal-stagger>
-        <div class="tier" data-reveal><h3>Junior</h3><div class="price"><span class="amt">$560</span><span class="per">/ year</span></div><div class="init">Ages 18 &amp; under</div></div>
-        <div class="tier featured" data-reveal><span class="badge">Popular</span><h3>Family</h3><div class="price"><span class="amt">$1,800</span><span class="per">/ year</span></div><div class="init">The whole household</div></div>
-        <div class="tier" data-reveal><h3>Individual</h3><div class="price"><span class="amt">$1,235</span><span class="per">/ year</span></div><div class="init">One adult</div></div>
-        <div class="tier" data-reveal><h3>Couples</h3><div class="price"><span class="amt">$1,350</span><span class="per">/ year</span></div><div class="init">Two adults, one household</div></div>
+    </div>
+    <div class="tiers" data-reveal-stagger>
+      <div class="tier" data-reveal><h3>Junior</h3><div class="price"><span class="amt">$560</span><span class="per">/ year</span></div><div class="init">Ages 18 &amp; under</div></div>
+      <div class="tier featured" data-reveal><span class="badge">Popular</span><h3>Family</h3><div class="price"><span class="amt">$1,800</span><span class="per">/ year</span></div><div class="init">The whole household</div></div>
+      <div class="tier" data-reveal><h3>Individual</h3><div class="price"><span class="amt">$1,235</span><span class="per">/ year</span></div><div class="init">One adult</div></div>
+      <div class="tier" data-reveal><h3>Couples</h3><div class="price"><span class="amt">$1,350</span><span class="per">/ year</span></div><div class="init">Two adults, one household</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= THIS WEEK ============================= -->
+<section class="week">
+  <div class="container">
+    <div class="grid-12" data-reveal>
+      <div style="grid-column:1/-1"><span class="eyebrow">This week</span></div>
+      <h2 class="week-line">Early Ballers, Stroke of the Week, the 105 clinic, men's round robins.</h2>
+      <div class="week-aside">
+        <p>The board shows every session by day and marks what is on court right now.</p>
+        <a href="schedule.html" class="link-arrow">This week's schedule <span class="arw">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= SCHEDULE TEASER ============================= -->
-<section class="section band-alt">
-  <div class="container closer-in" data-reveal>
-    <div>
-      <h2 class="section-title">Early Ballers, Stroke of the Week, the 105 clinic, men's round robins.</h2>
-      <p class="section-lead">The board shows every session by day and marks what is on court right now.</p>
-    </div>
-    <div class="closer-actions">
-      <a href="schedule.html" class="btn btn-dark">This week's schedule <span class="arw">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= FINAL CTA ============================= -->
-<section class="section band-pine">
-  <div class="court-motif" style="opacity:.3"></div>
-  <div class="container callout" style="position:relative; max-width:900px; margin:0 auto" data-reveal>
-    <h2 class="section-title" style="font-size:clamp(2.3rem,5.8vw,4.2rem)">Come and see it for yourself.</h2>
-    <p class="section-lead">We are small enough that joining starts with a visit rather than a checkout page.
-    Send a request and we will find you a time.</p>
-    <div class="hero-cta">
-      <a href="membership-request.html" class="btn btn-lt">Request membership <span class="arw">→</span></a>
-      <a href="tel:17813839533" class="btn btn-ghost">(781) 383-9533</a>
+<!-- ============================= INVITATION ============================= -->
+<section class="invite">
+  <div class="container">
+    <div class="grid-12" data-reveal>
+      <h2>Come and see it for yourself.</h2>
+      <div class="invite-aside">
+        <p>We are small enough that joining starts with a visit rather than a checkout page.
+        Send a request and we will find you a time.</p>
+        <div class="hero-cta">
+          <a href="membership-request.html" class="btn btn-lt">Request membership <span class="arw">→</span></a>
+          <a href="tel:17813839533" class="link-arrow">(781) 383-9533</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
   <div class="container">
+    <p class="footer-word"><span>Cohasset</span> <span>Tennis Club</span><small>Est. 2002 · Cohasset, Massachusetts</small></p>
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="fmark"><b>Cohasset Tennis Club</b></div>
-        <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
+                <p>A members' racquet club on Boston's South Shore. Junior &amp; adult tennis, private lessons, and competitive teams since 2002.</p>
       </div>
       <div class="fcol"><h4>Play</h4>
         <a href="adult-tennis.html">Adult Tennis</a>
@@ -356,6 +392,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="chat.js?v=1"></script>
+<script src="chat.js?v=2"></script>
 </body>
 </html>

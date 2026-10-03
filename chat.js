@@ -12,9 +12,9 @@
   var greeting = "Hi! I'm the club's virtual front desk.";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  var PINE = "#1C4459", CLAY = "#144F63", INK = "#163540", SOFT = "#43585F", LINE = "#D6E1E1", BG = "#F5F8F8";
-  var GRAD = "linear-gradient(135deg," + PINE + "," + CLAY + ")";
-  var FONT = "'DM Sans', system-ui, -apple-system, sans-serif";
+  var PINE = "#1F3B2D", CLAY = "#152A20", INK = "#1D211E", SOFT = "#474B45", LINE = "#D9CFBC", BG = "#F5F0E6";
+  var GRAD = PINE;
+  var FONT = "'Hanken Grotesk', 'Helvetica Neue', system-ui, sans-serif";
   var CHAT_SVG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>';
 
   function css(el, s) { for (var k in s) el.style[k] = s[k]; }
@@ -74,7 +74,7 @@
   launcher.setAttribute("aria-label", "Chat with Cohasset Tennis Club");
   launcher.setAttribute("aria-expanded", "false");
   launcher.innerHTML = CHAT_SVG;
-  css(launcher, { position: "fixed", right: "22px", bottom: "22px", width: "60px", height: "60px", borderRadius: "50%", border: "none", cursor: "pointer", background: GRAD, boxShadow: "0 12px 28px -8px rgba(18,49,65,.55)", zIndex: "2147483000", display: "grid", placeItems: "center", transition: "transform .2s ease" });
+  css(launcher, { position: "fixed", right: "22px", bottom: "22px", width: "60px", height: "60px", borderRadius: "50%", border: "none", cursor: "pointer", background: GRAD, boxShadow: "0 12px 28px -8px rgba(21,42,32,.35)", zIndex: "2147483000", display: "grid", placeItems: "center", transition: "transform .2s ease" });
   launcher.onmouseenter = function () { launcher.style.transform = "scale(1.06)"; };
   launcher.onmouseleave = function () { launcher.style.transform = "scale(1)"; };
 
