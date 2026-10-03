@@ -110,7 +110,7 @@ body > * { position: relative; z-index: 1; }
 .container-narrow { max-width: 780px; }
 
 section { position: relative; }
-.section { padding: clamp(84px, 11vw, 160px) 0; }
+.section { padding: clamp(72px, 9vw, 128px) 0; }
 .section-sm { padding: clamp(56px, 8vw, 96px) 0; }
 .section-top { padding-top: calc(var(--nav-h) + clamp(48px, 7vw, 104px)); }
 .band-alt { background: var(--bone-alt); }
@@ -993,15 +993,15 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .grid-12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2.2vw, 32px); }
 
 /* ---- The club ------------------------------------------------------------- */
-.club { padding-top: clamp(96px, 12vw, 176px); }
+.club { padding-top: clamp(80px, 10vw, 140px); }
 .club .eyebrow { grid-column: 1 / -1; }
 .club-title {
-  grid-column: 1 / span 10;
+  grid-column: 1 / span 6; grid-row: 2;
   font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(2.8rem, 6.6vw, 6.2rem); line-height: 1.1; letter-spacing: -0.02em;
+  font-size: clamp(2.6rem, 4.9vw, 4.7rem); line-height: 1.1; letter-spacing: -0.02em;
   color: var(--pine); margin-top: 26px; text-wrap: balance;
 }
-.club-body { grid-column: 7 / span 5; margin-top: clamp(32px, 4vw, 56px); }
+.club-body { grid-column: 8 / -1; grid-row: 2; margin-top: 34px; align-self: start; }
 .club-body p:first-child::first-letter {
   font-family: var(--font-display); float: left; font-size: 4.4em; line-height: .8;
   padding: .06em .1em 0 0; color: var(--pine);
@@ -1010,7 +1010,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 
 .figures {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  margin-top: clamp(80px, 10vw, 140px);
+  margin-top: clamp(56px, 7vw, 96px);
   border-top: 1px solid var(--rule);
 }
 .figures > div {
@@ -1069,7 +1069,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .courts-copy .link-arrow { margin-top: 30px; }
 
 /* ---- Founders ------------------------------------------------------------- */
-.founders { background: var(--pine); color: var(--bone); padding: clamp(96px, 12vw, 170px) 0; overflow: hidden; }
+.founders { background: var(--pine); color: var(--bone); padding: clamp(80px, 10vw, 140px) 0; overflow: hidden; }
 .founders-grid { align-items: center; }
 .founders-photo { grid-column: 1 / span 6; margin: 0 0 0 calc(var(--bleed) * -1); }
 .founders-photo .frame { overflow: hidden; background: var(--pine-deep); }
@@ -1125,7 +1125,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .belong .tier { padding-bottom: clamp(26px, 3vw, 36px); }
 
 /* ---- This week ------------------------------------------------------------ */
-.week { padding: clamp(84px, 10vw, 140px) 0; }
+.week { padding: clamp(72px, 8vw, 116px) 0; }
 .week .grid-12 { align-items: end; row-gap: 32px; }
 .week-line {
   grid-column: 1 / span 9;
@@ -1138,7 +1138,7 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 .week-aside .link-arrow { margin-top: 16px; }
 
 /* ---- Invitation ----------------------------------------------------------- */
-.invite { background: var(--pine-deep); color: var(--bone); padding: clamp(100px, 13vw, 190px) 0; }
+.invite { background: var(--pine-deep); color: var(--bone); padding: clamp(88px, 10vw, 150px) 0; }
 .invite .grid-12 { align-items: end; row-gap: 36px; }
 .invite h2 {
   grid-column: 1 / span 8;
@@ -1160,8 +1160,8 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
   .week-aside { grid-column: 1 / span 8; }
 }
 @media (max-width: 900px) {
-  .club-title { grid-column: 1 / -1; }
-  .club-body { grid-column: 1 / -1; max-width: 62ch; }
+  .club-title { grid-column: 1 / -1; grid-row: auto; }
+  .club-body { grid-column: 1 / -1; grid-row: auto; max-width: 62ch; margin-top: 30px; }
   .ways-head > div:first-child, .ways-head .section-lead { grid-column: 1 / -1; }
   .ways-head .section-lead { margin-top: 22px; }
   .ways-figure { grid-column: 1 / -1; position: static; }
