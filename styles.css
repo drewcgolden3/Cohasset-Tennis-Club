@@ -604,6 +604,7 @@ body.menu-open #navbar.scrolled {
 .tier.featured li { color: rgba(244,240,230,0.82); }
 .tier li svg { width: 17px; height: 17px; flex: 0 0 auto; margin-top: 3px; color: var(--clay); }
 .tier.featured li svg { color: var(--brass-lt); }
+.tier.featured .btn-lt:hover { background: #FEC201; border-color: #FEC201; color: var(--pine-deep); }
 .tier .btn { margin-top: 26px; width: 100%; }
 
 /* ---- Sessions list (junior) ---------------------------------------------- */
