@@ -1320,3 +1320,10 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
 @media (max-width: 620px) {
   .page-membership .tier + .tier { border-top: 1px solid var(--border-soft); }
 }
+
+/* Hero colour swap: the club's name in white, the logo yellow (#FEC201,
+   sampled from the wordmark) on the date line, its rules and the tagline. */
+.hero.hero--center.hero-photo-bg .hero-eyebrow { color: #FEC201; }
+.hero.hero--center.hero-photo-bg .hero-eyebrow::before,
+.hero.hero--center.hero-photo-bg .hero-eyebrow::after { background: rgba(254,194,1,0.6); }
+.hero.hero--center.hero-photo-bg .hero-sub { color: #FEC201; }
