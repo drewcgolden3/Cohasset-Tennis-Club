@@ -1217,6 +1217,9 @@ footer { background: var(--bone-alt); color: var(--ink); padding: clamp(72px, 9v
   align-items: center; text-align: center;
   padding-top: calc(var(--nav-h) + clamp(64px, 11vh, 120px));
 }
+/* The homepage photo fills the whole first screen — no strip of page
+   showing beneath it. svh keeps it from jumping as mobile toolbars move. */
+.hero.hero-photo-bg { min-height: 100vh; min-height: 100svh; }
 .hero.hero--center .container {
   display: flex; flex-direction: column; align-items: center;
   padding-bottom: clamp(40px, 6vw, 72px);
